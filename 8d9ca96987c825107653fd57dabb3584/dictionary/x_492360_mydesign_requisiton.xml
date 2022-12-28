@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="2a2d69a987c825107653fd57dabb355a" extends="task" label="Requisiton" max_length="40" name="x_492360_mydesign_requisiton" type="collection"/>
+</database>
