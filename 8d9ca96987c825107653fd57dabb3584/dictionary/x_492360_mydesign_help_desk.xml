@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="2d289225878c25107653fd57dabb352e" extends="task" label="Help Desk" max_length="40" name="x_492360_mydesign_help_desk" type="collection">
+        <element attributes="encode_utf8=false" label="Requested For" max_length="32" name="requested_for" reference="sys_user" type="reference"/>
+    </element>
+</database>
