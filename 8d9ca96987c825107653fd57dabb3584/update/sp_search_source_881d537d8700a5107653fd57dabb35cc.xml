@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_search_source">
+    <sp_search_source action="INSERT_OR_UPDATE">
+        <advanced_typeahead_config>false</advanced_typeahead_config>
+        <condition/>
+        <data_fetch_script><![CDATA[(function(query) {
+  var results = [];
+  /* Calculate your results here. */
+  
+  return results;
+})(query);]]></data_fetch_script>
+        <display_fields>number,opened_by,description</display_fields>
+        <enable_typeahead>true</enable_typeahead>
+        <facet_generation_script><![CDATA[(function(query, facetService, searchResults) {
+	/* Calculate your facets here using facetService */
+	/* var stateFacet = facetService.createFacet('State', 'state'); */
+	/* stateFacet.addFacetItem('Facet Item Label', '123'); */
+
+})(query, facetService, searchResults);]]></facet_generation_script>
+        <id>help_desk</id>
+        <is_scripted_source>false</is_scripted_source>
+        <name>Help Desk Request</name>
+        <page/>
+        <pagination_supported>true</pagination_supported>
+        <primary_display_field>number</primary_display_field>
+        <roles/>
+        <search_page_template><![CDATA[<div>
+  <a href="?id=form&sys_id={{item.sys_id}}&table={{item.table}}" class="h4 text-primary m-b-sm block">
+    <span ng-bind-html="highlight(item.primary, data.q)"></span>
+  </a>
+  <span class="text-muted" ng-repeat="f in item.fields">
+    <span class="m-l-xs m-r-xs" ng-if="!$first"> &middot; </span>
+    {{f.label}}: <span ng-bind-html="highlight(f.display_value, data.q)"></span>
+  </span>
+</div>]]></search_page_template>
+        <source_table>x_492360_mydesign_help_desk</source_table>
+        <sys_class_name>sp_search_source</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 14:42:22</sys_created_on>
+        <sys_id>881d537d8700a5107653fd57dabb35cc</sys_id>
+        <sys_name>Help Desk Request</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_search_source_881d537d8700a5107653fd57dabb35cc</sys_update_name>
+        <typeahead_glyph/>
+        <typeahead_template/>
+    </sp_search_source>
+    <sys_translated_text action="delete_multiple" query="documentkey=881d537d8700a5107653fd57dabb35cc"/>
+</record_update>

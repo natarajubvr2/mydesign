@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">9508027d87c865107653fd57dabb35d2</sp_column>
+        <sp_widget display_value="Image Link">86776e0453331300a699ddeeff7b12be</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 15:18:06</sys_created_on>
+        <sys_id>a9a5a3b58740a5107653fd57dabb3560</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_instance_a9a5a3b58740a5107653fd57dabb3560</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-29 15:21:07</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"image": {
+		"value": "SNOW",
+		"displayValue": "SNOW"
+	},
+	"title": {
+		"value": "",
+		"displayValue": ""
+	},
+	"description": {
+		"value": "Documentation",
+		"displayValue": "Documentation"
+	},
+	"link": {
+		"value": "https://developer.servicenow.com/dev.do#!/reference/api/rome/server/sn_impex-namespace/GlideImportSetTransformMapAPI",
+		"displayValue": "https://developer.servicenow.com/dev.do#!/reference/api/rome/server/sn_impex-namespace/GlideImportSetTransformMapAPI"
+	},
+	"link_title": {
+		"value": "SNOW Doc",
+		"displayValue": "SNOW Doc"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=a9a5a3b58740a5107653fd57dabb3560"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</application>
+        <file_path/>
+        <instance_id>eec16ab4db79099010543feb68961964</instance_id>
+        <instance_name>dev125448</instance_name>
+        <name>sp_instance_a9a5a3b58740a5107653fd57dabb3560</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="2"&gt;9508027d87c865107653fd57dabb35d2&lt;/sp_column&gt;&lt;sp_widget display_value="Image Link"&gt;86776e0453331300a699ddeeff7b12be&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-12-29 15:18:06&lt;/sys_created_on&gt;&lt;sys_id&gt;a9a5a3b58740a5107653fd57dabb3560&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="MyDesign" source="x_492360_mydesign"&gt;8d9ca96987c825107653fd57dabb3584&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="MyDesign"&gt;8d9ca96987c825107653fd57dabb3584&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_a9a5a3b58740a5107653fd57dabb3560&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-12-29 15:21:07&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"image": {
+		"value": "SNOW",
+		"displayValue": "SNOW"
+	},
+	"title": {
+		"value": "",
+		"displayValue": ""
+	},
+	"description": {
+		"value": "Documentation",
+		"displayValue": "Documentation"
+	},
+	"link": {
+		"value": "https://developer.servicenow.com/dev.do#!/reference/api/rome/server/sn_impex-namespace/GlideImportSetTransformMapAPI",
+		"displayValue": "https://developer.servicenow.com/dev.do#!/reference/api/rome/server/sn_impex-namespace/GlideImportSetTransformMapAPI"
+	},
+	"link_title": {
+		"value": "SNOW Doc",
+		"displayValue": "SNOW Doc"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=a9a5a3b58740a5107653fd57dabb3560"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>993086251</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>b4fdeda987c825107653fd57dabb359b</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 15:21:08</sys_created_on>
+        <sys_id>ce5667b58740a5107653fd57dabb3521</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1855e7907930000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-29 15:21:08</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>c65667b5de40a510a2fb154189be7721</update_guid>
+        <update_guid_history>c65667b5de40a510a2fb154189be7721:993086251,5df5a3b50240a5107f749bec943119a4:-619215648,a1a5a3b59a40a510d9d7cf37d1596862:-1853958772</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">a2a623f58740a5107653fd57dabb3543</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 15:22:33</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>1ea8f26353694ef59cab672b1ef367b9</sys_id>
+        <sys_metadata>a9a5a3b58740a5107653fd57dabb3560</sys_metadata>
+        <sys_name/>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
+        <sys_update_name>sp_instance_a9a5a3b58740a5107653fd57dabb3560</sys_update_name>
+        <sys_update_version display_value="sp_instance_a9a5a3b58740a5107653fd57dabb3560">ce5667b58740a5107653fd57dabb3521</sys_update_version>
+    </sys_metadata_delete>
+</record_update>

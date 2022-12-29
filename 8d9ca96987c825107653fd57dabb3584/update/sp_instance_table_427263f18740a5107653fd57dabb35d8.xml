@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_table">
+    <sp_instance_table action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>success</color>
+        <css/>
+        <display_field/>
+        <field_list/>
+        <filter/>
+        <glyph>th-list</glyph>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="3">ad422939874865107653fd57dabb3566</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Count">1d8ad230ff223100ba13ffffffffffb9</sp_widget>
+        <sys_class_name>sp_instance_table</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 15:04:12</sys_created_on>
+        <sys_id>427263f18740a5107653fd57dabb35d8</sys_id>
+        <sys_name>Requisition Requests</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_instance_table_427263f18740a5107653fd57dabb35d8</sys_update_name>
+        <table>x_492360_mydesign_requisiton</table>
+        <title>Requisition Requests</title>
+        <url/>
+        <widget_parameters/>
+    </sp_instance_table>
+    <sys_translated_text action="delete_multiple" query="documentkey=427263f18740a5107653fd57dabb35d8"/>
+</record_update>
