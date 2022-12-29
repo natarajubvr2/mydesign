@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>MyDesign - Container 2</name>
+        <order>2</order>
+        <sp_page display_value="mydesign_page">bdc12939874865107653fd57dabb352d</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 05:43:24</sys_created_on>
+        <sys_id>8b122939874865107653fd57dabb3537</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>MyDesign - Container 2</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_container_8b122939874865107653fd57dabb3537</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-29 05:43:24</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</application>
+        <file_path/>
+        <instance_id>eec16ab4db79099010543feb68961964</instance_id>
+        <instance_name>dev125448</instance_name>
+        <name>sp_container_8b122939874865107653fd57dabb3537</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>MyDesign - Container 2</name><order>2</order><sp_page display_value="mydesign_page">bdc12939874865107653fd57dabb352d</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2022-12-29 05:43:24</sys_created_on><sys_id>8b122939874865107653fd57dabb3537</sys_id><sys_mod_count>0</sys_mod_count><sys_name>MyDesign - Container 2</sys_name><sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package><sys_policy/><sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope><sys_update_name>sp_container_8b122939874865107653fd57dabb3537</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2022-12-29 05:43:24</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>-496478803</payload_hash>
+        <record_name>MyDesign - Container 2</record_name>
+        <reverted_from/>
+        <source>b4fdeda987c825107653fd57dabb359b</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 05:43:24</sys_created_on>
+        <sys_id>cf126d39874865107653fd57dabb3584</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1855c68196f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-29 05:43:24</sys_updated_on>
+        <type>Container</type>
+        <update_guid>4f12293945486510209ed82309c5cc38</update_guid>
+        <update_guid_history>4f12293945486510209ed82309c5cc38:-496478803</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="MyDesign - Container 2">7132a539874865107653fd57dabb358b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 05:43:52</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>8164a908d3a54ad2bc314cfc560b8b11</sys_id>
+        <sys_metadata>8b122939874865107653fd57dabb3537</sys_metadata>
+        <sys_name>MyDesign - Container 2</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
+        <sys_update_name>sp_container_8b122939874865107653fd57dabb3537</sys_update_name>
+        <sys_update_version display_value="sp_container_8b122939874865107653fd57dabb3537">cf126d39874865107653fd57dabb3584</sys_update_version>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
+    <sp_instance_link action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description>Raise Requisition Request here</short_description>
+        <size>md</size>
+        <sp_column display_value="1">638b2afd874c65107653fd57dabb3578</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 11:04:23</sys_created_on>
+        <sys_id>8d9b2afd874c65107653fd57dabb35e6</sys_id>
+        <sys_name>Requisition Request</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_instance_link_8d9b2afd874c65107653fd57dabb35e6</sys_update_name>
+        <title>Requisition Request</title>
+        <type>url</type>
+        <url>/mydesign?id=sc_category&amp;sys_id=9236b1b9878865107653fd57dabb356f&amp;catalog_id=3327697d874865107653fd57dabb3505&amp;spa=1</url>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "",
+		"displayValue": ""
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+    <sys_translated_text action="delete_multiple" query="documentkey=8d9b2afd874c65107653fd57dabb35e6"/>
+</record_update>

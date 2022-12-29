@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>standard</category>
+        <client_script><![CDATA[function ($scope, spUtil, $rootScope, $timeout, spAriaUtil, spGtd, $window, i18n) {
+	$scope.collapse = function() {
+		$rootScope.$emit('sp-navbar-collapse');
+	}
+	$scope.loadingIndicator = $rootScope.loadingIndicator;
+	$scope.cartItemCount = 0;
+	$scope.wishlistItemCount = 0;
+	$scope.itemAddedTooltipOpen = false;
+	$scope.toursTooltipEnabled = true;
+	$scope.accessibilityEnabled = spAriaUtil.g_accessibility === "true";
+	$scope.$on("$sp.service_catalog.cart.count", function($evt, count) {
+		$scope.cartItemCount = count;
+	});
+	$scope.$on("$sp.service_catalog.wishlist.count", function($evt, count) {
+		$scope.wishlistItemCount = count;
+	});
+	var cancelTooltipPromise;
+	$scope.$on("$sp.service_catalog.cart.add_item", function() {
+		$timeout.cancel(cancelTooltipPromise);
+		$scope.itemAddedTooltipOpen = true;
+		cancelTooltipPromise = $timeout(function() {
+			$scope.itemAddedTooltipOpen = false;
+		}, 3000);
+	});
+	$scope.$on('sp_loading_indicator', function(e, value) {
+		$scope.loadingIndicator = value;
+	});
+	$scope.toggleCart = function() {
+		$timeout.cancel(cancelTooltipPromise);
+		$scope.itemAddedTooltipOpen = false;
+		$timeout(function() {
+			$("#cart-dropdown").dropdown("toggle");
+		});
+	};
+	$scope.toggleTours = function() {
+		var action = $scope.toursTooltipEnabled ? 'disable' : 'enable';
+		$scope.toursTooltipEnabled = $scope.toursTooltipEnabled ? false : true;
+		$('[data-toggle-second="tooltip"]').tooltip(action);
+		if(action == 'disable')
+			$('[data-toggle-second="tooltip"]').tooltip('hide');
+	}
+	$scope.onToursItemBlur = function() {
+		$('[data-toggle-second="tooltip"]').tooltip('enable');
+		$scope.toursTooltipEnabled = true;
+	}
+	// PRB1108244: visibleItems array is used to improve keyboard nav
+	// in menu, refresh it as needed
+	$scope.$watch('data.menu.items', function() {
+		$scope.visibleItems = [];
+		if ($scope.data.menu.items) {
+			for (var i in $scope.data.menu.items) {
+				var item = $scope.data.menu.items[i];
+				if (item.items || (item.scriptedItems && item.scriptedItems.count != 0))
+					$scope.visibleItems.push(item);
+			}
+		}
+	}, true);
+  $scope.$on('sp-menu-update-tours', function(event, tours) {
+    $scope.data.showTours = $scope.data.showTours && !spUtil.isMobile();
+    if ($scope.data.showTours === false) {
+			$scope.data.guidedTours = null;
+			return;
+	}
+    var guidedToursLabel = 'Guided Tours';
+    $scope.data.guidedTours = {
+		label: guidedToursLabel,
+		collection: []
+	};
+    $scope.tooltipTours = tours.length === 1 ? i18n.getMessage('This page currently has 1 tour') : i18n.getMessage('This page currently has {0} tours').withValues([tours.length])
+    if (tours.length > 0) {
+      $scope.data.guidedTours.collection = tours.map(function(t) {
+        return {
+          title:  t.name,
+          id: t.id,
+          clicked: function() {
+            spGtd.launch(t.id);
+          }
+        };
+      });
+    }
+  });
+	// Get list of record watchers
+	var record_watchers = [];
+	if ($scope.data.menu.items) {
+		for(var i in $scope.data.menu.items) {
+			var item = $scope.data.menu.items[i];
+			if (item.type == 'scripted') {
+				if (item.scriptedItems.record_watchers)
+					record_watchers = record_watchers.concat(item.scriptedItems.record_watchers);
+			}
+			if (item.type == 'filtered') {
+				record_watchers.push({'table':item.table,'filter':item.filter});
+			}
+		}
+	}
+	// Init record watchers
+	for (var y in record_watchers){
+		var watcher = record_watchers[y];
+		spUtil.recordWatch($scope, watcher.table, watcher.filter);
+	}
+  $rootScope.$broadcast('sp-header-loaded');
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.header-loader {
+	float: left;
+  	width: 24px;
+  	position: relative;
+  	top: 24px;
+}
+
+.cart-dropdown, .wishlist-menu, .gtd-dropdown-container .empty-dropdown {
+  width: 350px;
+  padding: 0;
+  z-index: 1000;
+  border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+
+  ul {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  .subtotal {
+    display: block;
+  }
+
+  .item-image {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    max-width:100%;
+    height:auto;
+  }
+  label, p {
+    padding: 0;
+    margin: 0;
+  }
+  .media {
+    padding: 0;
+    margin: 0;
+  }
+  .media-left &gt; a {
+    display: block;
+    width: 48px;
+    max-width: 48px;
+  }
+  .media-body {
+    label {
+      font-weight: bold;
+    }
+  }
+  li.media {
+    border-top: 1px solid #cccccc;
+    padding: 1rem;
+  }
+  .panel {
+    margin: 0;
+  }
+  .panel .panel-body {
+    padding: 0;
+  }
+  .btn-clear {
+		color: #333;
+    background-color: #fff;
+  }
+  p.quantity-price {
+    padding-top: 0.5rem;
+    span {
+      color: $text-muted;
+      padding-right: 0.5rem;
+    }
+  }
+  .align-right {
+  	text-align: right;
+  }
+}
+
+
+
+.item-added-tooltip, wishlist-item-added-tooltip {
+  width: 184px;
+  font-size: 14px;
+}
+
+.open &gt; .dropdown-menu {
+	padding: 0.5rem 0.2rem !important;
+}
+
+.gtd-dropdown-container {
+  .empty-tour-content{
+    text-align: center;
+    margin:40px 20px;
+  }
+  .dropdown-menu li {
+    a {
+      cursor: pointer;
+    }
+    min-width: 20em;
+  }
+  .label-as-badge{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    padding: 0px;
+    padding-top: 2px;
+  }
+  .badge-container {
+    display: inline-block;
+    width: 12px;
+  }
+}
+
+@media  (max-width: 845px) and (min-width: 768px)  {
+	.header-menu-item ul {
+		right: auto;
+		left: auto;
+	}
+}
+@media (max-width: 767px) {
+	.empty-dropdown {
+		width: auto !important;
+	}
+}
+</css>
+        <data_table>sp_instance_menu</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title</field_list>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function(scope, elem) {
+	$(elem).on('keydown','.header-menu-item',function(e){
+		var target = e.target;
+		if (target.localName == 'a') {
+			var currentMenuItem = $(target).parents('li');
+			var parentUL = currentMenuItem.parents('ul');
+			var allMenuItems = parentUL.children('li:visible');
+			var firstMenuItem = allMenuItems.first();
+			var lastMenuItem = allMenuItems.last();
+			var menuItemToFocus;
+			if(e.keyCode == 37) {
+				e.preventDefault();
+				currentMenuItem.removeClass('open');
+				var previousMenuItem = currentMenuItem.prevAll('li:visible').first();
+				//enable circular navigation
+				menuItemToFocus = previousMenuItem.length ? previousMenuItem : lastMenuItem;
+				menuItemToFocus.find('a').focus();
+			} else if(e.keyCode == 39) {
+				e.preventDefault();
+				currentMenuItem.removeClass('open');
+				var nextMenuItem = currentMenuItem.nextAll('li:visible').first();
+				//enable circular navigation
+				menuItemToFocus = nextMenuItem.length ? nextMenuItem : firstMenuItem;
+				menuItemToFocus.find('a').focus();
+			}
+			if(e.keyCode == 9) {
+				$(target).parents('li').removeClass('open');
+			}
+		}
+		});
+		setTimeout(function(){
+		$('[data-toggle-second="tooltip"]').tooltip();
+	});
+	}]]></link>
+        <name>MyDesign Header Menu</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function(){
+	// build menus
+	var menu_id = $sp.getValue('sys_id'); // instance sys_id
+	data.menu = {};
+	data.menu.items = $sp.getMenuItems(menu_id);
+	data.isLoggedIn = GlideSession.get().isLoggedIn();
+	data.guidedTours = {};
+	// Show tours only if gtd's sp sys property is set
+	data.showTours = (gs.getProperty('com.snc.guided_tours.sp.enable') === 'true') && data.isLoggedIn;
+	if (!data.showTours) {
+	data.guidedTours = null;
+	}
+	var catalogArr = ($sp.getCatalogs().value + "").split(",");
+
+	catalogArr.forEach(function(catalog) {
+		data.showWishlist = data.showWishlist || new sn_sc.Catalog(catalog).isWishlistEnabled();
+	});
+	if (data.isLoggedIn) {
+		if (options.enable_wishlist && data.showWishlist)
+			data.wishlistWidget = $sp.getWidget("sc_wishlist_cart", {wishlistTemplate: "small_wishlist.html", auto_update_wishlist:options.auto_update_wishlist});
+		if (options.enable_cart) {
+			if (gs.getProperty("glide.sc.portal.use_cart_v2_header", "false") === "true")
+				data.cartWidget = $sp.getWidget("sc-shopping-cart-v2", {cartTemplate: "small_shopping_cart_v2.html", auto_update_cart:options.auto_update_cart});
+			else
+				data.cartWidget = $sp.getWidget("sc-shopping-cart", {cartTemplate: "small_shopping_cart.html", auto_update_cart:options.auto_update_cart});
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 08:02:55</sys_created_on>
+        <sys_id>3a028af187c865107653fd57dabb3563</sys_id>
+        <sys_name>MyDesign Header Menu</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_widget_3a028af187c865107653fd57dabb3563</sys_update_name>
+        <template><![CDATA[<ul class="nav navbar-nav" aria-label="${Header}" role="menubar">
+  <div class="header-loader" ng-class="{'invisible': !loadingIndicator}">
+    <div class="hidden-xs hidden-sm sp-loading-indicator la-sm">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <li ng-repeat="item in visibleItems" ng-class="{dropdown: item.items.length > 0, 'header-menu-item': true}" ng-include="'menuTemplateCustom'" role="presentation"></li>
+<!-- Wishlist menu -->
+  <li ng-if="options.enable_wishlist && data.isLoggedIn && data.showWishlist" ng-show="!accessibilityEnabled" class="dropdown hidden-xs header-menu-item" role="presentation">
+  	<a role="menuitem" href="javascript:void(0)"
+       data-toggle="dropdown"
+       id="wishlist-menu"
+       title="${Your Wish List currently has} {{wishlistItemCount}} ${items}"
+       aria-label="${Wish List}">
+      <span ng-bind-html="'${Wish List}'" aria-hidden="true"></span>
+      <span ng-if="wishlistItemCount > 0" aria-hidden="true" class="label label-as-badge label-primary sp-navbar-badge-count">{{wishlistItemCount}}</span>
+		</a>
+    <div class="dropdown-menu wishlist-menu custom-drop-down">
+      <sp-widget widget="data.wishlistWidget"></sp-widget>
+    </div>
+  </li>
+  <li ng-if="options.enable_wishlist && data.isLoggedIn && data.showWishlist" class="dropdown" ng-class="{'visible-xs': !accessibilityEnabled}" role="presentation">
+  	<a href="?id=sc_wishlist"
+       title="${Your Wish List currently has} {{wishlistItemCount}} ${items}"
+       data-toggle="tooltip"
+       data-placement="bottom"
+       class="toggle-dropdown"
+       role="menuitem"
+       aria-label="${Your Wish List currently has} {{wishlistItemCount}} ${items}">
+      <span ng-bind-html="'${Wish List}'" aria-hidden="true"></span>
+      <span ng-if="wishlistItemCount > 0" aria-hidden="true" class="label label-as-badge label-primary sp-navbar-badge-count">{{wishlistItemCount}}</span>
+		</a>
+  </li>
+  <!-- Shopping cart stuff -->
+ <li ng-if="::options.enable_cart && data.isLoggedIn" ng-show="::!accessibilityEnabled" class="dropdown hidden-xs header-menu-item" role="presentation">
+  	<a href
+       data-toggle="dropdown"
+       id="cart-dropdown"
+       uib-tooltip-template="'item-added-tooltip.html'"
+       tooltip-placement="bottom"
+       tooltip-trigger="'none'"
+       tooltip-is-open="$parent.itemAddedTooltipOpen"
+       title="${Your shopping cart currently has} {{cartItemCount}} ${items}"
+       aria-label="${Shopping cart}"
+       role="menuitem">
+    	<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      <span ng-bind-html="'${Cart}'" aria-hidden="true"></span>
+      <span ng-if="cartItemCount > 0" aria-hidden="true" class="label label-as-badge label-primary sp-navbar-badge-count">{{cartItemCount}}</span>
+		</a>
+    <div class="dropdown-menu cart-dropdown custom-drop-down">
+      <sp-widget widget="data.cartWidget"></sp-widget>
+    </div>
+  </li>
+  <li ng-if="::options.enable_cart && data.isLoggedIn" class="dropdown header-menu-item" ng-class="::{'visible-xs': !accessibilityEnabled}"  role="presentation">
+  	<a ng-href="?id=sc_cart"
+       ng-click="collapse()"
+       data-toggle="tooltip"
+       data-placement="bottom"
+       data-original-title="${Your shopping cart currently has} {{cartItemCount}} ${items}"
+       class="toggle-dropdown"
+       role="menuitem"
+       aria-label="${Your shopping cart currently has} {{cartItemCount}} ${items}">
+    	<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      <span ng-bind-html="'${Cart}'" aria-hidden="true"></span>
+      <span ng-if="cartItemCount > 0" aria-hidden="true" class="label label-as-badge label-primary sp-navbar-badge-count">{{cartItemCount}}</span>
+	</a>
+  </li>
+  <li ng-if="data.isLoggedIn && data.guidedTours" class="dropdown header-menu-item gtd-dropdown-container" role="presentation">
+    <a href
+       data-toggle="dropdown"
+       id="tour-dropdown"
+       data-placement="bottom"
+       data-toggle-second="tooltip"
+       ng-click="toggleTours()"
+       ng-blur="onToursItemBlur()"
+       data-original-title="{{tooltipTours}}"
+       aria-label="{{data.guidedTours.label}}"
+       role="menuitem">
+      <span ng-bind-html="'${Tours}'" aria-hidden="true"></span>
+      <span class='badge-container' ng-if="data.guidedTours.collection.length > 0">
+        <span aria-hidden="true" class="label label-as-badge label-primary sp-navbar-badge-count">
+          &nbsp;
+       </span>
+      </span>
+    </a>
+    <div ng-if="data.guidedTours.collection.length < 1" class="dropdown-menu empty-dropdown">
+      <div class="panel ng-scope">
+       <div class="panel-body">
+        <div class="empty-tour-content">
+         <div class="h4">${You have no tours on this page}</div>
+         <p>${Tours appear when your administrator creates them on specific pages}</p>
+        </div>
+       </div>
+      </div>
+    </div>
+    <ul ng-if="data.guidedTours.collection.length > 0" class="dropdown-menu"
+        role="menu" aria-label="${Tours}">
+      <li role="presentation" ng-repeat="mi in data.guidedTours.collection"
+          class="ng-scope dropdown-menu-line">
+        <a role="menuitem" href title="{{::mi.title}}" target="{{::mi.target}}" ng-click="mi.clicked()">
+          {{::mi.title | characters:60}}
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>]]></template>
+    </sp_widget>
+</record_update>

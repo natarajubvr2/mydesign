@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="request_filter">
+    <request_filter action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_to>10</applies_to>
+        <data_item/>
+        <filter/>
+        <group/>
+        <item_stream/>
+        <last_used/>
+        <mobile>false</mobile>
+        <portal_page display_value="standard_ticket">c729488287310010e0ef0cf888cb0ba8</portal_page>
+        <primary_display>short_description</primary_display>
+        <roles/>
+        <secondary_display>number</secondary_display>
+        <short_description/>
+        <sys_class_name>request_filter</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 11:55:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>212776f5878c65107653fd57dabb35f9</sys_id>
+        <sys_name>Help Desk</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>request_filter_212776f5878c65107653fd57dabb35f9</sys_update_name>
+        <table>x_492360_mydesign_help_desk</table>
+        <table_name/>
+        <title>Help Desk</title>
+        <user/>
+    </request_filter>
+    <sys_translated_text action="delete_multiple" query="documentkey=212776f5878c65107653fd57dabb35f9"/>
+</record_update>

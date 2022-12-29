@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>spDropdownTreeTemplateCustom</id>
+        <sp_widget display_value="MyDesign Header Menu">3a028af187c865107653fd57dabb3563</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 08:07:21</sys_created_on>
+        <sys_id>abf2023987c865107653fd57dabb3598</sys_id>
+        <sys_name>spDropdownTreeTemplateCustom</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_ng_template_abf2023987c865107653fd57dabb3598</sys_update_name>
+        <template><![CDATA[<a ng-if="mi.type == 'link'" title="{{::mi.title}}" target="{{::mi.target}}" ng-href="{{::mi.href}}" ng-click="collapse()" role="menuitem">
+  {{::mi.title | characters:60}}
+</a>
+<a ng-if="mi.type == 'record' && !mi.__page && mi.__table != 'sc_task'" aria-label="${Open} {{::mi.number}} : {{::mi.short_description}}" aria-describedby="id_{{::mi.unique_number}}" ng-href="?id=ticket&table={{::mi.__table}}&sys_id={{::mi.sys_id}}" ng-click="collapse()" role="menuitem">
+  <span>{{::mi.short_description | characters:60}}</span>
+  <span class="block color-primary text-muted">
+    <span class="block" style="float: right" id="id_{{::mi.unique_number}}">
+      <sn-time-ago timestamp="::mi.sys_updated_on" />
+    </span>
+    {{mi.number}}
+  </span>
+</a>
+<a ng-if="mi.type == 'record' && mi.__page" aria-label="${Open} {{::mi.number}} : {{::mi.short_description}}" aria-describedby="id_{{::mi.unique_number}}"  ng-href="?id={{::mi.__page}}&table={{::mi.__table}}&sys_id={{::mi.sys_id}}" ng-click="collapse()" role="menuitem">
+  <span>{{::mi.short_description | characters:60}}</span>
+  <span class="block color-primary text-muted">
+    <span class="block" style="float: right" id="id_{{::mi.unique_number}}">
+      <sn-time-ago timestamp="::mi.sys_updated_on" />
+    </span>
+    {{::mi.number}}
+  </span>
+</a>
+
+<!-- Template for Catalog Tasks -->
+<a ng-if="mi.type == 'record' && !mi.__page && mi.__table == 'sc_task' " aria-label="${Open} {{::mi.number}} : {{::mi.short_description}}" aria-describedby="id_{{::mi.unique_number}}" ng-href="?id=fulfill&table={{::mi.__table}}&sys_id={{::mi.sys_id}}" ng-click="collapse()" role="menuitem">
+  <span>{{::mi.short_description | characters:60}}</span>
+  <span class="block color-primary text-muted">
+    <span class="block" style="float: right" id="id_{{::mi.unique_number}}">
+      <sn-time-ago timestamp="::mi.sys_updated_on" />
+    </span>
+    {{mi.number}}
+  </span>
+</a>
+
+
+<a ng-if="mi.type == 'request'" aria-label="${Open} {{::mi.number}} : {{::mi.short_description}}" aria-describedby="id_{{::mi.unique_number}}"  ng-href="?id=sc_request&table={{::mi.__table}}&sys_id={{::mi.sys_id}}" ng-click="collapse()" role="menuitem">
+  <span>{{::mi.short_description | characters:60}}</span>
+  <span class="block color-primary text-muted">
+    <span class="block" style="float: right" id="id_{{::mi.unique_number}}">
+      <sn-time-ago timestamp="::mi.sys_updated_on" />
+    </span>
+    {{::mi.number}}
+  </span>
+</a>
+<a ng-if="mi.type == 'approval'" aria-label="${Open} {{::mi.number}} : {{::mi.short_description}}" aria-describedby="id_{{::mi.unique_number}}"  ng-href="?id=approval&table={{::mi.__table}}&sys_id={{::mi.sys_id}}" ng-click="collapse()" role="menuitem">
+  <span ng-if="mi.short_description">{{::mi.short_description | characters:60}}</span>
+  <span class="block color-primary text-muted">
+    <span class="block" style="float: right" id="id_{{::mi.unique_number}}">
+      <sn-time-ago timestamp="::mi.sys_updated_on" />
+    </span>
+    {{::mi.number}}
+  </span>
+</a>
+<a ng-if="mi.type == 'menu' && mi.items.length" aria-label="{{::mi.title}}" ng-click="collapse()" class="menu_trigger right-caret" role="menuitem">
+  {{::mi.title | characters:60}}
+</a>
+<sp-dropdown-tree-template-custom ng-if="mi.type == 'menu' && mi.items.length" items="mi.items" />]]></template>
+    </sp_ng_template>
+</record_update>

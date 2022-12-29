@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_portal_catalog">
+    <m2m_sp_portal_catalog action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <order>100</order>
+        <sc_catalog display_value="MyDesign">3327697d874865107653fd57dabb3505</sc_catalog>
+        <sp_portal display_value="MyDesign">228f91b5874865107653fd57dabb3577</sp_portal>
+        <sys_class_name>m2m_sp_portal_catalog</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 06:13:35</sys_created_on>
+        <sys_id>59096dbd874865107653fd57dabb3577</sys_id>
+        <sys_name>MyDesign.MyDesign</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>m2m_sp_portal_catalog_59096dbd874865107653fd57dabb3577</sys_update_name>
+    </m2m_sp_portal_catalog>
+</record_update>

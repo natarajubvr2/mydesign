@@ -6,7 +6,7 @@
         <availability>on_desktop</availability>
         <billable>false</billable>
         <can_cancel>false</can_cancel>
-        <category display_value="Help Desk">f7a721bd874865107653fd57dabb35ec</category>
+        <category display_value="Requisition">b096353d878865107653fd57dabb3507</category>
         <checked_out/>
         <cost>0</cost>
         <custom_cart/>
@@ -30,7 +30,7 @@
         <mobile_picture/>
         <mobile_picture_type>use_desktop_picture</mobile_picture_type>
         <model/>
-        <name>General Queries</name>
+        <name>Requisition</name>
         <no_attachment_v2>false</no_attachment_v2>
         <no_cart>false</no_cart>
         <no_cart_v2>false</no_cart_v2>
@@ -45,7 +45,7 @@
         <omit_price>false</omit_price>
         <order>0</order>
         <ordered_item_link/>
-        <owner/>
+        <owner display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</owner>
         <picture/>
         <post_insert_script><![CDATA[/**
 * This script is executed after the record is generated. 
@@ -53,7 +53,7 @@
 * To access the variables, use `producer.var1` where var1 is the name of the variable
 * To access the Record Producer use `cat_item`
 */]]></post_insert_script>
-        <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=14fa622d878c25107653fd57dabb35e5&amp;sysparm_preview=true", "summary");</preview>
+        <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=9236b1b9878865107653fd57dabb356f&amp;sysparm_preview=true", "summary");</preview>
         <published_ref/>
         <recurring_frequency/>
         <redirect_url>generated_record</redirect_url>
@@ -78,20 +78,20 @@
 * Avoid `current.setAbortAction()` and generate a separate record
 * Use `producer.var1` to access variables
 */]]></script>
-        <short_description>General Queries</short_description>
+        <short_description>Requisition Req</short_description>
         <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
         <state/>
         <sys_class_name>sc_cat_item_producer</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2022-12-28 16:23:07</sys_created_on>
-        <sys_id>14fa622d878c25107653fd57dabb35e5</sys_id>
-        <sys_name>General Queries</sys_name>
+        <sys_created_on>2022-12-29 07:11:17</sys_created_on>
+        <sys_id>9236b1b9878865107653fd57dabb356f</sys_id>
+        <sys_name>Requisition</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
-        <sys_update_name>sc_cat_item_producer_14fa622d878c25107653fd57dabb35e5</sys_update_name>
-        <table_name>x_492360_mydesign_help_desk</table_name>
+        <sys_update_name>sc_cat_item_producer_9236b1b9878865107653fd57dabb356f</sys_update_name>
+        <table_name>x_492360_mydesign_requisiton</table_name>
         <taxonomy_topic/>
         <template/>
         <template_manager_roles/>
@@ -104,6 +104,6 @@
         <visible_standalone>true</visible_standalone>
         <workflow/>
     </sc_cat_item_producer>
-    <sys_translated_text action="delete_multiple" query="documentkey=14fa622d878c25107653fd57dabb35e5"/>
-    <fx_price action="delete_multiple" query="id=14fa622d878c25107653fd57dabb35e5"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=9236b1b9878865107653fd57dabb356f"/>
+    <fx_price action="delete_multiple" query="id=9236b1b9878865107653fd57dabb356f"/>
 </record_update>

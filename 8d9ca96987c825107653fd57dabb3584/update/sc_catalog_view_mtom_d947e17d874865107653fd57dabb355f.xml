@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_catalog_view_mtom">
+    <sc_catalog_view_mtom action="INSERT_OR_UPDATE">
+        <default>true</default>
+        <sc_catalog display_value="MyDesign">3327697d874865107653fd57dabb3505</sc_catalog>
+        <sys_class_name>sc_catalog_view_mtom</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-29 06:05:57</sys_created_on>
+        <sys_id>d947e17d874865107653fd57dabb355f</sys_id>
+        <sys_name>MyDesign Help Desk.catalog_mydesign_help_desk</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_portal_page display_value="catalog_mydesign_help_desk">d147e17d874865107653fd57dabb355e</sys_portal_page>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sc_catalog_view_mtom_d947e17d874865107653fd57dabb355f</sys_update_name>
+    </sc_catalog_view_mtom>
+</record_update>
