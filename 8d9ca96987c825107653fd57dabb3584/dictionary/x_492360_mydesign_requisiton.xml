@@ -1,3 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="2a2d69a987c825107653fd57dabb355a" extends="task" label="Requisiton" max_length="40" name="x_492360_mydesign_requisiton" type="collection"/>
+    <element db_object_id="2a2d69a987c825107653fd57dabb355a" extends="task" label="Requisiton" max_length="40" name="x_492360_mydesign_requisiton" type="collection">
+        <element attributes="edge_encryption_enabled=true,ref_contributions=linkGeneratorBtn" label="Location Search" max_length="40" name="u_g_search" type="string"/>
+    </element>
 </database>

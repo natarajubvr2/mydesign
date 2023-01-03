@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="link_generator_service">
+    <link_generator_service action="INSERT_OR_UPDATE">
+        <generated_url>/api/now/generatedlink/getURL?name=google_search</generated_url>
+        <link_type>btn_link</link_type>
+        <script><![CDATA[(function(current){
+  var input = current.u_g_search.toString();	
+	//var lastFour = a.slice(-4);
+	
+   var gr = new GlideRecord('x_492360_mydesign_requisiton');
+	gr.addQuery('u_g_search',input);
+    gr.query();
+   if(gr.next()){    
+      return input;
+     }
+   return "unavailable";
+})(current);]]></script>
+        <service_field_name>Search</service_field_name>
+        <sys_class_name>link_generator_service</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 15:06:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>1f91d5e7874421107653fd57dabb3597</sys_id>
+        <sys_name>google_search</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>link_generator_service_1f91d5e7874421107653fd57dabb3597</sys_update_name>
+        <system_name display_value="Google Map">0171d5e7874421107653fd57dabb3595</system_name>
+        <value>google_search</value>
+    </link_generator_service>
+</record_update>
