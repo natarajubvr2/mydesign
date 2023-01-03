@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>// Disabled the reference field info icon.&#13;
+.add-on &gt; button.lookup {&#13;
+  display:none;&#13;
+}</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>mydes_req_form</id>
+        <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
+        <public>false</public>
+        <roles/>
+        <seo_script/>
+        <short_description>MyDesign Request Form</short_description>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 08:41:27</sys_created_on>
+        <sys_id>6a8a7b97870021107653fd57dabb3581</sys_id>
+        <sys_name>mydes_req_form</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_page_6a8a7b97870021107653fd57dabb3581</sys_update_name>
+        <title>MyDesign Request Form</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=6a8a7b97870021107653fd57dabb3581"/>
+</record_update>

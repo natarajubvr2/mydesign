@@ -2,7 +2,17 @@
     <sp_widget action="INSERT_OR_UPDATE">
         <category>standard</category>
         <client_script><![CDATA[function ($scope, spUtil, $location, spAriaFocusManager) {
+
+		/* Rename the fields labels.
+	setTimeout(function(){		
+		document.querySelector('div[aria-label="Category"]').innerHTML = "Type"
+		document.querySelector('div[aria-label="Sub-Category"]').innerHTML = "Sub Type"			
+	},1000);
+	*/
+	
 	$scope.$on('data_table.click', function(e, parms){
+	/*	var p = $scope.data.page_id || 'form';
+		var s = {id: p, table: parms.table, sys_id: parms.sys_id, view: 'sp'};*/
 		var p = $scope.data.page_id || 'form';
 		var s = {id: p, table: parms.table, sys_id: parms.sys_id, view: 'sp'};
 		var newURL = $location.search(s);

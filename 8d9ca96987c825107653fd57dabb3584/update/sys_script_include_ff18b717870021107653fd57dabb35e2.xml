@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_492360_mydesign.EmailFileImportUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>This has to be created in Global scope&#13;
+This script include is used for Inbound Email action to run transform map to insert bulk request.&#13;
+Inbound Email Action :- "MyDesign bulk email".&#13;
+Flow :- Through Inbound Email Action inserting a data source record and passing the sys_id of the Data source record to this script include.</description>
+        <name>EmailFileImportUtils</name>
+        <script><![CDATA[var EmailFileImportUtils = Class.create();
+EmailFileImportUtils.prototype = {
+    initialize: function() {},
+
+    scheduleImport: function(dataSourceID) {
+        /* 
+         * Create scheduled job to process import 
+         * 
+         * will generate an import data source, however the attachment 
+         * isn't copied to the data source until after the record insert.
+         * The code below creates a scheduled job to process the file import
+         * 30 seconds later so that attachment has time to be copied to the
+         * data source from the email. 
+         */
+
+        var schRec = new GlideRecord("sys_trigger");
+        schRec.name = "Load Data Source: " + dataSourceID;
+        schRec.trigger_type = 0; // Run Once  
+        schRec.script = "new global.EmailFileImportUtils().loadImportSet('" + dataSourceID + "')";
+
+        var nextAction = new GlideDateTime();
+        nextAction.addSeconds(30); // 30 seconds however this can be changed.  
+        schRec.next_action = nextAction;
+        schRec.insert();
+    },
+
+    loadImportSet: function(dataSourceID) {
+        // Get Datasource Record  
+        var dataSource = new GlideRecord("sys_data_source");
+        dataSource.get(dataSourceID);
+
+        // Process data source file  
+        var loader = new GlideImportSetLoader();
+        var importSetRec = loader.getImportSetGr(dataSource);
+        var ranload = loader.loadImportSetTable(importSetRec, dataSource);
+        importSetRec.state = "loaded";
+        importSetRec.update();
+
+        // Transform import set  
+        this._doTransform(importSetRec);
+    },
+
+    _doTransform: function(set) {
+        var importSetRun = new GlideImportSetRun(set.getUniqueValue());
+        var importLog = new GlideImportLog(importSetRun, set.data_source.name);
+        var ist = new GlideImportSetTransformer();
+
+        ist.setLogger(importLog);
+        ist.setImportSetRun(importSetRun);
+        ist.transformAllMaps(set);
+    },
+
+    type: 'EmailFileImportUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 08:30:41</sys_created_on>
+        <sys_id>ff18b717870021107653fd57dabb35e2</sys_id>
+        <sys_name>EmailFileImportUtils</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_script_include_ff18b717870021107653fd57dabb35e2</sys_update_name>
+    </sys_script_include>
+</record_update>
