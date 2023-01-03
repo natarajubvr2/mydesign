@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>standard</category>
+        <client_script><![CDATA[function ($rootScope, $scope, snRecordWatcher, spUtil, $location, $uibModal, cabrillo, $timeout, $window, i18n) {
+
+	$scope.logoText = i18n.format(i18n.getMessage('Go to {0} Homepage'), $scope.portal.title);
+	$scope.collapse = function() {
+		$rootScope.$emit('sp-navbar-collapse');
+	}
+
+	$scope.avatarProfile = {
+		userID: $scope.user.sys_id,
+		name: $scope.user.name,
+		initials: $window.NOW.user_initials
+	};
+
+	if ($window.NOW.user_avatar) {
+		$scope.avatarProfile.userImage = $window.NOW.user_avatar;
+	}
+
+	if (cabrillo.isNative()) {
+		if ($window.innerWidth < 767) {
+			$scope.isViewNative = true;
+		} else {
+			$scope.isViewNativeTablet = true;
+		}
+	}
+
+
+	$scope.openPopUp = function() {
+		var url = "$chat_support.do?queueID=" + $scope.data.connect_support_queue_id;
+		var popup = window.open (url, "popup", "width=900, height=600");
+	};
+
+	$scope.openLogin = function () {
+		$scope.modalInstance = $uibModal.open({
+			templateUrl: 'modalLogin',
+			scope: $scope
+		});
+
+		var pageRoot = angular.element('.sp-page-root');
+		$scope.modalInstance.rendered.then(function() {
+			var $uibModalStack = $injector.get('$uibModalStack');
+			var modalObj = $uibModalStack.getTop();
+			var modal = modalObj.value.modalDomEl;
+
+			modal.attr('aria-label', modal.find('.panel-title').html());
+			modal.attr('aria-modal', 'true');
+			pageRoot.attr('aria-hidden', 'true');
+		});
+
+		$scope.modalInstance.closed.then(function() {
+			pageRoot.attr('aria-hidden', 'false');
+		});
+	};
+
+	var smScreenSize = isSMScreenSize();
+	$scope.showSMAvatar = isSMScreenSize();
+	$scope.showAvatar = !isSMScreenSize();
+
+	$scope.isAgentChatConfigured = g_has_agent_chat_config;
+
+	angular.element($window).on('resize', function () {
+		if(smScreenSize !== isSMScreenSize() && (!$scope.showSMAvatar || !$scope.showAvatar)){
+			$scope.showSMAvatar = true;
+			$scope.showAvatar = true;
+		}
+	});
+
+
+	function isSMScreenSize() {
+		return $window.matchMedia('(max-width: 992px)').matches;
+	}
+
+	$rootScope.$on('sp.avatar_changed', function(evt, obj) {
+		$scope.userID = "";
+		$scope.newAvatarId = obj.newAvatarId;
+		$timeout(function(){
+			$scope.userID = $scope.user.sys_id;
+			$("#profile-dropdown .sub-avatar").css("background-image", 'url("' + $scope.newAvatarId + '.iix?t=small")');
+		});
+	});
+
+	$scope.isHomepage = function() {
+		if (!$scope.page.id)
+			return true;
+
+		if ($scope.page.id == $scope.portal.homepage_dv)
+			return true;
+
+		return false;
+	};
+}
+		]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.navbar {
+  transition: 250ms opacity ease-in-out;
+  -webkit-transition: 250ms opacity ease-in-out;
+  border: 0;
+  border-bottom: 4px solid $sp-navbar-divider-color;
+}
+
+.navbar-fade {
+  opacity: 0.4;
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+header[role="banner"],
+.nav &gt; li &gt; a {
+  max-height: 60px;
+}
+
+.nav &gt; li &gt; a span.fa{
+  margin-left: 0.2rem;
+}
+
+@media screen and (max-width: 992px){
+  .nav &gt; li &gt; a {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
+
+.navbar-brand {
+  max-height: 60px;
+  padding: 0;
+  padding-bottom: 0.5rem;
+}
+
+.navbar-brand img, .navbar-brand span {
+  margin-left: $sp-logo-margin-x;
+  margin-right: $sp-logo-margin-x;
+  margin-top: $sp-logo-margin-y;
+  margin-bottom: $sp-logo-margin-y;
+  display: block;
+  max-height: $sp-logo-max-height;
+  max-width: $sp-logo-max-width;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+@media screen and (max-width: 992px){
+  .navbar-brand img, .navbar-brand span {
+    max-width: $sp-logo-mobile-max-width;
+  }
+}
+
+.breadcrumb-container {
+  background-color: $panel-bg;
+}
+
+/* for mobile app */
+.navbar-inverse.is-native {
+  background-color: #405060;
+}
+
+nav {
+  margin-bottom: 0px;
+  border-radius: 0px;
+
+ .toggle-dropdown {
+    height: 60px;
+  }
+
+}
+
+.navbar-right {
+  padding-right: 0px;
+  padding-left: 7px;
+}
+
+.navbar-nav {
+margin: 0px;
+}
+
+// PRB711244: Dropdown menu is scrollable when too many items
+.scrollable-dropdown {
+  max-height: 80vh;
+  overflow: auto;
+  height: auto;
+}
+
+.is-native {
+ .scrollable-dropdown {
+  max-height: 100vh;
+  overflow: scroll;
+  height: auto;
+	}
+}
+
+
+/* PRB923910: Fix for Service Portal - Header Poorly Aligned in Safari */
+@media screen and (min-width: 993px) {
+  .navbar-right {
+    display: flex !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-header {
+    float: none;
+  }
+  .navbar-left,.navbar-right {
+    float: none !important;
+  }
+  .navbar-nav {
+    float: none !important;
+  }
+  .navbar-nav &gt; li {
+    float: none;
+  }
+  .navbar-nav &gt; li &gt; a {
+    padding-top: 1rem ;
+    padding-bottom: 1rem;
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>mydes_stock_header</id>
+        <internal>false</internal>
+        <link><![CDATA[function(scope, element) {
+	var prevFocusIndex = -1;// This is used for prev focus of nav-bar(avatar) drop down items when its visible.
+	$(document).keyup(function(event) {
+		if (event.which == 9 || event.which == 37 || event.which == 39) { //tab key handler + arrow keys
+			if ($(event.target).parents(".dropdown-menu").length == 0) { //if we are NOT inside a dropdown...
+				//close the dropdowns
+				$(".dropdown").removeClass("open");
+				$("[data-toggle='dropdown']").attr("aria-expanded", "false");
+				prevFocusIndex = -1;
+			}
+		} else if(event.which == 38 || event.which == 40) {
+			var parent = $(event.target).parents('.dropdown-menu');
+			
+			// To support custom drop downs like cart and wish list.
+			if (parent.hasClass('custom-drop-down')) return;
+			
+			if (parent.length) {
+				var items = $(parent).find('li a, li button');
+				if (!items.length)
+					return;
+
+				var index = items.index(items.filter(':focus'));
+				if(index == -1) return;
+				
+				if (prevFocusIndex == index) {
+					if (index == 0)
+						index = items.length - 1;
+					else if (index == items.length - 1)
+						index = 0;
+						
+						items[index].focus();
+				} else if (event.which == 38 && index == 0 && prevFocusIndex == -1) { // to handle newly opened dropdown on keyup
+					index = items.length - 1;
+					items[index].focus();
+				}
+				prevFocusIndex = index;
+			
+			} else {
+				// Upon down/up arrow key event from the menu target element,
+        // focus the first/last menu item to be consistent with click behavior and conform to standard menubar pattern below
+				// https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-1/menubar-1.html
+				if ($(event.target).is('[data-toggle="dropdown"]')) {
+					var parent = $(event.target).parent().find('.dropdown-menu');
+					
+					// To support custom drop downs like cart and wish list.
+					if (parent.hasClass('custom-drop-down')) return;
+					
+					var items = $(parent).find('li a, li button');
+					if (!items.length) return;
+					
+					var index = -1;
+					if(event.which == 40) //down
+						index = 0;
+					else if(event.which == 38) //up
+						index = items.length > 0 ? items.length-1 : 0;
+					
+					items[index].focus();
+					prevFocusIndex = index;
+					
+				}		
+			}
+		}
+		// on esc/close of the menu, reset the index
+		if(event.which == 27)
+			prevFocusIndex = -1;
+		
+		if (event.which == 13 || event.which == 32)
+			$(event.target).parent(".dropdown.open").find("ul.dropdown-menu li:first-child a").focus();
+	});
+
+	$(element).on('click.nav','.navbar-collapse.in',function(e) {
+		var target = $(e.target);
+		if (target.is('a')) {
+			if (target.hasClass('sp-menu-has-items'))
+				return; // menu item has a submenu, so just toggle it
+
+			// collapse mobile nav if clicked an anchor
+			$(this).removeClass('in').addClass('collapse');
+			return;
+		}
+
+		if (target.parent().hasClass("toggle-dropdown")) {
+			// collapse mobile nav if parent has toggle-dropdown class
+			$(this).removeClass('in').addClass('collapse');
+			return;
+		}
+
+		// if neither target nor parent is an anchor, do nothing
+		if (!target.parent().is('a'))
+			return;
+
+		// collapse mobile nav if target is part of a submenu
+		if (target.parents("ul.dropdown-menu").length > 0)
+			$(this).removeClass('in').addClass('collapse');
+	});
+}]]></link>
+        <name>MyDesign Stock Header</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[// Defines the support queue ID that will be linked to by the Live Chat link in header
+data.connect_support_queue_id = $sp.getValue('sp_chat_queue');
+data.login_page = $sp.getValue('login_page');
+data.profileBtnMsg = gs.getMessage("User options");
+var menu = $sp.getValue("sp_rectangle_menu");
+data.menu = $sp.getWidgetFromInstance(menu);
+//data.langSelector = pm.isActive('com.glide.i18n')? $sp.getWidget('sp-lang-selector') : "";
+if (data.menu && data.menu.data) {
+	data.menu.data.replace = true;
+	// Hide login if menu already has link to login
+	data.hasLogin = false;
+	if (data.menu.data.menu.items) {
+		data.hasMenuItems = data.menu.data.menu.items.length > 0;
+		for(var i in data.menu.data.menu.items) {
+			var item = data.menu.data.menu.items[i];
+			if (item.type == 'page' && item.sp_page == data.login_page)
+				data.hasLogin = true;
+		}
+	}
+}
+
+
+data.loginWidget = $sp.getWidgetFromInstance('login-modal');
+
+data.roles = false;
+var roles = gs.getUser().getRoles().toString().split(",");
+var arrayUtil = new global.ArrayUtil();
+
+if (arrayUtil.contains(roles, 'x_nainr_onenav_pro.admin') || arrayUtil.contains(roles, 'admin') || arrayUtil.contains(roles, 'x_nainr_onenav_pro.fullfiller') ){
+
+data.roles= true;
+
+}
+
+data.loginWidget = $sp.getWidgetFromInstance('login-modal');]]></script>
+        <servicenow>false</servicenow>
+        <static>false</static>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 11:49:30</sys_created_on>
+        <sys_id>bad5682f878021107653fd57dabb35f9</sys_id>
+        <sys_name>MyDesign Stock Header</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_header_footer_bad5682f878021107653fd57dabb35f9</sys_update_name>
+        <template><![CDATA[<div>
+  <nav class="navbar-inverse" ng-class="::{'navbar':!isViewNative, 'is-native': isViewNative}"
+       role="navigation" aria-label="${Primary}">
+    <div ng-show="::!isViewNative" class="navbar-header">
+<a class="navbar-brand" ng-if="::!portal.logo" href="?id={{::portal.homepage_dv}}"><span ng-bind="portal.title"></span></a>
+      <a class="navbar-brand navbar-brand-logo" ng-if="::portal.logo" ng-href="?id={{::portal.homepage_dv}}" ng-click="collapse()" aria-label="{{::logoText}}">
+        <img ng-src="{{::portal.logo}}" title="{{::portal.title}}" role="presentation" alt="{{::portal.title}} ${Logo}" />
+      </a>
+      <button ng-if="data.hasMenuItems || (!user.logged_in && page.id != portal.login_page_dv && !data.hasLogin) || user.logged_in" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sp-nav-bar" aria-haspopup="menu">
+        <span class="sr-only">${Toggle navigation}</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div sp-navbar-toggle="" class="collapse navbar-right" id="sp-nav-bar">
+      <!-- Include The Menu -->
+      <sp-widget widget="::data.menu"></sp-widget>
+	  <!-- Language Selector Menu -->
+      <sp-widget widget="::data.langSelector"></sp-widget>
+      <ul ng-if="(!user.logged_in && page.id != portal.login_page_dv && !data.hasLogin)" class="nav navbar-nav" role="presentation">
+        <li role="presentation"><a href ng-click="::openLogin()">${Login}</a></li>
+      </ul>
+      <ul ng-if="user.logged_in" class="nav navbar-nav" role="menubar">
+        <!-- chat, avatar, and logout -->
+        <li ng-if="::(data.connect_support_queue_id && !isAgentChatConfigured)" role="presentation"><a href ng-click="openPopUp()" role="menuitem">${Live Chat}</a></li>
+        <li ng-if="showAvatar" class="hidden-xs hidden-sm dropdown" role="presentation">
+          <a href class="toggle-dropdown" data-toggle="dropdown" aria-expanded="false" aria-label="{{::data.profileBtnMsg}}: {{::user.name}}" id="profile-dropdown"  role="menuitem" aria-haspopup="true">
+            <span class="navbar-avatar" aria-hidden="true"><sn-avatar class="avatar-small-medium" primary="avatarProfile" /></span>
+            <span class="visible-lg-inline">{{::user.name}}</span>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-label="{{::data.profileBtnMsg}}">
+            <li role="presentation"><a tabindex="-1" ng-href="?id=user_profile&sys_id={{::user.sys_id}}" role="menuitem">${Profile}</a></li>
+            <li ng-if="data.roles" role="presentation"><a tabindex="-1" href="nav_to.do?uri=/home.do" role="menuitem">${Back to Console Ui}</a></li>
+            <li ng-if="::!(isViewNative || isViewNativeTablet)" role="presentation"><a tabindex="-1" href="{{::portal.logoutUrl}}" role="menuitem">${Logout}</a></li>
+          </ul>
+        </li>
+        <li ng-if="showSMAvatar" class="visible-xs-block visible-sm-block" role="presentation"><a role="menuitem" ng-href="?id=user_profile&sys_id={{::user.sys_id}}" ng-click="collapse()">
+          <span class="navbar-avatar"><sn-avatar class="avatar-small-medium" primary="avatarProfile" /></span>{{::user.name}}</a>
+        </li>
+        <li ng-if="::!(isViewNative || isViewNativeTablet)" class="visible-xs-block visible-sm-block" role="presentation"><a role="menuitem" ng-href="{{::portal.logoutUrl}}" ng-click="collapse()">${Logout}</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>]]></template>
+    </sp_header_footer>
+</record_update>

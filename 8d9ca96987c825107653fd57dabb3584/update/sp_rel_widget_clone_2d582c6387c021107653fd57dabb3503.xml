@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="MyDesign Sample Footer">25582c6387c021107653fd57dabb3501</child>
+        <cloned>2023-01-03 12:00:21</cloned>
+        <last_validated>2023-01-03 12:00:21</last_validated>
+        <parent display_value="Sample Footer">feb4f763df121200ba13a4836bf26320</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;sample&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function() {
+  // widget controller
+  var c = this;
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.sample-footer {
+  background-color: black; 
+  color: white; 
+  padding: 5px;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link/&gt;&lt;name&gt;Sample Footer&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+ data.time = new GlideDateTime().getDisplayValue();
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;true&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_header_footer&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-03-28 00:50:09&lt;/sys_created_on&gt;&lt;sys_id&gt;feb4f763df121200ba13a4836bf26320&lt;/sys_id&gt;&lt;sys_mod_count&gt;13&lt;/sys_mod_count&gt;&lt;sys_name&gt;Sample Footer&lt;/sys_name&gt;&lt;sys_package display_value="Service Portal - Core" source="com.glide.service-portal"&gt;0e065aa0f9c211108c8bd16244dfe791&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_header_footer_feb4f763df121200ba13a4836bf26320&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-04-20 19:16:38&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[ &lt;div class="sample-footer" role="contentinfo"&gt;	
+  ${Page generated at {{::c.data.time}}}
+ &lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 12:00:21</sys_created_on>
+        <sys_id>2d582c6387c021107653fd57dabb3503</sys_id>
+        <sys_name>25582c6387c021107653fd57dabb3501</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_2d582c6387c021107653fd57dabb3503</sys_update_name>
+    </sp_rel_widget_clone>
+</record_update>

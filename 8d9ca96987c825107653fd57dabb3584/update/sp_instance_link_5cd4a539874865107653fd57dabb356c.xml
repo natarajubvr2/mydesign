@@ -32,8 +32,8 @@
         <url>/mydesign?id=sc_category&amp;sys_id=14fa622d878c25107653fd57dabb35e5&amp;catalog_id=3327697d874865107653fd57dabb3505&amp;spa=1</url>
         <widget_parameters><![CDATA[{
 	"link_template": {
-		"value": "",
-		"displayValue": ""
+		"value": "Color Box",
+		"displayValue": "Color Box"
 	}
 }]]></widget_parameters>
     </sp_instance_link>

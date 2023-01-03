@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_492360_mydesign.MyDesignTracker</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>this is created for note everything</description>
+        <name>MyDesignTracker</name>
+        <script><![CDATA[var MyDesignTracker = Class.create();
+MyDesignTracker.prototype = {
+    initialize: function() {
+    },
+
+	
+	/*
+	Module - UI Script
+	Scope - Global
+	API Name - portalLink
+	Description - Adds a link to the service portal on the user menu in console view
+	Script :
+	    document.addEventListener("DOMContentLoaded", function(event) {
+	
+    var theWindow = getTopWindow().window.location;
+    var theURL = theWindow.href;
+    var baseURL = theWindow.protocol + "//" + theWindow.host + "/";
+
+    if (theURL.indexOf('nav_to.do?') != -1 || theURL.indexOf('navpage.do') != -1 || theURL == baseURL) {
+        var theLinkElement = getTopWindow().document.querySelector("a[class~=headerlink]");
+
+        //Only insert if the link isn't page already
+        if (jQuery(theLinkElement).length == 0) {
+            var linkDivOpen = '<li role="presentation">';
+            var linkDivClose = "</li>";
+
+            //Ess Link
+            var essLink = "<a target='top' href='/sp/' id='essLink' class='headerlink'>Service Portal</a>";
+
+            var dropdownbutton = getTopWindow().document.querySelector(".dropdown.pull-left");
+            var dropdownlist = dropdownbutton.querySelector(".dropdown-menu");
+            var dropdownitem = dropdownlist.querySelector("li");
+
+            //Insert the link
+            jQuery(linkDivOpen + essLink + linkDivClose).insertAfter(dropdownitem);
+        }
+    }
+});
+	
+	*/
+    type: 'MyDesignTracker'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 12:36:28</sys_created_on>
+        <sys_id>ba0078e787c021107653fd57dabb353f</sys_id>
+        <sys_name>MyDesignTracker</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_script_include_ba0078e787c021107653fd57dabb353f</sys_update_name>
+    </sys_script_include>
+</record_update>

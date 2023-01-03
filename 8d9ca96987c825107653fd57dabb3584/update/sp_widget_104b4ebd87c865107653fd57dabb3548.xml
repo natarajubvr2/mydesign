@@ -86,6 +86,44 @@
 	options.enable_filter = true;
 	
 	data.dataTableWidget = $sp.getWidget('mydes-data-table', options);
+	///////////////////////////////////////
+		// Help Desk table
+	var helpDesk_filter = 'active=true^opened_by='+gs.getUserID()+'^ORrequested_for='+gs.getUserID(); 
+	var helpDesk = {
+		"table": "x_492360_mydesign_help_desk",
+		"view": "sp",
+		"fields": "number,state,description,opened_by,sys_created_on",
+		"show_keywords": true,
+		"show_breadcrumbs": false,
+		"o": "number", // order_by
+		"window_size" : "10",
+		"filter": helpDesk_filter,
+		"storef": helpDesk_filter
+		//"query_filter": taskQueryFilter
+	};
+
+	data.helpDesk = $sp.getWidget("widget-data-table", helpDesk);
+
+	
+	
+		// Requisition Support
+	var requisition_filter = 'active=true^opened_by='+gs.getUserID()+'^ORrequested_for='+gs.getUserID(); 
+	var requisition = {
+		"table": "x_492360_mydesign_requisiton",
+		"view": "sp",
+		"fields": "number,state,description,opened_by,sys_created_on",
+		"show_keywords": true,
+		"show_breadcrumbs": false,
+		"o": "number", // order_by
+		"window_size" : "10",
+		"filter": requisition_filter,
+		"storef": requisition_filter
+		//"query_filter": taskQueryFilter
+	};
+
+	data.requisition = $sp.getWidget("widget-data-table", requisition);
+
+	
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
@@ -108,7 +146,15 @@
 
 <sp-panel>
   <uib-tabset class="tab-container"> 
-      <sp-widget ng-if="data.dataTableWidget" widget="data.dataTableWidget"></sp-widget>       
+    <!--  <sp-widget ng-if="data.dataTableWidget" widget="data.dataTableWidget"></sp-widget> -->
+     <!-- Help Desk --> 
+    <uib-tab index="1" heading="Help Desk Requests" uib-tooltip="View all active Help Desk requests that you've opened and on behalf.">
+      <sp-widget ng-if="data.helpDesk" widget="data.helpDesk"></sp-widget>
+    </uib-tab>
+     <!-- Requisition Support -->
+    <uib-tab index="1" heading="Requisition Support" uib-tooltip="View all active Requisition Support requests that you've opened and on behalf.">
+      <sp-widget ng-if="data.requisition" widget="data.requisition"></sp-widget>
+    </uib-tab> 
   </uib-tabset>
 </sp-panel>]]></template>
     </sp_widget>

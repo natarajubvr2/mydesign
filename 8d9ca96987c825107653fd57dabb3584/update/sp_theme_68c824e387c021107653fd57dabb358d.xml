@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables>$sp-logo-margin-x: 		15px !default;&#13;
+$sp-tagline-color:		$text-color !default;&#13;
+$navbar-inverse-bg: 	#3a3f51 !default;&#13;
+$navbar-inverse-link-color: #bdc0c4 !default;&#13;
+$navbar-inverse-link-hover-color: #ffffff !default;&#13;
+$body-bg: 				#f0f3f4 !default;&#13;
+$dropdown-link-disabled-color: #ccc;&#13;
+$sp-navbar-divider-color: rgb(166,168,170) !default;</css_variables>
+        <footer display_value="MyDesign Sample Footer">25582c6387c021107653fd57dabb3501</footer>
+        <footer_fixed>true</footer_fixed>
+        <header display_value="MyDesign Stock Header">bad5682f878021107653fd57dabb35f9</header>
+        <name>MyDesign Stock</name>
+        <navbar_fixed>true</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 12:02:44</sys_created_on>
+        <sys_id>68c824e387c021107653fd57dabb358d</sys_id>
+        <sys_name>MyDesign Stock</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_theme_68c824e387c021107653fd57dabb358d</sys_update_name>
+    </sp_theme>
+</record_update>
