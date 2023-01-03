@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="DELETE">
+        <sp_angular_provider display_value="spAttachmentManager">06e836f0d722120023c84f80de6103a1</sp_angular_provider>
+        <sp_widget display_value="Copy of Form">6eab8867874021107653fd57dabb3564</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 09:55:04</sys_created_on>
+        <sys_id>aaab8ca7874021107653fd57dabb3587</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>spAttachmentManager.Copy of Form</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_aaab8ca7874021107653fd57dabb3587</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-01-03 09:55:04</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</application>
+        <file_path/>
+        <instance_id>eec16ab4db79099010543feb68961964</instance_id>
+        <instance_name>dev125448</instance_name>
+        <name>m2m_sp_ng_pro_sp_widget_aaab8ca7874021107653fd57dabb3587</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget"><m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE"><sp_angular_provider display_value="spAttachmentManager">06e836f0d722120023c84f80de6103a1</sp_angular_provider><sp_widget display_value="Copy of Form">6eab8867874021107653fd57dabb3564</sp_widget><sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-01-03 09:55:04</sys_created_on><sys_id>aaab8ca7874021107653fd57dabb3587</sys_id><sys_mod_count>0</sys_mod_count><sys_name>spAttachmentManager.Copy of Form</sys_name><sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package><sys_policy/><sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope><sys_update_name>m2m_sp_ng_pro_sp_widget_aaab8ca7874021107653fd57dabb3587</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-01-03 09:55:04</sys_updated_on></m2m_sp_ng_pro_sp_widget></record_update>]]></payload>
+        <payload_hash>-571382633</payload_hash>
+        <record_name>spAttachmentManager.Copy of Form</record_name>
+        <reverted_from/>
+        <source>b4fdeda987c825107653fd57dabb359b</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 09:55:04</sys_created_on>
+        <sys_id>22ab8ca7874021107653fd57dabb358a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>185770e4f840000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-01-03 09:55:04</sys_updated_on>
+        <type>Angular Providers</type>
+        <update_guid>6aab8ca7054021101f8e96fd86f6f589</update_guid>
+        <update_guid_history>6aab8ca7054021101f8e96fd86f6f589:-571382633</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="spAttachmentManager.Copy of Form">79fc042b874021107653fd57dabb356f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-03 10:00:46</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_ng_pro_sp_widget">m2m_sp_ng_pro_sp_widget</sys_db_object>
+        <sys_id>cf9eb4847ffe4af6ab81b6f2589efc39</sys_id>
+        <sys_metadata>aaab8ca7874021107653fd57dabb3587</sys_metadata>
+        <sys_name>spAttachmentManager.Copy of Form</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_aaab8ca7874021107653fd57dabb3587</sys_update_name>
+        <sys_update_version display_value="m2m_sp_ng_pro_sp_widget_aaab8ca7874021107653fd57dabb3587">22ab8ca7874021107653fd57dabb358a</sys_update_version>
+    </sys_metadata_delete>
+</record_update>
