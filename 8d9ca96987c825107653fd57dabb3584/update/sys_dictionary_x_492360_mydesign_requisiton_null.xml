@@ -2,10 +2,10 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="" extends="task" table="x_492360_mydesign_requisiton">
         <active>true</active>
         <array>false</array>
-        <attributes/>
+        <attributes>email_client=true</attributes>
         <audit>false</audit>
         <calculation/>
-        <choice>0</choice>
+        <choice/>
         <choice_field/>
         <choice_table/>
         <column_label/>

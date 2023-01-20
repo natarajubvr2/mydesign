@@ -7,7 +7,7 @@
         <hint/>
         <name/>
         <order/>
-        <roles>admin</roles>
+        <roles>admin,x_492360_mydesign.fullfiller</roles>
         <sys_class_name>sys_app_application</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-28 11:53:58</sys_created_on>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_492360_mydesign.fullfiller" name="x_492360_mydesign.fullfiller">7bf12756871021107653fd57dabb35cf</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-12 14:35:17</sys_created_on>
+        <sys_id>cf126f16871021107653fd57dabb35ea</sys_id>
+        <sys_name>7bf12756871021107653fd57dabb35cf</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_embedded_help_role_cf126f16871021107653fd57dabb35ea</sys_update_name>
+    </sys_embedded_help_role>
+</record_update>
