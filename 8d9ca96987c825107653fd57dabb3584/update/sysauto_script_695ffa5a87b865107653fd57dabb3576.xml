@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_time>1970-01-01 00:00:00</entered_time>
+        <name>MyDesign Overall Performance Survey</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>15</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2023-02-06 08:34:46</run_start>
+        <run_time>1970-01-01 00:00:00</run_time>
+        <run_type>monthly</run_type>
+        <script><![CDATA[var legal_user_arr = [];
+
+var arryUtil = new global.ArrayUtil();
+
+var month = gs.endOfThisMonth();
+var monthd = new GlideDateTime(month);
+monthd.addDaysLocalTime(-1);
+var gdt = new GlideDateTime(monthd.toString());
+var end_date = gdt.getDate();
+
+var RequReq = new GlideRecord("x_492360_mydesign_requisiton");
+RequReq.addEncodedQuery('state=7^closed_atONLast month@javascript:gs.beginningOfLastMonth()@javascript:gs.endOfLastMonth()');
+RequReq.query();
+while (RequReq.next()) {
+    legal_user_arr.push(RequReq.getValue('opened_by'));
+}
+var users = arryUtil.unique(legal_user_arr).join(',');
+
+new global.AssessmentUtils().createAssessments('56f143da87b865107653fd57dabb356c', '', users);]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-06 08:55:25</sys_created_on>
+        <sys_id>695ffa5a87b865107653fd57dabb3576</sys_id>
+        <sys_name>MyDesign Overall Performance Survey</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sysauto_script_695ffa5a87b865107653fd57dabb3576</sys_update_name>
+        <time_zone>GMT</time_zone>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

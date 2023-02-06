@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_type">
+    <asmt_metric_type action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <allow_public>false</allow_public>
+        <allow_retake>false</allow_retake>
+        <anonymize>false</anonymize>
+        <business_rule/>
+        <chat_survey>false</chat_survey>
+        <condition table="asmt_metric_type">sys_id=56f143da87b865107653fd57dabb356c^EQ<item endquery="false" field="sys_id" goto="false" newquery="false" operator="=" or="false" value="56f143da87b865107653fd57dabb356c"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <default_filter/>
+        <delete_business_rule/>
+        <description/>
+        <disable_ui_action/>
+        <display_all_filters>false</display_all_filters>
+        <display_field>name</display_field>
+        <duration>1970-01-15 00:00:00</duration>
+        <enable_ui_action/>
+        <end_note/>
+        <enforce_condition>false</enforce_condition>
+        <evaluation_method>survey</evaluation_method>
+        <filter_condition/>
+        <filter_table/>
+        <grc_classification display_value="None">ebfbf2b7076220100deb2bfb9bd300ba</grc_classification>
+        <grc_type/>
+        <introduction/>
+        <job display_value="MyDesign Services Overall Performance As">1c23c79e87b865107653fd57dabb35e0</job>
+        <live_feed>false</live_feed>
+        <name>MyDesign Services Overall Performance</name>
+        <not_show_intro_note>false</not_show_intro_note>
+        <notify_if_overdue>false</notify_if_overdue>
+        <notify_user>true</notify_user>
+        <one_click_survey>false</one_click_survey>
+        <overdue_notify_user/>
+        <portal_pagination>category</portal_pagination>
+        <publish_state>published</publish_state>
+        <roles>survey_admin,survey_reader</roles>
+        <sample_metric display_value="How satisfied are you with the process of submitting a request into the Business Services Portal?">eef1835e87b865107653fd57dabb3545</sample_metric>
+        <scale_factor>10</scale_factor>
+        <schedule_period>4</schedule_period>
+        <schedule_type>on_demand</schedule_type>
+        <scoring_type>percent</scoring_type>
+        <signature/>
+        <source_table/>
+        <survey_owners>6816f79cc0a8016401c5a33be04be441</survey_owners>
+        <sys_class_name>asmt_metric_type</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-06 08:46:17</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>56f143da87b865107653fd57dabb356c</sys_id>
+        <sys_name>MyDesign Services Overall Performance</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>asmt_metric_type_56f143da87b865107653fd57dabb356c</sys_update_name>
+        <table>asmt_metric_type</table>
+        <url/>
+        <user_field/>
+        <user_field_business_rule/>
+    </asmt_metric_type>
+    <sys_translated_text action="delete_multiple" query="documentkey=56f143da87b865107653fd57dabb356c"/>
+</record_update>
