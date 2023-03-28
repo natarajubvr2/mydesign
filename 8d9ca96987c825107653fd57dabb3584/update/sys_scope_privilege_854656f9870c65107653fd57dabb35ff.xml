@@ -7,11 +7,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-29 09:31:16</sys_created_on>
         <sys_id>854656f9870c65107653fd57dabb35ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>GlideRecordSecure.getValue</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_scope_privilege_854656f9870c65107653fd57dabb35ff</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-29 14:24:15</sys_updated_on>
         <target_name>GlideRecordSecure.getValue</target_name>
         <target_scope display_value="Global">global</target_scope>
         <target_type>scriptable</target_type>

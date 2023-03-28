@@ -6,11 +6,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-29 06:05:57</sys_created_on>
         <sys_id>d947e17d874865107653fd57dabb355f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>MyDesign Help Desk.catalog_mydesign_help_desk</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_portal_page display_value="catalog_mydesign_help_desk">d147e17d874865107653fd57dabb355e</sys_portal_page>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sc_catalog_view_mtom_d947e17d874865107653fd57dabb355f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-29 14:24:15</sys_updated_on>
     </sc_catalog_view_mtom>
 </record_update>

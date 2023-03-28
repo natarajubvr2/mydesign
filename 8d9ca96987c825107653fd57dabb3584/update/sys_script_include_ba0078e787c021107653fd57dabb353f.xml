@@ -53,10 +53,13 @@ MyDesignTracker.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-01-03 12:36:28</sys_created_on>
         <sys_id>ba0078e787c021107653fd57dabb353f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>MyDesignTracker</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_include_ba0078e787c021107653fd57dabb353f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-01-03 13:29:05</sys_updated_on>
     </sys_script_include>
 </record_update>

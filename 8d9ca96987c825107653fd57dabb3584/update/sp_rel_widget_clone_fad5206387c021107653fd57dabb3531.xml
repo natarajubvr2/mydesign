@@ -390,10 +390,13 @@ data.loginWidget = $sp.getWidgetFromInstance('login-modal');]]&gt;&lt;/script&gt
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-01-03 11:49:30</sys_created_on>
         <sys_id>fad5206387c021107653fd57dabb3531</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>bad5682f878021107653fd57dabb35f9</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sp_rel_widget_clone_fad5206387c021107653fd57dabb3531</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-01-03 13:29:05</sys_updated_on>
     </sp_rel_widget_clone>
 </record_update>

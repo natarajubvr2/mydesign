@@ -62,6 +62,7 @@
         <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
         <sys_id>0494d497c4f343ec80ace46c14cd3990</sys_id>
         <sys_metadata>5ab6e3f58740a5107653fd57dabb35c2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_parent/>
@@ -70,5 +71,7 @@
         <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
         <sys_update_name>sp_instance_5ab6e3f58740a5107653fd57dabb35c2</sys_update_name>
         <sys_update_version display_value="sp_instance_5ab6e3f58740a5107653fd57dabb35c2">1ab6e3f58740a5107653fd57dabb35c4</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-29 15:23:12</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

@@ -25,11 +25,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-30 11:49:19</sys_created_on>
         <sys_id>0f5fff828740e5107653fd57dabb3511</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>SNOW Expert</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sp_rectangle_menu_item_0f5fff828740e5107653fd57dabb3511</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-01-03 09:54:45</sys_updated_on>
         <table/>
         <type>url</type>
         <url>https://servicenowexpert.wordpress.com/2019/01/28/auto-load-excel-spreadsheet-using-email-inbound-action/</url>

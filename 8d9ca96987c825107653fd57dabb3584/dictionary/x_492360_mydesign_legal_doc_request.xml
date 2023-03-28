@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="8b1f098a8729a9107653fd57dabb3584" extends="task" label="Legal Doc Request" max_length="40" name="x_492360_mydesign_legal_doc_request" type="collection"/>
+</database>

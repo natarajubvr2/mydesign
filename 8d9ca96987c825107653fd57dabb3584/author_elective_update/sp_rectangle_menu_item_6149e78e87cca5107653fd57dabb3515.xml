@@ -72,6 +72,7 @@
         <sys_db_object display_value="" name="sp_rectangle_menu_item">sp_rectangle_menu_item</sys_db_object>
         <sys_id>324032836ba2423999e242a19d50c5b1</sys_id>
         <sys_metadata>6149e78e87cca5107653fd57dabb3515</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>SNOW Ref</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_parent/>
@@ -80,5 +81,7 @@
         <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
         <sys_update_name>sp_rectangle_menu_item_6149e78e87cca5107653fd57dabb3515</sys_update_name>
         <sys_update_version display_value="sp_rectangle_menu_item_6149e78e87cca5107653fd57dabb3515">efdef7ce87cca5107653fd57dabb356d</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-30 11:47:18</sys_updated_on>
     </sys_metadata_delete>
 </record_update>

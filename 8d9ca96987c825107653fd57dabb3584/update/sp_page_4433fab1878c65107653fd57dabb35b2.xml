@@ -4,6 +4,7 @@
         <css/>
         <draft>false</draft>
         <dynamic_title_structure/>
+        <human_readable_url_structure/>
         <id>mydesign_requests</id>
         <internal>false</internal>
         <omit_watcher>false</omit_watcher>
@@ -15,11 +16,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-29 11:37:38</sys_created_on>
         <sys_id>4433fab1878c65107653fd57dabb35b2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>mydesign_requests</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sp_page_4433fab1878c65107653fd57dabb35b2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-29 14:24:15</sys_updated_on>
         <title>MyDesign Requests </title>
         <use_seo_script>false</use_seo_script>
     </sp_page>
