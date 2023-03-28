@@ -39,7 +39,7 @@
             sn_fd.FlowAPI.cancel(gr_cancel.sys_id, 'User requested to cancel.');
         }
     }
-
+//
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -47,7 +47,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4dd35cae87f965107653fd57dabb3503</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>cancel the flow when request  cancelled</sys_name>
         <sys_overrides/>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
@@ -55,7 +55,7 @@
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_4dd35cae87f965107653fd57dabb3503</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-28 07:48:47</sys_updated_on>
+        <sys_updated_on>2023-03-28 07:56:57</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>
