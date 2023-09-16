@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Submit the Record Producer and confirm submission to server</description>
+        <display_name>Submit Record Producer (SP)</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>7</order>
+        <step_config display_value="Submit Record Producer (SP)">7c69d2788743030070870cf888cb0b5f</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 10:01:35</sys_created_on>
+        <sys_id>2171728d47103110c9a25d0f536d43ac</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Submit Record Producer (SP)</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_atf_step_2171728d47103110c9a25d0f536d43ac</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 10:09:09</sys_updated_on>
+        <table/>
+        <test display_value="attachment flow">c2896ec547103110c9a25d0f536d43cc</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=2171728d47103110c9a25d0f536d43ac"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>2171728d47103110c9a25d0f536d43ac</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 10:01:35</sys_created_on>
+        <sys_id>72713e8d47103110c9a25d0f536d4301</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 10:01:35</sys_updated_on>
+        <value>form_submitted_to_server</value>
+        <variable display_value="Assert Type">3c2ad2788743030070870cf888cb0b0c</variable>
+    </sys_variable_value>
+</record_update>

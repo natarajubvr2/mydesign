@@ -4,13 +4,13 @@
             <element>number</element>
             <position>0</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>b0eb6ea587cc25107653fd57dabb35e8</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>0d00e25347143110c9a25d0f536d432f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>opened_by</element>
             <position>1</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>34eb6ea587cc25107653fd57dabb35e8</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>0100e25347143110c9a25d0f536d4330</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>assigned_to</element>
             <position>2</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>b4eb6ea587cc25107653fd57dabb35e8</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>0500e25347143110c9a25d0f536d4330</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>.split</element>
             <position>3</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>38eb6ea587cc25107653fd57dabb35e8</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>0900e25347143110c9a25d0f536d4330</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>state</element>
             <position>4</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>b8eb6ea587cc25107653fd57dabb35e8</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>0d00e25347143110c9a25d0f536d4330</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -74,13 +74,13 @@
             <element>requested_for</element>
             <position>5</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>3ceb6ea587cc25107653fd57dabb35e8</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>0100e25347143110c9a25d0f536d4331</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -88,13 +88,13 @@
             <element>priority</element>
             <position>6</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>bceb6ea587cc25107653fd57dabb35e8</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>0500e25347143110c9a25d0f536d4331</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -102,13 +102,13 @@
             <element>parent</element>
             <position>7</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>30eb6ea587cc25107653fd57dabb35e9</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>0900e25347143110c9a25d0f536d4331</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -116,13 +116,13 @@
             <element>.end_split</element>
             <position>8</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>b0eb6ea587cc25107653fd57dabb35e9</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>0d00e25347143110c9a25d0f536d4331</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
@@ -130,43 +130,85 @@
             <element>short_description</element>
             <position>9</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>34eb6ea587cc25107653fd57dabb35e9</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>8900e29347143110c9a25d0f536d43cf</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>comments_and_work_notes</element>
+            <position>10</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>8d00e29347143110c9a25d0f536d43cf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>comments</element>
+            <position>11</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>8100e29347143110c9a25d0f536d43d0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>description</element>
-            <position>10</position>
+            <position>12</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>b4eb6ea587cc25107653fd57dabb35e9</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>8500e29347143110c9a25d0f536d43d0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>work_notes</element>
-            <position>11</position>
+            <position>13</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-12-28 16:27:15</sys_created_on>
-            <sys_id>38eb6ea587cc25107653fd57dabb35e9</sys_id>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>8900e29347143110c9a25d0f536d43d0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-12-28 16:27:15</sys_updated_on>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
             <sys_user/>
             <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>activity.xml</element>
+            <position>14</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-02 08:31:36</sys_created_on>
+            <sys_id>8d00e29347143110c9a25d0f536d43d0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter display_value="Activities (filtered)">444ea5c6bf310100e628555b3f0739d6</sys_ui_formatter>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_help_desk" sys_domain="global" view="Default view">a6a9ae2d878c25107653fd57dabb3503</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-02 08:31:36</sys_updated_on>
+            <sys_user/>
+            <type>formatter</type>
         </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>

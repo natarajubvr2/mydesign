@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Open "General Queries" in the "MyDesign" portal with the following query params:
+sys_id = 14fa622d878c25107653fd57dabb35e5
+</description>
+        <display_name>Open a Record Producer (SP)</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>3</order>
+        <step_config display_value="Open a Record Producer (SP)">775638f29f3203002899d4b4232e70e5</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 10:09:09</sys_created_on>
+        <sys_id>e2d23a0147503110c9a25d0f536d43c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Open a Record Producer (SP)</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_atf_step_e2d23a0147503110c9a25d0f536d43c1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 10:09:09</sys_updated_on>
+        <table/>
+        <test display_value="attachment flow">c2896ec547103110c9a25d0f536d43cc</test>
+        <timeout>1970-01-01 00:00:30</timeout>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=e2d23a0147503110c9a25d0f536d43c1"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>e2d23a0147503110c9a25d0f536d43c1</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 10:09:10</sys_created_on>
+        <sys_id>0e33fe4147503110c9a25d0f536d431d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 10:09:10</sys_updated_on>
+        <value>228f91b5874865107653fd57dabb3577</value>
+        <variable display_value="Portal">37a7bcf29f3203002899d4b4232e7090</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>e2d23a0147503110c9a25d0f536d43c1</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 10:09:10</sys_created_on>
+        <sys_id>4a33fe4147503110c9a25d0f536d431d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 10:09:10</sys_updated_on>
+        <value>14fa622d878c25107653fd57dabb35e5</value>
+        <variable display_value="Record Producer">de1c3dbc8703030070870cf888cb0b68</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>e2d23a0147503110c9a25d0f536d43c1</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 10:09:10</sys_created_on>
+        <sys_id>8633fe4147503110c9a25d0f536d431d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 10:09:10</sys_updated_on>
+        <value>{"sys_id":"14fa622d878c25107653fd57dabb35e5"}</value>
+        <variable display_value="Query parameters">5258f0369f3203002899d4b4232e704a</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>e2d23a0147503110c9a25d0f536d43c1</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 10:09:10</sys_created_on>
+        <sys_id>c233fe4147503110c9a25d0f536d431d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 10:09:10</sys_updated_on>
+        <value>9f12251147132100ba13a5554ee490f4</value>
+        <variable display_value="Page">908942839f3203002899d4b4232e7016</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_775638f29f3203002899d4b4232e70e5^id=e2d23a0147503110c9a25d0f536d43c1"/>
+</record_update>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_map">
+    <sys_transform_map action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copy_empty_fields>false</copy_empty_fields>
+        <create_new_record_on_empty_coalesce_fields>false</create_new_record_on_empty_coalesce_fields>
+        <enforce_mandatory_fields>No</enforce_mandatory_fields>
+        <name>Help Desk MWB</name>
+        <order>100</order>
+        <run_business_rules>true</run_business_rules>
+        <run_script>false</run_script>
+        <script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
+
+	// Add your code here
+
+})(source, target, map, log, action==="update");]]></script>
+        <source_table>x_492360_mydesign_help_desk_mwb</source_table>
+        <sys_class_name>sys_transform_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-08-29 12:09:13</sys_created_on>
+        <sys_id>d0645e0447013110c9a25d0f536d43e4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Help Desk MWB</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_transform_map_d0645e0447013110c9a25d0f536d43e4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:09:13</sys_updated_on>
+        <target_table>x_492360_mydesign_help_desk</target_table>
+    </sys_transform_map>
+</record_update>

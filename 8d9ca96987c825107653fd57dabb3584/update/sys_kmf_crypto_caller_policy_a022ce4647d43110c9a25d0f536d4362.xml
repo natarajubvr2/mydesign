@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_kmf_crypto_caller_policy">
+    <sys_kmf_crypto_caller_policy action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <approval_type/>
+        <check_script_hash>false</check_script_hash>
+        <crypto_module display_value="com_glide_web_service_consumer_glideencrypter">2ca78142e7222010628a20c343f6a92e</crypto_module>
+        <crypto_spec display_value="com_glide_web_service_consumer_glideencrypter --- Symmetric Key Wrapping/Unwrapping">eca78142e7222010628a20c343f6a930</crypto_spec>
+        <granular_operation/>
+        <identity_group_alias/>
+        <impersonation>false</impersonation>
+        <instance_recipient/>
+        <owner>7a808315db3437c091232f17d4961919</owner>
+        <policy_name>AutoGen-script-generate_variables-global.com_glide_web_service_consumer_glideencrypter</policy_name>
+        <result>track</result>
+        <script_hash>RaN+t6rOmrrL0pO0lfoVGoMMhL3l4pwoxDvnXr2rdO4=</script_hash>
+        <script_table>sys_ui_action</script_table>
+        <signature_data/>
+        <specify_purpose>false</specify_purpose>
+        <sys_class_name>sys_kmf_crypto_caller_policy</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-29 09:08:38</sys_created_on>
+        <sys_id>a022ce4647d43110c9a25d0f536d4362</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_kmf_crypto_caller_policy_a022ce4647d43110c9a25d0f536d4362</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-29 09:08:38</sys_updated_on>
+        <target_role/>
+        <target_scope/>
+        <target_script>generate_variables</target_script>
+        <type>1</type>
+        <used>false</used>
+    </sys_kmf_crypto_caller_policy>
+</record_update>

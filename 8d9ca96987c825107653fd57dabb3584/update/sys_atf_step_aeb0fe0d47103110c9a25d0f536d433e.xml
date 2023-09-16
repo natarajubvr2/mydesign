@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Answer the questions on the form as follows:
+Opened by = Alfonso Griglen
+and Description = testing</description>
+        <display_name>Set Variable Values (SP)</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>5</order>
+        <step_config display_value="Set Variable Values (SP)">2e4229b48703030070870cf888cb0b5c</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 09:58:52</sys_created_on>
+        <sys_id>aeb0fe0d47103110c9a25d0f536d433e</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Set Variable Values (SP)</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_atf_step_aeb0fe0d47103110c9a25d0f536d433e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 10:09:10</sys_updated_on>
+        <table/>
+        <test display_value="attachment flow">c2896ec547103110c9a25d0f536d43cc</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=aeb0fe0d47103110c9a25d0f536d433e"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>aeb0fe0d47103110c9a25d0f536d433e</document_key>
+        <order>150</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 09:58:52</sys_created_on>
+        <sys_id>1fd0fa8d47103110c9a25d0f536d43e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 09:58:52</sys_updated_on>
+        <value/>
+        <variable display_value="Multi-row Variable Set">2fba49d673142300688e0d573cf6a748</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>aeb0fe0d47103110c9a25d0f536d433e</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 09:58:52</sys_created_on>
+        <sys_id>93d0fa8d47103110c9a25d0f536d43e3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 09:58:52</sys_updated_on>
+        <value>14fa622d878c25107653fd57dabb35e5</value>
+        <variable display_value="Item">d164adb48703030070870cf888cb0b30</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>aeb0fe0d47103110c9a25d0f536d433e</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-26 09:58:52</sys_created_on>
+        <sys_id>dfd0fa8d47103110c9a25d0f536d43e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-26 09:58:52</sys_updated_on>
+        <value>IO:e0fa6e6587cc25107653fd57dabb35ee=12826bf03710200044e0bfc8bcbe5db1^IO:acfa6e6587cc25107653fd57dabb35f9=testing^EQ</value>
+        <variable display_value="Variable Values">3f3525f48703030070870cf888cb0b37</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_2e4229b48703030070870cf888cb0b5c^id=aeb0fe0d47103110c9a25d0f536d433e"/>
+</record_update>

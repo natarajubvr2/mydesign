@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="x_492360_mydesign_help_desk" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Help Desk - Default view" name="x_492360_mydesign_help_desk" related_list="NULL" sys_domain="global" view="Default view">1e011f5947203110c9a25d0f536d4386</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>task_sla.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-08 17:13:37</sys_created_on>
+            <sys_id>52011f5947203110c9a25d0f536d4388</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-08 17:13:37</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Help Desk - Default view" name="x_492360_mydesign_help_desk" related_list="NULL" sys_domain="global" view="Default view">1e011f5947203110c9a25d0f536d4386</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>REL:412b7b420a258102002a5fdbfab70593</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-08 17:13:37</sys_created_on>
+            <sys_id>9a011f5947203110c9a25d0f536d4388</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-08 17:13:37</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Help Desk - Default view</calculated_name>
+            <filter/>
+            <name>x_492360_mydesign_help_desk</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-08 17:13:37</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1e011f5947203110c9a25d0f536d4386</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Help Desk - Default view</sys_name>
+            <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+            <sys_update_name>sys_ui_related_x_492360_mydesign_help_desk_null</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-08 17:13:37</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

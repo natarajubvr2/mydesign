@@ -46,6 +46,1178 @@ MyDesignTracker.prototype = {
     }
 });
 	
+
+
+
+Mydesign Form(Global)
+
+Body HTML
+
+<div ng-if="::!data.isValid && !data.emptyStateTemplate" class="panel panel-default">
+  <div class="panel-body wrapper-lg text-center">
+    <span ng-if="!data.tableUnsupported">${Record not found}</span>
+    <span ng-if="data.tableUnsupported">${Form view not supported for requested table}</span>
+  </div>
+</div>
+
+<div ng-if="!data.isValid && data.emptyStateTemplate" class="panel-shift">
+  <div class="empty-state-wrapper panel panel-default" ng-include="data.emptyStateTemplate"></div>
+</div>
+
+<div ng-if="data.isValid" class="panel-shift">
+  <div class="" ng-if="!data.f._view.length && data.hideRelatedLists && data.emptyStateTemplate">
+    <div class="empty-state-wrapper panel panel-default" ng-include="data.emptyStateTemplate"></div>
+  </div>
+
+  <div class="" ng-if="!data.f._view.length && data.hideRelatedLists && !data.emptyStateTemplate">
+    <div class="panel panel-default">
+      <div class="panel-heading"><span class="panel-title">{{data.f.title}}</span> <span ng-if="::options.showFormView == 'true' && data.f.view != ''">[{{data.f.view_title}} view]</span></div>
+      <div class="panel-body wrapper-lg text-center">
+        ${No elements to display}
+      </div>
+    </div>
+  </div>
+
+  <!-- readOnly due to scope -->
+  <div ng-if="isPageReady && data.f.outOfScope" class="read-only-message">
+    <div class="alert alert-info sp-cross-scope" role="alert">
+      <p>${This record is in the <strong>{{data.f.recordScopeLabel}}</strong> application, but <strong>{{data.f.currentScopeLabel}}</strong> is the current application.}</p>
+    </div>
+  </div>
+  <div ng-show="isPageReady" class="panel panel-default" ng-if="data.f._view.length || !data.hideRelatedLists" >
+    <div class="panel-heading" ng-if="data.f.title.length" sp-context-menu="getUIActionContextMenu(event)">
+      <!--
+<span class="dropdown m-r-xs" ng-if="(data.isAdmin || getUIActions('context').length > 0) && options.omitHeaderOptions != 'true' && options.omitHeaderOptions != 'false'"> 
+<button aria-label="${Form menu}" class="btn btn-form-menu dropdown-toggle glyphicon glyphicon-menu-hamburger" style="line-height: 1.4em" id="adminMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+<ul class="dropdown-menu" aria-labelledby="adminMenu">
+<li ng-if="::data.isAdmin"><a ng-href="/{{data.f.table}}.do?sys_id={{data.f.sys_id}}&sysparm_view={{data.f.view}}" target="_blank">${Open in platform}</a></li>
+<li ng-if="::data.isAdmin" class="dropdown-header">${Configure}</li>
+<li ng-if="::data.isAdmin"><a href="/slushbucket.do?sysparm_referring_url={{adminMenu.encodedPageUrl}}&sysparm_list={{data.f._sections[0].id}}&sysparm_form=section&sysparm_view={{data.f.view}}" target="_blank">${Form Layout}</a></li>
+<li ng-if="::data.isAdmin"><a href="/slushbucket.do?sysparm_referring_url={{adminMenu.encodedPageUrl}}&sysparm_list={{data.f.table}}&sysparm_form=related_list&sysparm_view={{data.f.view}}" target="_blank">${Related Lists}</a></li>
+<li ng-if="::data.isAdmin"><a href="?id=lf&table=sys_ui_policy&filter=table%3D{{data.f.table}}%5EORtableIN{{data.tableHierarchy}}%5Eactive%3Dtrue%5Eui_type%3D1%5EORui_type%3D10" ng-click="openRelatedList($event, {id:'lf', table: 'sys_ui_policy', filter: 'table%3D{{data.f.table}}%5EORtableIN{{data.f.table}},sys_metadata%5Eactive%3Dtrue%5Eui_type%3D1%5EORui_type%3D10'})">${UI Policies} <span class="badge pull-right" ng-if="f.policy.length">{{f.policy.length}}</span></a></li>
+<li ng-if="::data.isAdmin"><a href="?id=lf&table=sys_script_client&filter=table%3D{{data.f.table}}%5EORtableIN{{data.tableHierarchy}}%5Eactive%3Dtrue%5Eui_type%3D1%5EORui_type%3D10" ng-click="openRelatedList($event, {id: 'lf', table: 'sys_script_client', filter: 'table%3D{{data.f.table}}%5EORtableIN{{data.f.table}},sys_metadata%5Eactive%3Dtrue%5Eui_type%3D1%5EORui_type%3D10'})">${Client Scripts} <span class="badge pull-right" ng-if="adminMenu.getClientScriptCount()">{{adminMenu.getClientScriptCount()}}</span></a></li>
+<li ng-if="getUIActions('context').length > 0 &&  data.isAdmin" role="separator" class="divider"></li>
+<li ng-repeat="action in getUIActions('context')"><a href="" ng-click="triggerUIAction(action)">{{action.name}}</a></li>
+<li ng-if="::data.isAdmin || getUIActions('context').length > 0" role="separator" class="divider"></li>
+<li><a target="_new" href="/{{data.f.table}}.do?PDF&sys_id={{data.sys_id}}&sysparm_view={{data.f.view}}">${Export to PDF}</a></li>
+<li><a target="_new" href="/{{data.f.table}}.do?PDF&landscape=true&sys_id={{data.sys_id}}&sysparm_view={{data.f.view}}">${Export to PDF (landscape)}</a></li>
+</ul>
+</span>
+
+<!-- optional "Open in platform" link when omitHeaderOptions is true 
+<span class="dropdown m-r-xs" ng-if="::data.isAdmin && options.omitHeaderOptions == 'true' && options.ensurePlatformLink == 'true'">
+<button aria-label="${Form menu}" class="btn btn-form-menu dropdown-toggle glyphicon glyphicon-menu-hamburger" style="line-height: 1.4em" id="platformLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+<ul class="dropdown-menu" aria-labelledby="platformLink">
+<li><a ng-href="/{{data.f.table}}.do?sys_id={{data.f.sys_id}}&sysparm_view={{data.f.view}}" target="_blank">${Open in platform}</a></li>
+</ul>
+</span>
+-->
+      <span class="panel-title" role="heading" aria-level="2">{{data.f.title}}</span> <span ng-if="::options.showFormView == 'true' && data.f.view != ''">[{{data.f.view_title}} view]</span>
+      <div ng-if="::attachmentHandler && data.canAttach" title="{{::data.addAttachmentMsg}}" class="pull-right attachment-button">
+        <sp-attachment-button></sp-attachment-button>
+      </div>      
+    </div>
+     
+
+    <div class="panel-body">
+       <div class="sharePoint" align="right">
+      <!-- SharePoint -->
+               
+        <button ng-click="c.openSharepoint()" ng-disabled="submitting" ng-if="c.data.sharePoint" type="button" class="btn btn-primary action-btn">EPA-SharePoint</button>
+      <script type="text/ng-template" id="modalTemplateSharepoint">
+        <div class="panel panel-default">
+        <div class="panel-heading"><a data-toggle="collapse" class="close" ng-click="$dismiss()">&times;</a>
+        <h4 class="panel-title">Are u Sure?</h4>        
+        </div>        
+        <div class="panel-body wrapper-xl">
+        <form name="modalTemplateSharepoint" ng-submit="c.uiAction('sharePoint')">
+        <div class="form-group">
+       {{data.url}} 
+        </div>
+        <button type="submit" class="button btn btn-primary" >Ok</button>
+        <button type="reset" class="button btn btn-danger" ng-click="$dismiss()" class="close">Cancel</button>
+        </form>
+        </div>
+        </div>
+      </script> 
+      <span>{{status}}</span>
+        </div>
+      
+      <!-- performance debug -->
+      <div ng-if="data.show_sql">
+        <div class="comment">
+          <span ng-if="data.f._perf.sql_count">${SQL Statements {{data.f._perf.sql_count}}}, </span>
+          <span>${Time {{data.f._perf.time}}}</span>
+        </div>
+        <div ng-repeat="s in data.f._perf.sql" class="{{s.type}}">
+          {{s.statement}}
+        </div>
+        
+      </div> 
+     
+      <!-- attachments -- Moving this line to below for the purpose of Procurement portal view
+<sp-attachment-manager table="::data.table" sys-id="data.f._attachmentGUID" omit-edit="::!data.canAttach"></sp-attachment-manager> -->
+      <!-- form -->
+      <div>
+        <sp-model form_model="data.f" mandatory="mandatory"></sp-model>
+      </div>
+      <!-- UI Action Links -->
+      <div ng-if="getUIActions('link').length > 0">
+        <label style="margin: 0;">${Related Links}</label>
+        <div ng-repeat="action in getUIActions('link')">
+          <a href ng-click="triggerUIAction(action)" gsft_id="{{::action.sys_id}}">{{::action.name}}</a>
+        </div>
+      </div>
+
+      <!-- attachments -->
+      <div ng-if="c.data.userRole_update=='true'">
+        <sp-attachment-manager table="::data.table" sys-id="data.f._attachmentGUID" omit-edit="::!data.canAttach"></sp-attachment-manager>
+      </div>
+      <div ng-if="c.data.userRole_update=='false'">
+        <sp-attachment-manager table="::data.table" sys-id="data.f._attachmentGUID" omit-edit="::!data.canAttach" && omit-edit="::data.canAttach"></sp-attachment-manager>
+      </div>
+      
+      <!-- related lists -->
+      <!--   <div ng-if="!data.hideRelatedLists"> Making this as false for the purpose of Procurement portal view -->
+      <div ng-if="data.hideRelatedLists != false">
+        <!--  <label style="margin: 0">${Related Lists}</label> -->
+        <div style="margin-bottom: 7px; padding-bottom: 7px; border-bottom: 1px solid #f5f5f5;">
+          <span ng-repeat="rl in data.f._related_lists" ng-if="rl.visible">
+            <a ng-if="rl.type != 'REL'" ng-href="?id=lf&table={{::rl.table}}&filter={{rl.field}}%3D{{data.f.sys_id}}{{rl.filter ? '^' + rl.filter : ''}}&view={{data.f.view}}" ng-click="openRelatedList($event, {id: 'lf', table: '{{::rl.table}}', filter: '{{rl.field}}%3D{{data.f.sys_id}}'})">{{rl.plural}}
+              <span class="label label-as-badge label-primary" ng-if="rl.count">{{::rl.count}}</span>
+            </a>
+            <a ng-if="::rl.type == 'REL'" href="?id=lf&table={{::rl.table}}&relationship_id={{rl.relationship_id}}&apply_to={{rl.apply_to}}&apply_to_sys_id={{rl.apply_to_sys_id}}&view={{::data.f.view}}" ng-click="openRelatedList($event, {id: 'lf', table: '{{::rl.table}}', apply_to: '{{rl.apply_to}}', apply_to_sys_id: '{{rl.apply_to_sys_id}}', relationship_id: '{{rl.relationship_id}}'})">{{rl.label}}
+              <span class="label label-as-badge label-primary" ng-if="rl.count">{{rl.count}}</span>
+            </a>
+            <span ng-if="!$last" style="padding-left: .5em; padding-right: .5em;" aria-hidden="true"> | </span>
+          </span>
+        </div>
+         
+      </div>
+    </div>
+
+    <div class="panel-footer">
+
+      <button ng-click="triggerUIAction(action)" ng-disabled="submitting" ng-repeat="action in getUIActions('button')" class="btn action-btn" ng-class="::getButtonClass(action)" gsft_id="{{::action.sys_id}}">{{action.name}}</button>
+
+      <!-- Cancel Button -->
+      <button title="To cancel the Open request" ng-click="c.openModalCancel()" ng-disabled="submitting" ng-if="c.data.cancel" type="button" class="btn btn-primary action-btn">Cancel</button>
+      <script type="text/ng-template" id="modalTemplateCancel">
+        <div class="panel panel-default">
+        <div class="panel-heading"><a data-toggle="collapse" class="close" ng-click="$dismiss()">&times;</a>
+        <h4 class="panel-title">Please provide cancel reason in the below comments.</h4>        
+        </div>        
+        <div class="panel-body wrapper-xl">
+        <form name="modalTemplateCancel" ng-submit="c.uiAction('cancel')">
+        <div class="form-group">
+        <textarea name="comment" sp-autosize="true" ng-required="true" ng-model="data.cancelComments" id="cancelComments" placeholder="Comments are mandatory" class="form-control ng-pristine ng-valid ng-scope ng-empty ng-touched" aria-invalid="false" style="overflow: hidden; word-wrap: break-word; resize: horizontal;"></textarea>
+        </div>
+       <button type="submit" class="button btn btn-primary">Submit</button>
+        <button type="reset" class="button btn btn-danger" ng-click="$dismiss()" class="close">Cancel</button>
+     <!--   <input class="btn btn-primary" type="submit" onclick="location.reload();"/> -->
+        </form>
+        </div>
+        </div>
+      </script>
+      
+       <!-- Escalate Button -->
+      <button title="To Escalate the Open request"ng-click="c.openModalEscalate()" ng-disabled="submitting" ng-if="c.data.escalate" type="button" class="btn btn-primary action-btn">Escalate</button>
+      <script type="text/ng-template" id="modalTemplateEscalate">
+        <div class="panel panel-default">
+        <div class="panel-heading"><a data-toggle="collapse" class="close" ng-click="$dismiss()">&times;</a>
+        <h4 class="panel-title">Please provide escalation reason in the below comments.</h4>        
+        </div>        
+        <div class="panel-body wrapper-xl">
+        <form name="modalTemplateEscalate" ng-submit="c.uiAction('escalate')">
+        <div class="form-group">
+        <textarea name="comment" sp-autosize="true" ng-required="true" ng-model="data.escalateComments" id="escalateComments" placeholder="Comments are mandatory" class="form-control ng-pristine ng-valid ng-scope ng-empty ng-touched" aria-invalid="false" style="overflow: hidden; word-wrap: break-word; resize: horizontal;"></textarea>
+        </div>
+       <button type="submit" class="button btn btn-primary">Submit</button>
+        <button type="reset" class="button btn btn-danger" ng-click="$dismiss()" class="close">Cancel</button>
+     <!--   <input class="btn btn-primary" type="submit" onclick="location.reload();"/> -->
+        </form>
+        </div>
+        </div>
+      </script>
+      
+
+
+      <!-- Request Cancel Button -->
+      <button title="To raise Cancellation request" ng-click="c.openModalreqCancel()" ng-disabled="submitting" ng-if="c.data.reqCancel" type="button" class="btn btn-primary action-btn">Request for Cancel</button>
+      <script type="text/ng-template" id="modalTemplateReqCancel">
+        <div class="panel panel-default">
+        <div class="panel-heading"><a data-toggle="collapse" class="close" ng-click="$dismiss()">&times;</a>
+        <h4 class="panel-title">Please provide cancellation request reason in the below comments.</h4>        
+        </div>        
+        <div class="panel-body wrapper-xl">
+        <form name="modalTemplateReqCancel" ng-submit="c.uiAction('reqCancel')">
+        <div class="form-group">
+        <textarea name="comment" sp-autosize="true" ng-required="true" ng-model="data.reqCancelComments" id="reqCancelComments" placeholder="Comments are mandatory" class="form-control ng-pristine ng-valid ng-scope ng-empty ng-touched" aria-invalid="false" style="overflow: hidden; word-wrap: break-word; resize: horizontal;"></textarea>
+        </div>
+        <button type="submit" class="button btn btn-primary">Submit</button>
+        <button type="reset" class="button btn btn-danger" ng-click="$dismiss()" class="close">Cancel</button> 
+       <!-- <input class="btn btn-primary" type="submit" onclick="location.reload();"/>  -->      
+        </form>
+        </div>
+        </div>
+      </script>
+
+
+      <!-- Re-Open Button -->
+      <button ng-click="c.openModalReopen()" ng-disabled="submitting" ng-if="c.data.reopen" type="button" class="btn btn-primary action-btn">Re-Open</button>
+      <script type="text/ng-template" id="modalTemplateReopen">
+        <div class="panel panel-default">
+        <div class="panel-heading"><a data-toggle="collapse" class="close" ng-click="$dismiss()">&times;</a>
+        <h4 class="panel-title">Please provide Reopen reason in the below comments.</h4>        
+        </div>        
+        <div class="panel-body wrapper-xl">
+        <form name="modalTemplateReopen" ng-submit="c.uiAction('reopen')">
+        <div class="form-group">
+        <div>
+        <div class="panel panel-primary">
+  <div class="panel-heading">Reason Code</div>
+  <div class="panel-body">
+                 <sn-choice-list ng-click="c.onOptionClick(c.data.selectedValue)" 
+                    class="form-field options-drop"
+                    id="issue-dropdown"
+                    sn-model="c.data.selectedValue" 
+                    sn-items="c.data.groups" 
+                    sn-value-field="value" 
+                    sn-text-field="label"
+                    sn-options="c.groupOption"
+                    >
+    </sn-choice-list>
+              </div>
+             <br>
+         <div>
+        <textarea name="comment" sp-autosize="true" ng-required="true" ng-model="data.reopenComments" id="reopenComments" placeholder="Comments are mandatory" class="form-control ng-pristine ng-valid ng-scope ng-empty ng-touched" aria-invalid="false" style="overflow: hidden; word-wrap: break-word; resize: horizontal;"></textarea>
+        </div>
+        </div>
+        <form>
+        <button type="submit" class="button btn btn-primary" >Submit</button>
+        <button type="reset" class="button btn btn-danger" ng-click="$dismiss()" class="close">Cancel</button>        
+     <!-- <input class="btn btn-primary" type="submit" onclick="location.reload();/> -->
+        </form>
+        </div>
+        </div>
+      </script>  
+      <span>{{status}}</span>
+      <button ng-if="c.data.userRole_update=='true' && getPrimaryAction()" type="submit" ng-click="triggerUIAction(getPrimaryAction())" ng-disabled="submitting" class="btn btn-primary action-btn pull-right" gsft_id="{{::getPrimaryAction().sys_id ? getPrimaryAction().sys_id : ''}}">${Update} <!-- <span ng-if="saveButtonSuffix">(${{{saveButtonSuffix}}})</span> --></button>
+      <!-- <button ng-if="c.data.userRole_update=='false' && getPrimaryAction()" type="button" class="btn btn-primary action-btn pull-right" disabled>${Update} </button> -->
+      <div style="clear: both;"></div>
+      <div ng-if="mandatory.length" class="alert alert-info" style="margin-top: .5em" aria-live="polite" aria-atomic="true">
+        <span ng-if="mandatory.length > 0">${Required information} </span>
+        <span ng-repeat="f in mandatory" class="label sc-field-error-label" ng-bind="f.label"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<pre>{{c.data.ab|json}}</pre>-->
+
+HTML end--------------------------------------------------------------------------------
+
+
+
+CSS starts---------------------------------------------------------------------------
+.btn-form-menu {
+	vertical-align: inherit;
+  padding: inherit;
+  background: none;
+}
+
+.panel-title {
+  word-wrap: break-word;
+}
+
+.panel-heading {
+  .dropdown-menu {
+    a {
+      white-space: normal;
+    }
+  }
+}
+
+.sc-field-error-label {
+  margin-right: .5em;
+  display: inline-block;
+  background-color: $sc-field-error-color;
+}
+
+.comment {
+	font-weight: bold;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+.mce-panel, .mce-btn {
+	background-image: none;
+	background-color: #f0f3f4;
+}
+
+.action-btn {
+  margin-right: 5px;
+}
+
+.timeline-container {
+   max-height: 50vh;
+   height: 100%;
+   overflow-y: auto;
+}
+
+.panel .panel {
+    height: auto !important;
+}
+
+.attachment-button {
+  .glyphicon-paperclip {
+    font-size: 18px;
+  }
+}
+
+.dropdown {
+  .glyphicon-menu-hamburger:focus {
+ 		outline: thin dotted;
+		outline: 5px auto $input-border-focus;
+		outline-offset: -2px; 
+	}
+}
+
+.empty-state-wrapper {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10vh 20px 20px;
+
+  .empty-state {
+    border: 1px solid #e7e9eb;
+    border-radius: 10px;
+    max-width: 700px;
+    padding: 30px 40px 20px;
+    position: relative;
+
+    .empty-state-badge {
+      top: -36px;
+      left: 50%;
+      position: absolute;
+      height: 72px;
+      width: 72px;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      border-radius: 100%;
+      color: #ffffff;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-size: 40px;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin-left: -36px;
+      text-align: center;
+    }
+
+    .empty-state-header {
+      font-size: 30px;
+      text-align: center;
+      color: #343d47;
+    }
+
+    .empty-state-content {
+      ul {
+        list-style: disc outside;
+        margin: 0 0 10px 0;
+        padding: 0 0 0 30px;
+      }
+    }
+  }
+}
+
+.text-success-alt {
+	background-color: $state-success-text;
+}
+
+.text-info-alt {
+	background-color: $state-info-text;
+}
+
+.sp-cross-scope-msg {
+  margin-bottom: 10px;
+}
+CSS ends ---------------------------------------------------------------------------------------------
+Server Script starts here-------------------------------------------------------------------------------
+// form functionality - URL parameter driven
+(function($sp, input, data, options, gs) {
+
+     data.groups = []; //prepare an array for groups
+    data.members = []; //prepare an array for members
+    
+    //query the server to populate the array
+    var groups = new GlideRecord('sys_choice');
+    
+    //build the query based on the logged in user as the group manager
+    groups.addQuery('name','x_492360_mydesign_help_desk');
+    groups.query();
+    
+    while(groups.next()) {
+        //Because we are using a sn-choice-field we want to use an object
+        //This lets us define different values for the label and the value
+        var group = {};
+        
+        group.value = groups.value.toString(); //we will use sys_id as the value to make referencing these groups easier later on
+        
+        group.label = groups.label.toString(); //we will use name as the label that we display to the user
+        
+        //Now we push the object to the array and repeat
+        data.groups.push(group);
+    }
+    if(input){
+        gs.addInfoMessage(input.group);
+    }
+
+    // "use strict"; -linter issues //
+    // populate the 'data' variable
+    data.attachmentUploadSuccessMsg = gs.getMessage("Attachment upload was successful");
+    data.recordAddedMsg = gs.getMessage("Record Added");
+    data.updatedMsg = gs.getMessage("updated_uppercase");
+    data.exportPDFMsg = gs.getMessage("Export to PDF");
+    data.exportPDFLandMsg = gs.getMessage("Export to PDF (landscape)");
+    data.addAttachmentMsg = gs.getMessage("Add an attachment");
+    data.maxAttachmentSize = parseInt(gs.getProperty("com.glide.attachment.max_size", 1024));
+    if (isNaN(data.maxAttachmentSize))
+        data.maxAttachmentSize = 24;
+    data.largeAttachmentMsg = gs.getMessage("Attached files must be smaller than {0} - please try again", "" + data.maxAttachmentSize + "MB");
+
+    data.isAdmin = gs.hasRightsTo('sp/configure.all/execute', null);
+    data.emptyStateTemplate = options.empty_state_template;
+    var isPopup = false;
+
+    if (input) {
+        data.table = input.table;
+        data.sys_id = input.sys_id;
+        data.view = input.view;
+        var result = {};
+        if (input._fields) {
+            result = $sp.saveRecord(input.table, input.sys_id, input._fields);
+            data.sys_id = result.sys_id;
+        }
+
+        if (input.sys_id == '-1')
+            data.isNewRecord = true;
+        if (input.isPopup === true)
+            isPopup = true;
+    } else {
+        data.table = options.table || $sp.getParameter("t") || $sp.getParameter("table") || $sp.getParameter("sl_table");
+        data.sys_id = options.sys_id || $sp.getParameter("sys_id") || $sp.getParameter("sl_sys_id");
+        if (!data.sys_id && options.sys_id_required != "true")
+            data.sys_id = "-1";
+        data.view = options.view || $sp.getParameter("view") || $sp.getParameter("v"); // no default
+    }
+
+    if (isPopup && gs.getProperty("glide.service_portal.reference.use_sys_popup_view", "false") == "true") {
+        options.hideRelatedLists = false; // changed to false for the purpose of Procurement portal view
+        options.disableUIActions = "false"; // changed to false for the purpose of Procurement portal view
+    }
+    //  data.hideRelatedLists = options.hideRelatedLists || false; Disabled this line for the purpose of Procurement portal view
+    data.hideRelatedLists = false;
+    data.disableUIActions = options.disableUIActions === "false"; // changed to false for the purpose of Procurement portal view
+
+    data.query = $sp.getParameter("query") || options.query || "";
+    data.f = {};
+    if (!data.table)
+        return;
+
+    // Form widget is not a supported way to view an attachment
+    if (data.table == "sys_attachment") {
+        data.tableUnsupported = true;
+        return;
+    }
+
+    if (!GlideTableDescriptor.isValid(data.table))
+        return;
+
+    if (!data.sys_id)
+        return;
+
+    var rec = $sp.getRecord(data.table, data.sys_id);
+
+    if (data.sys_id != "-1" && !rec.canRead())
+        return; // can't see requested record
+
+    if (data.sys_id == "-1" && !rec.canCreate())
+        return; // can't create a new record
+
+    data.isValid = rec.isValid() || data.sys_id == "-1";
+    if (!data.isValid)
+        return;
+
+    data.table = rec.getRecordClassName();
+    data.tableHierarchy = GlideDBObjectManager.getTables(data.table).toArray().join();
+    data.canWrite = rec.canWrite();
+    var hasRecordAccess = data.sys_id == "-1" ? rec.canCreate() : data.canWrite;
+    data.canAttach = !options.omitAttachmentButton && hasRecordAccess && gs.hasRole(gs.getProperty('glide.attachment.role')) && !GlideTableDescriptor.get(data.table).getED().getBooleanAttribute("no_attachment");
+    data.f = $sp.getForm(data.table, data.sys_id, data.query, data.view, isPopup);
+
+    // PRB1335036: show appropriate message when record is in cross app scope
+    data.f.outOfScope = !rec.isInSelectedScope();
+    // Populate scope labels only when needed
+    if (data.f.outOfScope) {
+        data.f.recordScopeLabel = gs.getScopeLabelByRecordId(rec.getUniqueValue());
+        data.f.currentScopeLabel = gs.getCurrentApplicationName();
+    }
+
+    // Activity formatter is hardcoded to set specific options
+    for (var f in data.f._formatters) {
+        var fm = data.f._formatters[f];
+        if (fm.formatter == "activity.xml") {
+            fm.hardcoded = true;
+            fm.widgetInstance = $sp.getWidget('widget-ticket-conversation', {
+                table: data.table,
+                sys_id: data.sys_id,
+                includeExtended: true,
+                hideAttachmentBtn: true,
+                title: "${Activity}",
+                use_dynamic_placeholder: true,
+                btnLabel: "${Post}"
+            });
+        } else if (fm.formatter == "com_glideapp_servicecatalog_veditor" || fm.formatter == "com_glideapp_questionset_default_question_editor") {
+            var qsConfig = $sp.getValue('quick_start_config');
+            if (qsConfig)
+                qsConfig = JSON.parse(qsConfig)[0];
+            fm.widgetInstance = $sp.getWidget(fm.widget, {
+                table: data.table,
+                sys_id: data.sys_id,
+                readonly_variable_editor: qsConfig ? qsConfig.readonly_variable_editor : 'false'
+            });
+        } else
+            fm.widgetInstance = $sp.getWidget(fm.widget, data);
+    }
+
+    // Always hide Update button in Cancelled state for every role
+    if (data.f._fields.state.value == 10) {
+        data.userRole_update = 'false';
+    } else {
+        // Show Update button and Attachemnts only for the roles admin, x_nainr_onenav_pro.fullfiller, x_nainr_onenav_pro.admin
+        if (data.table == 'x_492360_mydesign_help_desk') {
+            // 1 = Open state , 25 = pending in approval - User can able to update the existing request in this two states
+            if (((data.f._fields.state.value == 1 || data.f._fields.state.value == 25) && (data.f._fields.opened_by.value == gs.getUserID() || data.f._fields.requested_for.value == gs.getUserID())) || (gs.getUser().hasRole('admin') == true && data.f._fields.state.value == 7) || ((gs.hasRole('x_nainr_onenav_pro.fullfiller', 'x_nainr_onenav_pro.admin', 'admin') == true) && data.f._fields.state.value != 7)) {
+                data.userRole_update = 'true'; // Update Buttons Displays
+            } else if (gs.getUser().hasRole('admin') != true && data.f._fields.state.value == 7) {
+                data.userRole_update = 'false'; // Update Buttons Hides
+            }
+        } else {
+            if ((gs.getUser().hasRole('admin') == true && data.f._fields.state.value == 7) || ((gs.hasRole('x_nainr_onenav_pro.fullfiller', 'x_nainr_onenav_pro.admin', 'admin') == true) && data.f._fields.state.value != 7)) {
+                data.userRole_update = 'true'; // Update Buttons Displays
+            } else if (gs.getUser().hasRole('admin') != true && data.f._fields.state.value == 7) {
+                data.userRole_update = 'false'; // Update Buttons Hides
+            }
+        }
+    }
+
+    if (data.table == 'x_492360_mydesign_help_desk') {
+
+        gr = new GlideRecord('x_492360_mydesign_help_desk');
+        gr.addQuery('sys_id', data.sys_id);
+        gr.query();
+        if (gr.next()) {
+            data.id = gr.u_epa_number.toString();
+            data.lastFour = data.id.slice(-4);
+        }
+    }
+
+    // Cancel,Request Cancel, Escalate and Re-Open Functionalities   
+
+    data.cancel = false;
+    data.reqCancel = false;
+    data.escalate = false;
+    data.reopen = false;
+    var req_up = 0;
+
+    // Enable/Disable Cancel button
+    if ((data.f._fields.state.value == 1 || data.f._fields.state.value == 25) && (data.f._fields.requested_for.value == gs.getUserID() || data.f._fields.opened_by.value == gs.getUserID())) {
+       // if (data.table == 'x_492360_mydesign_help_desk' && (data.f._fields.request_subcategory.value == 'EPA' || (data.f._fields.request_subcategory.value == 'Pricing File Amendment' && data.f._fields.state.value == 25))) {
+       //     data.cancel = true; // Displays the Cancel button
+       // }
+        if (data.table == 'x_492360_mydesign_help_desk' || data.table == 'x_492360_mydesign_requisiton') {
+            data.cancel = true; // Displays the Cancel button
+        }
+        if (data.table == 'x_492360_mydesign_help_desk' && data.f._fields.contact_type.value != 'email') {
+            data.cancel = true; // Displays the Cancel button
+        }
+    }
+
+    // Enable/Disable Request for Cancel button
+    if (data.f._fields.state.value == 2 && (data.f._fields.requested_for.value == gs.getUserID() || data.f._fields.opened_by.value == gs.getUserID())) {
+       /* if (data.table == 'x_nainr_onenav_pro_aftermarket_support_request' && (data.f._fields.request_subcategory.value == 'EPA' || data.f._fields.request_subcategory.value == 'Pricing File Amendment')) {
+            data.reqCancel = true; // Displays the Request Cancel button
+        }*/
+		/* remove this comment
+        if (data.table == 'x_492360_mydesign_help_desk' || data.table == 'x_492360_mydesign_requisiton') {
+            data.reqCancel = true; // Displays the Request Cancel button
+        }
+        if (data.table == 'x_492360_mydesign_help_desk' && data.f._fields.contact_type.value != 'email') {
+            data.reqCancel = true; // Displays the Request Cancel button
+        }
+    }
+
+    // Enable/Disable Escalate button
+    if ((data.f._fields.state.value != 6 || data.f._fields.state.value != 7 || data.f._fields.state.value != 10) && (data.f._fields.requested_for.value == gs.getUserID() || data.f._fields.opened_by.value == gs.getUserID())) {
+
+        if (data.table == 'x_492360_mydesign_help_desk' && data.f._fields.contact_type.value != 'email') {
+            var f_ap = false;
+            var createdDate;
+            var helpReq = new GlideRecord(data.table);
+            helpReq.addQuery('sys_id', data.sys_id);
+            helpReq.addQuery('escalate', false);
+            helpReq.addQuery('f_a_ap', true);
+            helpReq.query();
+            if (helpReq.next()) {
+                f_ap = helpReq.getValue('f_a_ap');
+            }
+            if (f_ap)
+                data.escalate = true; // Displays the Escalate button if Business elapsed percentage above 75%
+        }
+    }
+
+    if (data.f._fields.state.value == 6) {
+        data.reopen = true; // Displays Reopen button
+    }
+
+
+
+    //SharePoint
+    data.sharePoint = false;
+    if (data.table == 'x_492360_mydesign_help_desk'){ //&& (data.f._fields.request_subcategory.value == 'EPA' && data.f._fields.state.value != 25 && data.f._fields.u_epa_number.value != '')) {
+        data.sharePoint = true; // Displays the Cancel button
+    }
+    if (input && input.action) {
+        var action = input.action;
+
+        // Cancel process
+        if (action == 'cancel') {
+            var gr;
+  
+            if (data.table == 'x_492360_mydesign_help_desk') { //If Help desk request
+                if (data.f._fields.request_subcategory.value == 'General Queries' && data.f._fields.u_sub_category.value == 'f89d4d621bf609909ec38557624bcba6') {
+                    req_up = 1;
+                } else {
+                    gr = new GlideRecord('x_492360_mydesign_help_desk');
+                }
+            }
+            if (data.table == 'x_492360_mydesign_help_desk') { //If Aftermarket request
+                if (data.f._fields.state.value != 25) {
+                    gr = new GlideRecord('x_492360_mydesign_help_desk');
+                }
+            }
+            if (data.table == 'x_492360_mydesign_requisiton') { //If Requsition request
+                gr = new GlideRecord('x_492360_mydesign_requisiton');
+            }
+            gr.addQuery('parent', data.sys_id);
+            gr.query();
+            while (gr.next()) {
+                var cancelText = "Request Cancelled by " + gs.getUserDisplayName() + " with comments: " + input.cancelComments;
+                gr.setValue('state', '10');
+                gr.comments = cancelText;
+                gr.update();
+            }
+
+            // Cancel Approval request for aftermarket approval
+            if (data.table == 'x_492360_mydesign_help_desk') {
+                if (data.f._fields.state.value == 25) {
+                    var gr1 = new GlideRecord("sysapproval_approver");
+                    var query = 'sysapproval=' + data.sys_id;
+                    gr1.addEncodedQuery(query);
+                    gr1.query();
+                    if (gr1.next()) {
+                        gr1.setValue('state', 'not_required');
+                        gr1.update();
+                    }
+                    req_up = 2;
+                }
+            }
+
+            var gr2;
+
+            if (req_up == 1) {
+                gr2 = new GlideRecord('x_492360_mydesign_help_desk');
+            } else if (req_up == 2) {
+                gr2 = new GlideRecord('x_nainr_onenav_pro_aftermarket_support_request');
+            }
+            gr2.addQuery('sys_id', data.sys_id);
+            gr2.query();
+            while (gr2.next()) {
+                var cancelText1 = "Request Cancelled by " + gs.getUserDisplayName() + " with comments: " + input.cancelComments;
+                gr2.setValue('state', '10');
+                gr2.comments = cancelText1;
+                gr2.update();
+            }
+
+        }
+
+        // Escalate process
+        if (action == 'escalate') {
+            if (data.table == 'x_nainr_onenav_pro_help_desk_request') { //If Help desk request
+                var gr_escalate;
+                gr_escalate = new GlideRecord(data.table);
+                gr_escalate.addQuery('sys_id', data.sys_id);
+                gr_escalate.query();
+
+                if (gr_escalate.next()) {
+                    var escalateText = "Request Escalated by " + gs.getUserDisplayName() + " with comments: " + input.escalateComments;
+                    gr_escalate.setValue('escalate', true);
+                    gr_escalate.setValue('priority', '2');
+                    gr_escalate.comments = escalateText;
+                    gr_escalate.update();
+                }
+            }
+        }
+
+        // Request Cancel process
+        if (action == 'reqCancel') {
+
+            var gr_reqCancel;
+         
+            if (data.table == 'x_492360_mydesign_help_desk') { //If Help desk request
+                gr_reqCancel = new GlideRecord('x_492360_mydesign_help_desk');
+            }
+            if (data.table == 'x_492360_mydesign_requisiton') { //If Requsition request
+                gr_reqCancel = new GlideRecord('x_492360_mydesign_requisiton');
+            }
+
+            // To trigger Cancellation Email before set the field valus as true
+            var table_name = data.table;
+            var gr_req = new GlideRecord(table_name);
+            gr_req.addQuery('sys_id', data.sys_id);
+            gr_req.query();
+            if (gr_req.next()) {
+                gr_req.setValue('cancellation_request_from_console', true);
+                gr_req.setValue('cancellation_request_status', true);
+                gr_req.update();
+            }
+
+            //Update existing tasks
+            gr_reqCancel.addQuery('parent', data.sys_id);
+            gr_reqCancel.addEncodedQuery('stateIN1,2');
+            gr_reqCancel.query();
+            while (gr_reqCancel.next()) {
+                var reqcancelText = "Request for Cancel raised by " + gs.getUserDisplayName() + " with comments: " + input.reqCancelComments;
+                gr_reqCancel.setValue('state', '5');
+                gr_reqCancel.comments = reqcancelText;
+                gr_reqCancel.update();
+            }
+
+            // Create Cancel Request task 
+            var taskComm = input.reqCancelComments;
+            gr_reqCancel.initialize();
+            gr_reqCancel.query();
+            gr_reqCancel.parent = data.sys_id;
+            gr_reqCancel.setValue('state', '1');
+            gr_reqCancel.assignment_group = data.f._fields.assignment_group.value;
+            gr_reqCancel.assigned_to = data.f._fields.assigned_to.value;
+            gr_reqCancel.setValue('cancel_request_task', true);
+            if (data.table == 'x_nainr_onenav_pro_legal_document_request') {
+                gr_reqCancel.description = taskComm;
+            } else {
+                gr_reqCancel.short_description = taskComm;
+            }
+            gr_reqCancel.opened_by = data.f._fields.opened_by.value;
+            if (data.table == 'x_492360_mydesign_help_desk') {
+                gr_reqCancel.u_requested_for = data.f._fields.requested_for.value;
+            } else {
+                gr_reqCancel.requested_for = data.f._fields.requested_for.value;
+            }
+            gr_reqCancel.setValue('priority', '3');
+            gr_reqCancel.comments = "Request for Cancel raised by " + gs.getUserDisplayName() + " with comments: " + taskComm;
+            gr_reqCancel.insert();
+
+        }
+
+        // ReOpen Button        
+        if (action == 'reopen') {
+         gs.info("reopen action triggered  entered "+ input.reasonCode);
+            var gr1;
+            if (data.table == 'x_492360_mydesign_help_desk') { //If Help desk request
+                gr1 = new GlideRecord('x_492360_mydesign_help_desk');
+            }
+
+            gr1.addQuery('sys_id', data.sys_id);
+                    gs.info("help   "+data.sys_id);
+            gr1.query();
+            if (gr1.next()) {
+                            
+                gr1.setValue('state', '1');
+                    gr1.comments = input.reopenComments+'----'+this.reasonCode;
+                var result1 = gr1.update();
+                            
+            }
+           // gr.insert();
+        }
+    }
+
+})($sp, input, data, options, gs);
+
+Server script ends-----------------------------------------------------------------------------
+
+Client Controller starts here--------------------------------------------------------------------
+function($rootScope, $scope, $timeout, $location, $log, $window, spUtil, nowAttachmentHandler, spAriaUtil, spNavStateManager, $uibModal,$interval,spModal) {
+  $scope.submitting = false;
+  $scope.mandatory = [];
+  $scope.errorMessages = [];
+  $scope.data.show_sql = false;
+  $scope.saveButtonSuffix = spUtil.getAccelerator('s');
+  $scope.isPageReady = false;
+  $scope.adminMenu = {
+    encodedPageUrl: encodeURIComponent($location.url()),
+    getClientScriptCount: function() {
+      var count = 0;
+      if ($scope.data.f.client_script) {
+        count += $scope.data.f.client_script.onChange.length;
+        count += $scope.data.f.client_script.onLoad.length;
+        count += $scope.data.f.client_script.onSubmit.length;
+      }
+      return count;
+    }
+  };
+    var tableId = $scope.data.sys_id != -1 ? $scope.data.sys_id : ($scope.data.f ? $scope.data.f._attachmentGUID : -1);
+    spUtil.recordWatch($scope, "sys_attachment", "table_sys_id=" + tableId, function (response, data) {
+    $scope.attachmentHandler.getAttachmentList();
+    if (response.data) {
+        var options = {};
+        options.operation = response.data.operation;
+        options.filename = response.data.display_value;
+    options.sys_id = tableId;
+    options.table = $scope.data.table;
+        options.state = (response.data.record && response.data.record.state) ? response.data.record.state.value : "";
+        if (options.operation === 'update' && options.state === 'not_available')
+         $rootScope.$broadcast("attachment.updated", options);
+    }
+});
+    
+  $rootScope.$on('$sp.html.editor.progress', function(e, conf) {
+      $scope.submitting = conf.state;
+  });
+
+  $scope.getButtonClass = function(action) {
+        if (action.form_style == "destructive")
+            return "btn-danger";
+        
+        if (action.form_style == "primary")
+            return "btn-primary";
+        
+        return "btn-default";
+    };
+    
+  $scope.getUIActions = function(type) {
+    if ($scope.data.disableUIActions != 'false') // added false for the purpose of Procurement portal view
+      return [];
+    if (type) {
+      return $scope.data.f._ui_actions.filter(function(action) {
+        //We handle the primary action button separately.
+        return !action.primary && action['is_' + type];
+      });
+    } else {
+      return $scope.data.f._ui_actions;
+    }
+  }
+
+  $scope.getPrimaryAction = function() {
+    var primaryActions = $scope.data.f._ui_actions.filter(function(action) {
+      return action.primary;
+    });     
+    return (primaryActions.length) ? primaryActions[0] : null;
+  }
+
+  $scope.getUIActionContextMenu = function(event) {
+    var menu = [];
+    if (event.ctrlKey)
+      return menu;
+
+    var contextActions = $scope.getUIActions('context');
+    contextActions.forEach(function(action) {
+      menu.push([action.name, function() {
+        $scope.triggerUIAction(action);
+      }]);
+    });
+
+    if (contextActions.length > 0)
+      menu.push(null);
+    menu.push([$scope.data.exportPDFMsg, function() {
+      exportPDF("");
+    }]);
+    menu.push([$scope.data.exportPDFLandMsg, function() {
+      exportPDF('true');
+    }]);
+
+    return menu;
+  }
+
+  function exportPDF(landscape) {
+    $window.open("/" + $scope.data.f.table + ".do?PDF&landscape=" + landscape + "&sys_id=" + $scope.data.sys_id + "&sysparm_view=" + $scope.data.f.view);
+  }
+
+  //trigger the primary UI Action on save (if there is one)
+  var deregister = $scope.$on('$sp.save', function() {
+    var primaryAction = $scope.getPrimaryAction();
+    if (primaryAction)
+      $scope.triggerUIAction(primaryAction);
+  });
+  $scope.$on('$destroy', function() {
+    deregister()
+  });
+
+  $scope.triggerUIAction = function(action) {
+        if ($scope.data.disableUIActions != 'false '&& !action.primary) { // added false for the purpose of Procurement portal view
+      return;
+    }
+
+    var activeElement = document.activeElement;
+    if (activeElement) {
+      activeElement.blur();
+    }
+
+    $scope.$evalAsync(function() {
+      if (g_form) {
+        $scope.submitting = true;
+        if (!g_form.submit(action.action_name || action.sys_id))
+          $scope.submitting = false;
+      }
+    });
+  }
+
+  $scope.$on("spModel.uiActionComplete", function(evt, response, savedFormSysId) {
+    if (!response.isInsert &&  ($scope.data.sys_id !== savedFormSysId))
+      return;
+
+    $scope.submitting = false;
+    if (response.isActionAborted)
+    return;
+
+    var sysID = (response.isInsert) ? response.sys_id : $scope.data.sys_id;
+    loadForm($scope.data.table, sysID).then(constructResponseHandler(response));
+  });
+
+  function constructResponseHandler(response) {
+    return function() {
+      $rootScope.$broadcast("sp.form.submitted", {sys_id: (response.isInsert) ? response.sys_id : $scope.data.sys_id});
+      var message;
+      var eventName = "sp.form.record.updated";
+      if (response.isInsert) {
+        message = $scope.data.recordAddedMsg;
+        var search = $location.search();
+        search.sys_id = response.sys_id;
+        search.spa = 1;
+        $location.search(search).replace();
+      } else
+        message = $scope.data.updatedMsg;
+
+      $scope.data.hideRelatedLists = hideRelatedLists();
+      $scope.$emit(eventName, $scope.data.f._fields, $scope.data.sys_id);
+      $rootScope.$broadcast(eventName, $scope.data.f._fields, $scope.data.sys_id);
+      $scope.status = message;
+      spUtil.addTrivialMessage(message);
+      $timeout(clearStatus, 2000);
+    }
+  }
+
+  var ctrl = this;
+  // switch forms
+  var unregister = $scope.$on('$sp.list.click', onListClick);
+  $scope.$on("$destroy", function() {
+    unregister();
+  })
+    
+    function _save() {
+        var primaryAction = $scope.getPrimaryAction();
+    if (primaryAction)
+      $scope.triggerUIAction(primaryAction);
+    }
+    
+    function onListClick(evt, arg) {
+        loadForm(arg.table, arg.sys_id);
+    }
+
+  function loadForm(table, sys_id) {
+    var f = {};
+    $scope.data.table = f.table = table;
+    $scope.data.sys_id = f.sys_id = sys_id;
+    f.view = $scope.data.view;
+    return $scope.server.update().then(setupAttachmentHandler);
+  }
+
+  function openRelatedList(e, queryString) {
+    // todo: Open this in a modal
+    $location.search(queryString);
+    e.preventDefault();
+  }
+
+  $scope.$on('spModel.fields.rendered', function() {
+    if (ctrl.panels)
+      ctrl.panels.removeClass('shift-out').addClass('shift-in');
+  });
+    
+    var g_form;
+    function initForm(gFormInstance) {
+        if (gFormInstance.getTableName() == $scope.data.f.table){
+            g_form = gFormInstance;
+            spNavStateManager.register($scope.data.table, _save, g_form);
+            $scope.isPageReady = true;
+            $timeout(function() {
+                $rootScope.$emit('spModel.gForm.rendered', g_form);
+            }, 175);
+        }
+    }
+    
+  $scope.$on('spModel.gForm.initialized', function(e, gFormInstance) {
+        initForm(gFormInstance);
+  });
+    
+    $scope.$on('spModel.gForm.env.created', function(e, gFormInstance) {
+        initForm(gFormInstance);
+  });
+    
+    // update the comments or worknotes based on activity stream
+    $scope.$on("activity_stream_is_changed", function(event, data) {
+        if (g_form && g_form.hasField(data.fieldName)) {
+            g_form.setValue(data.fieldName, data.input);
+            if (data.fieldToClear != "" && g_form.hasField(data.fieldToClear))
+                g_form.setValue(data.fieldToClear, "");
+        }
+    })
+
+  // Show or hide related lists
+  $scope.$watch('data.f._related_lists', function() {
+    $scope.data.hideRelatedLists = hideRelatedLists();
+  }, true);
+
+  function hideRelatedLists() {
+    if (!$scope.data.f._related_lists)
+      return true;
+
+    if ($scope.options.hideRelatedLists == true)
+      return true;
+
+    if ($scope.data.sys_id == '-1')
+      return true;
+
+    // If all related lists are visible=false then hide
+    if ($scope.data.f._related_lists.length > 0) {
+      for (var i in $scope.data.f._related_lists) {
+        var list = $scope.data.f._related_lists[i];
+        if (list.visible) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  function clearStatus() {
+    $scope.status = "";
+  }
+
+  function setupAttachmentHandler() {
+    $scope.attachmentHandler = new nowAttachmentHandler(appendDone, appendError);
+
+        $scope.$evalAsync(function() {
+            $scope.attachmentHandler.setParams($scope.data.table, $scope.data.f._attachmentGUID, 1024 * 1024 * $scope.data.maxAttachmentSize);
+        });
+
+    $scope.$on('dialog.upload_too_large.show', function(e) {
+      $log.error($scope.data.largeAttachmentMsg);
+      spUtil.addErrorMessage($scope.data.largeAttachmentMsg);
+    });
+  }
+  setupAttachmentHandler();
+
+  function appendDone() {
+    // don't know here whether upload succeeded, so can't show msg either way
+    $scope.$broadcast("sp.attachments.update", $scope.data.f._attachmentGUID);
+  }
+
+  function appendError(error) {
+    $scope.errorMessages.push(error);
+    spUtil.addErrorMessage(error.msg + error.fileName);
+  }
+
+  if ($scope.data.f.title) {
+      $scope.$emit('sp.widget-modal.set-aria-label', $scope.data.f.title);
+  }
+    
+    var c = this;
+    // UI Action functionality for Cancel,Request Cancel, Escalate and Re-Open
+
+    
+    c.uiAction = function(action) {
+        c.data.action = action;
+        c.server.update().then(function() {
+            c.data.action = undefined;
+            window.location.reload();
+        });
+        c.modalInstance.close();        
+    };
+
+    
+    c.openModalCancel = function() {
+        c.modalInstance = $uibModal.open({
+            templateUrl: 'modalTemplateCancel',
+            scope: $scope
+        });
+    }; 
+
+    c.openModalreqCancel = function() {
+        c.modalInstance = $uibModal.open({
+            templateUrl: 'modalTemplateReqCancel',
+            scope: $scope
+        });
+    }; 
+    
+    c.openModalEscalate = function() {
+        c.modalInstance = $uibModal.open({
+            templateUrl: 'modalTemplateEscalate',
+            scope: $scope
+        });
+    }; 
+
+    
+    c.openModalReopen = function() {
+        
+        c.modalInstance = $uibModal.open({
+            templateUrl: 'modalTemplateReopen',
+            scope: $scope           
+        }); 
+         
+    };
+    
+    c.openSharepoint = function(){
+        
+    var url = "https://www.google.co.in/maps/place/Rajajinagar="+c.data.lastFour+"&EPANumber="+c.data.id;
+        spModal.open({
+           title: 'SharePoint',
+           message: ' Are you sure you want to go GoogleMap?'
+       }).then(function() {          
+            window.open(url,'_blank');
+            
+       });      
+    };
+    
+    c.group = "";
+    
+    c.groupChoices = c.data.groups;
+    
+    c.groupOption = {
+        hideSearch:true,
+        placeholder: "User....."
+    };
+    
+    c.onOptionClick = function(selectedValue){
+        c.data.group = selectedValue;
+        c.server.update();
+    }
+}
+
+Client controller ends here-----------------------------------------------------------------------
+
 	*/
     type: 'MyDesignTracker'
 };]]></script>
@@ -53,13 +1225,13 @@ MyDesignTracker.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-01-03 12:36:28</sys_created_on>
         <sys_id>ba0078e787c021107653fd57dabb353f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>MyDesignTracker</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_include_ba0078e787c021107653fd57dabb353f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-01-03 13:29:05</sys_updated_on>
+        <sys_updated_on>2023-09-16 10:23:47</sys_updated_on>
     </sys_script_include>
 </record_update>

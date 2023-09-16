@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn">
+    <sys_rest_message_fn action="INSERT_OR_UPDATE">
+        <authentication_type>inherit_from_parent</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user/>
+        <content>{&#13;
+  "assigneeType": "PROJECT_LEAD",&#13;
+  "avatarId": 10200,&#13;
+  "categoryId": 10120,&#13;
+  "description": "Cloud migration initiative",&#13;
+  "issueSecurityScheme": 10001,&#13;
+  "key": "EX",&#13;
+  "name": "Example",&#13;
+  "notificationScheme": 10021,&#13;
+  "permissionScheme": 10011,&#13;
+  "projectTemplateKey": "com.atlassian.jira-core-project-templates:jira-core-simplified-process-control",&#13;
+  "projectTypeKey": "business",&#13;
+  "url": "http://atlassian.com",&#13;
+"projectLead": "NATARAJU"&#13;
+}</content>
+        <function_name>Create Project</function_name>
+        <http_method>post</http_method>
+        <lock>false</lock>
+        <oauth2_profile/>
+        <protocol_name/>
+        <qualified_name>JIRA [ Create Project ]</qualified_name>
+        <rest_endpoint>https://mydesign1.atlassian.net/rest/api/3/project</rest_endpoint>
+        <rest_message display_value="JIRA">d73cd58247143110c9a25d0f536d4396</rest_message>
+        <sys_class_name>sys_rest_message_fn</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-29 14:12:01</sys_created_on>
+        <sys_id>281787c6471c3110c9a25d0f536d4301</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Create Project</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_rest_message_fn_281787c6471c3110c9a25d0f536d4301</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-29 14:20:43</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mid_server/>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message_fn>
+</record_update>

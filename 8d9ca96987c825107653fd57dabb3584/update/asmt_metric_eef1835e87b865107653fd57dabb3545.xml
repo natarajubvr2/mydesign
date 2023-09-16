@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric">
     <asmt_metric action="INSERT_OR_UPDATE">
-        <active>true</active>
+        <active>false</active>
         <add_info_label>Additional Information</add_info_label>
         <allow_add_info>false</allow_add_info>
         <allow_not_applicable>false</allow_not_applicable>
@@ -51,14 +51,14 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>eef1835e87b865107653fd57dabb3545</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>How satisfied are you with the process of submitting a request into the Business Services Portal?</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>asmt_metric_eef1835e87b865107653fd57dabb3545</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-02-06 08:56:53</sys_updated_on>
+        <sys_updated_on>2023-08-01 14:16:42</sys_updated_on>
         <template/>
         <value_parameters/>
         <weight>10</weight>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="data_stream_connection_alias" label="Data stream connection alias" language="en" table="sys_data_source">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>data_stream_connection_alias</element>
+            <help/>
+            <hint/>
+            <label>Data stream connection alias</label>
+            <language>en</language>
+            <name>sys_data_source</name>
+            <plural>Data stream connection alias</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-07-26 17:13:57</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Data stream connection alias</sys_name>
+            <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+            <sys_update_name>sys_documentation_sys_data_source_data_stream_connection_alias_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-07-26 17:13:57</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

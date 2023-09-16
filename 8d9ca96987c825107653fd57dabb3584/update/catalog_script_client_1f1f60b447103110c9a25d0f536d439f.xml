@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="catalog_script_client">
+    <catalog_script_client action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <applies_catalog>true</applies_catalog>
+        <applies_extended>false</applies_extended>
+        <applies_req_item>false</applies_req_item>
+        <applies_sc_task>false</applies_sc_task>
+        <applies_target_record>false</applies_target_record>
+        <applies_to>item</applies_to>
+        <cat_item display_value="General Queries">14fa622d878c25107653fd57dabb35e5</cat_item>
+        <cat_variable/>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Check Attachment</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+    var isValid = checkGoogleGroup();
+    if (isValid == false) {
+        g_form.submitted = false;
+        return false;
+    }else{
+	g_form.submitted = true;
+	return true;
+	}
+}
+
+function checkGoogleGroup() {
+    var userId = g_user.userID;
+    // var table = g_form.getTableName();
+    //alert(userId);
+
+    var ga = new GlideAjax('x_492360_mydesign.myDesign_util'); // HelloWorld is the script include class 
+    ga.addParam('sysparm_name', 'getAttachmentDetails'); // helloWorld is the script include method 
+    ga.addParam('sysparm_sysId', userId); // Set parameter sysparm_user_name to 'Bob' 
+    ga.addParam('sysparm_tableName', "x_492360_mydesign_help_desk");
+    ga.getXML(HelloWorldParse);
+    /* Call HelloWorld.helloWorld() with the parameter sysparm_user_name set to 'Bob' 
+        and use the callback function HelloWorldParse() to return the result when ready */
+    var name = false;
+    // the callback function for returning the result from the server-side code
+    function HelloWorldParse(response) {
+        var answer = response.responseXML.documentElement.getAttribute("answer");
+        alert(answer);
+        if (answer != 'nobroker.docx') {
+            alert("Please attach the proper document type and file name should be 'nobroker' with the file type 'docx'");
+            //g_form.submitted = false;
+            name = false;
+        }
+        else
+		name = true;
+    }
+    return name;
+}]]></script>
+        <sys_class_name>catalog_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-25 06:36:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>1f1f60b447103110c9a25d0f536d439f</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>Check Attachment</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>catalog_script_client_1f1f60b447103110c9a25d0f536d439f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-01 14:20:42</sys_updated_on>
+        <table/>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <variable_set/>
+        <view/>
+    </catalog_script_client>
+</record_update>
