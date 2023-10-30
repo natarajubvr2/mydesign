@@ -8,6 +8,7 @@
         <container_class_name/>
         <name>MyDesign Request Form - Container 1</name>
         <order>1</order>
+        <semantic_tag/>
         <sp_page display_value="mydes_req_form">6a8a7b97870021107653fd57dabb3581</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>

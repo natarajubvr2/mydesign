@@ -25,6 +25,7 @@
         <introduction/>
         <job display_value="">1c23c79e87b865107653fd57dabb35e0</job>
         <live_feed>false</live_feed>
+        <ms_adaptive_cards>false</ms_adaptive_cards>
         <name>MyDesign Services Overall Performance</name>
         <not_show_intro_note>false</not_show_intro_note>
         <notify_if_overdue>false</notify_if_overdue>

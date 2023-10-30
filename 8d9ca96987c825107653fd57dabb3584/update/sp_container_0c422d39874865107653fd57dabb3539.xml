@@ -8,6 +8,7 @@
         <container_class_name/>
         <name>MyDesign - Container 2</name>
         <order>2</order>
+        <semantic_tag/>
         <sp_page display_value="mydesign_page">bdc12939874865107653fd57dabb352d</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>

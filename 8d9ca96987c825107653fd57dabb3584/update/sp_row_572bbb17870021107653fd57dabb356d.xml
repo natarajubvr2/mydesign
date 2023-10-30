@@ -2,6 +2,7 @@
     <sp_row action="INSERT_OR_UPDATE">
         <class_name/>
         <order>1</order>
+        <semantic_tag/>
         <sp_column/>
         <sp_container display_value="MyDesign Request Form - Container 1">bc0bf7d7870021107653fd57dabb3561</sp_container>
         <sys_class_name>sp_row</sys_class_name>

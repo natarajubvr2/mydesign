@@ -17,6 +17,7 @@
         <messages/>
         <name>Check Attachment</name>
         <order/>
+        <published_ref/>
         <script><![CDATA[function onSubmit() {
     var isValid = checkGoogleGroup();
     if (isValid == false) {

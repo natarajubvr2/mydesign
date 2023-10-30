@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="0b50100847123110c9a25d0f536d438e" sys_domain="global" table="x_492360_mydesign_add_parts_to_contract" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>navistar_part</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_id>4750100847123110c9a25d0f536d4396</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_id>0f50100847123110c9a25d0f536d4396</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>supplier_part</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_id>8f50100847123110c9a25d0f536d4396</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_id>0350100847123110c9a25d0f536d4397</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>price</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_id>8350100847123110c9a25d0f536d4397</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>moq</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_id>0750100847123110c9a25d0f536d4397</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_id>8750100847123110c9a25d0f536d4397</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>help_desk</element>
+            <position>7</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_id>0b50100847123110c9a25d0f536d4397</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>8</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_id>8b50100847123110c9a25d0f536d4397</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_492360_mydesign_add_parts_to_contract</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0b50100847123110c9a25d0f536d438e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_492360_mydesign_add_parts_to_contract</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+            <sys_update_name>sys_ui_section_0b50100847123110c9a25d0f536d438e</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

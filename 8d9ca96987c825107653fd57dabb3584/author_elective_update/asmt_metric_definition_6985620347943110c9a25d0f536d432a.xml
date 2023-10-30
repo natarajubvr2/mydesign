@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_definition">
+    <asmt_metric_definition action="DELETE">
+        <display>C</display>
+        <metric display_value="">2985620347943110c9a25d0f536d4329</metric>
+        <normalization_input>0</normalization_input>
+        <order>2</order>
+        <selected_image/>
+        <sys_class_name>asmt_metric_definition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-08-01 14:17:12</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>6985620347943110c9a25d0f536d432a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>C</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>asmt_metric_definition_6985620347943110c9a25d0f536d432a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-01 14:17:12</sys_updated_on>
+        <unselected_image/>
+        <value>3</value>
+    </asmt_metric_definition>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</application>
+        <file_path/>
+        <instance_id>7a808315db3437c091232f17d4961919</instance_id>
+        <instance_name>dev80615</instance_name>
+        <name>asmt_metric_definition_6985620347943110c9a25d0f536d432a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_definition"><asmt_metric_definition action="INSERT_OR_UPDATE"><display>C</display><metric display_value="">2985620347943110c9a25d0f536d4329</metric><normalization_input>0</normalization_input><order>2</order><selected_image/><sys_class_name>asmt_metric_definition</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-08-01 14:17:12</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>6985620347943110c9a25d0f536d432a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>C</sys_name><sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package><sys_policy/><sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope><sys_update_name>asmt_metric_definition_6985620347943110c9a25d0f536d432a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-08-01 14:17:12</sys_updated_on><unselected_image/><value>3</value></asmt_metric_definition></record_update>]]></payload>
+        <payload_hash>740607596</payload_hash>
+        <record_name>C</record_name>
+        <reverted_from/>
+        <source>049bf71247313110c9a25d0f536d43ff</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by/>
+        <sys_created_on>2023-10-13 02:11:50</sys_created_on>
+        <sys_id>f928987a47423110c9a25d0f536d4315</sys_id>
+        <sys_mod_count/>
+        <sys_recorded_at>18b26cde6700000000</sys_recorded_at>
+        <sys_updated_by/>
+        <sys_updated_on/>
+        <type>Assessment Metric Definition</type>
+        <update_guid>b928987a24423110b92d8f8c1ee5dd15</update_guid>
+        <update_guid_history>b928987a24423110b92d8f8c1ee5dd15:740607596</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="C">bd28987a47423110c9a25d0f536d4317</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-26 09:10:55</sys_created_on>
+        <sys_db_object display_value="" name="asmt_metric_definition">asmt_metric_definition</sys_db_object>
+        <sys_id>97e8d6fd4b4444b4addb8460beaefe44</sys_id>
+        <sys_metadata>6985620347943110c9a25d0f536d432a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>C</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
+        <sys_update_name>asmt_metric_definition_6985620347943110c9a25d0f536d432a</sys_update_name>
+        <sys_update_version display_value="asmt_metric_definition_6985620347943110c9a25d0f536d432a">f928987a47423110c9a25d0f536d4315</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-26 09:10:55</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

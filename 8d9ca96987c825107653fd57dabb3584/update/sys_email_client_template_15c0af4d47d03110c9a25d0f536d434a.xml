@@ -13,6 +13,7 @@
         <email_client_from_address/>
         <from/>
         <from_generation_type/>
+        <include_attachments>false</include_attachments>
         <name>HelpDesk Requ Templ</name>
         <order>90</order>
         <recipients/>

@@ -2,6 +2,7 @@
     <sp_row action="INSERT_OR_UPDATE">
         <class_name/>
         <order>1</order>
+        <semantic_tag/>
         <sp_column/>
         <sp_container display_value="Requisition Support - Container 1">1d7baebd874c65107653fd57dabb3581</sp_container>
         <sys_class_name>sp_row</sys_class_name>

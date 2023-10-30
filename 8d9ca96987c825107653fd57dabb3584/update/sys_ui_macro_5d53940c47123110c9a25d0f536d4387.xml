@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>submitAddPartsToContract</name>
+        <scoped_name>x_492360_mydesign_submitAddPartsToContract</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-30 06:09:16</sys_created_on>
+        <sys_id>5d53940c47123110c9a25d0f536d4387</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>submitAddPartsToContract</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_ui_macro_5d53940c47123110c9a25d0f536d4387</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-30 09:27:50</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<html>
+<body>
+  <a href="#" onclick="myFunction()">Add Parts to Contract</a>
+</body>
+</html>
+<script>
+  function myFunction(){
+var dialog = new GlideModal('x_492360_mydesign_addParts'); //Mention your UI Page name here
+    dialog.setTitle('Add Parts to contract'); //Set the dialog title
+    dialog.setSize(450, 600); //Set the dialog size
+    dialog.setPreference('sys_id', g_form.getUniqueValue()); //pass current object id	
+    dialog.render(); //Open the dialog  
+  }
+</script>
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

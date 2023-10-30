@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>add_mydesign_attachment</name>
+        <scoped_name>x_492360_mydesign_add_mydesign_attachment</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-19 16:51:07</sys_created_on>
+        <sys_id>a82ef9a447023110c9a25d0f536d43f2</sys_id>
+        <sys_mod_count>68</sys_mod_count>
+        <sys_name>add_mydesign_attachment</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_ui_macro_a82ef9a447023110c9a25d0f536d43f2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-26 08:30:15</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+    <script>
+        function addRow(tableID) {
+            var table = document.getElementById(tableID);
+            var row = table.insertRow(table.rows.length - 1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+
+
+            // Modify these lines to add form elements to each cell
+            cell1.innerHTML = '<input type="text" name="field1[]"></input>';
+            cell2.innerHTML = '<input type="text" name="field2[]"></input>';
+			cell3.innerHTML = '<input type="text" name="field3[]"></input>';
+
+			var actionCell = row.insertCell(3);
+            actionCell.innerHTML = '<button type="button" onclick="removeRow(this)">Remove</button>';
+
+        }
+		  function removeRow(button) {
+            var row = button.parentNode.parentNode;
+            var table = row.parentNode;
+            table.deleteRow(row.rowIndex);
+        }
+
+
+function showTableData(){
+        var myTab = document.getElementById('helpDesk');
+		alert(myTab.rows.length);
+		alert(myTab.rows.item(1).cells.item(1).innerHTML);
+}
+    </script>
+    <g2:evaluate jelly="true">
+        var tableName = gs.getProperty('x_492360_mydesign.table_name');
+    </g2:evaluate>
+    <table id='helpDesk' border="1">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+			<th>Ph No</th>
+			<th>Action</th>
+        </tr>
+        <!-- <g:foreach var="item" items="0..2"> -->
+            <tr>
+                <td><input type="text" name="field1"></input></td>
+                <td><input type="text" name="field2"></input></td>
+				<td><input type="text" name="field3"></input></td>
+				 <td><button type="button" onclick="removeRow(this)">Remove</button></td>
+            </tr>
+        <!-- </g:foreach> -->
+        <tr>
+            <td colspan="4">
+                <button type="button" onclick="addRow('helpDesk')">Add Row</button>
+            </td>
+        </tr>
+    </table>
+<button type="button" onclick="showTableData()">Show data</button>
+	<style>
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+table tr:nth-child(even){background-color: #F2F2F2;}
+table tr:hover {background-color: #ddd;}
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+#myButton {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

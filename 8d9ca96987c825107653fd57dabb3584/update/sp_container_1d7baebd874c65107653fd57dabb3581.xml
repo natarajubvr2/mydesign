@@ -8,6 +8,7 @@
         <container_class_name/>
         <name>Requisition Support - Container 1</name>
         <order>1</order>
+        <semantic_tag/>
         <sp_page display_value="requistion_sup">550b22fd874c65107653fd57dabb3582</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>
