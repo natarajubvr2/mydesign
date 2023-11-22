@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="cmn_relative_duration">
+    <cmn_relative_duration action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <name>2 business days by 5pm</name>
+        <script><![CDATA[var days = 2;
+
+
+calculator.calcRelativeDueDate(calculator.startDateTime, days, "17:00:00");   ]]></script>
+        <sys_class_name>cmn_relative_duration</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-11-22 12:19:35</sys_created_on>
+        <sys_id>ac46006f47223110c9a25d0f536d437e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>2 business days by 5pm</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>cmn_relative_duration_ac46006f47223110c9a25d0f536d437e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-11-22 14:52:51</sys_updated_on>
+    </cmn_relative_duration>
+</record_update>
