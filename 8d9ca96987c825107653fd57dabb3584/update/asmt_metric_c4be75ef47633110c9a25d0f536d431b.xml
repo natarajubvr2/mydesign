@@ -3,19 +3,19 @@
         <active>true</active>
         <add_info_label>Additional Information</add_info_label>
         <allow_add_info>false</allow_add_info>
-        <allow_not_applicable>false</allow_not_applicable>
+        <allow_not_applicable>true</allow_not_applicable>
         <auto_gen>false</auto_gen>
         <category display_value="Business Services Overall Performance">aaf1835e87b865107653fd57dabb3528</category>
         <cond_question>always</cond_question>
         <condition/>
         <context/>
         <correct_answer/>
-        <correct_answer_checkbox/>
+        <correct_answer_checkbox>1</correct_answer_checkbox>
         <correct_answer_choice/>
         <correct_answer_template/>
-        <correct_answer_yesno/>
+        <correct_answer_yesno>1</correct_answer_yesno>
         <custom_metric/>
-        <datatype>template</datatype>
+        <datatype>attachment</datatype>
         <default_value_field/>
         <depends_on/>
         <description/>
@@ -26,17 +26,17 @@
         <displayed_when_yesno/>
         <duration/>
         <field_validation/>
-        <mandatory>false</mandatory>
-        <max>7</max>
+        <mandatory>true</mandatory>
+        <max>10</max>
         <max_weight/>
         <maximum_normalization_input>false</maximum_normalization_input>
         <method>assessment</method>
         <metric_type display_value="MyDesign Services Overall Performance">56f143da87b865107653fd57dabb356c</metric_type>
         <min>1</min>
-        <name>How satisfied are you with the process of submitting a request into the Business Services Portal?</name>
-        <order>400</order>
+        <name>New Attachment</name>
+        <order>500</order>
         <plugin/>
-        <question>How satisfied are you with the process of submitting a request into the Business Services Portal?</question>
+        <question>Please attach</question>
         <randomize_answers>false</randomize_answers>
         <read_only>false</read_only>
         <reference_table/>
@@ -47,21 +47,21 @@
         <string_option>wide</string_option>
         <sys_class_name>asmt_metric</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-08-01 14:16:42</sys_created_on>
+        <sys_created_on>2024-01-11 14:08:32</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>e665aecf47543110c9a25d0f536d43f5</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>How satisfied are you with the process of submitting a request into the Business Services Portal?</sys_name>
+        <sys_id>c4be75ef47633110c9a25d0f536d431b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>New Attachment</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
-        <sys_update_name>asmt_metric_e665aecf47543110c9a25d0f536d43f5</sys_update_name>
+        <sys_update_name>asmt_metric_c4be75ef47633110c9a25d0f536d431b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2024-01-11 14:08:32</sys_updated_on>
-        <template display_value="MyDesign 7 phases">9fd3a68f47543110c9a25d0f536d438b</template>
+        <template/>
         <value_parameters/>
         <weight>10</weight>
     </asmt_metric>
-    <sys_translated_text action="delete_multiple" query="documentkey=e665aecf47543110c9a25d0f536d43f5"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=c4be75ef47633110c9a25d0f536d431b"/>
 </record_update>

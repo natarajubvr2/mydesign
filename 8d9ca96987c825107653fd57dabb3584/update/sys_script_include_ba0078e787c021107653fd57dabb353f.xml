@@ -1216,7 +1216,45 @@ function($rootScope, $scope, $timeout, $location, $log, $window, spUtil, nowAtta
     }
 }
 
-Client controller ends here-----------------------------------------------------------------------
+Client controller ends here-----------------------------------------------------------------------History set isuue
+
+var req = new GlideRecord('x_nainr_onenav_pro_aftermarket_support_request');
+req.addEncodedQuery('numberNOT LIKEAMREQ^request_subcategory=EBS');
+req.query();
+
+while(req.next()) new GlideHistorySet('x_nainr_onenav_pro_aftermarket_support_request', req.getUniqueValue()).generate();
+
+var req = new GlideRecord('x_nainr_onenav_pro_aftermarket_support_request');
+req.addEncodedQuery('numberNOT LIKEAMREQ^request_subcategory=EBS');
+req.query();
+while (req.next()) {
+    var hs = new GlideRecord('sys_history_set');
+    hs.addQuery('id', req.getValue('sys_id'));
+    hs.query();
+    while(hs.next()) {
+        var sys = hs.getValue('sys_id');
+        var hl = new GlideRecord('sys_history_line');
+        hl.addQuery('set', sys.toString());
+        hl.addQuery('label', "Request Number");
+        hl.addQuery('field', "number");
+        hl.orderByDesc("update_time");
+        hl.query();
+        if (hl.next()) {
+            var ReqId = hl.getValue('old');
+            if (ReqId != null) {
+                if (ReqId.toString() != "") {
+                    if (ReqId.includes('AMREQ')) {
+                        gs.info('Affected EBS request number updated to old number  ' + ReqId);
+                        req.setValue('number', ReqId);
+                        req.autoSysFields(false);
+                        req.update();
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 	*/
     type: 'MyDesignTracker'
@@ -1225,13 +1263,13 @@ Client controller ends here-----------------------------------------------------
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-01-03 12:36:28</sys_created_on>
         <sys_id>ba0078e787c021107653fd57dabb353f</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>MyDesignTracker</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_include_ba0078e787c021107653fd57dabb353f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-09-16 10:23:47</sys_updated_on>
+        <sys_updated_on>2024-01-05 12:59:42</sys_updated_on>
     </sys_script_include>
 </record_update>
