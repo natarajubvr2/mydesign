@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_number">
+    <sys_number action="DELETE">
+        <category display_value="" name="x_492360_mydesign_supplier_enablement_request">x_492360_mydesign_supplier_enablement_request</category>
+        <maximum_digits>7</maximum_digits>
+        <number>0</number>
+        <prefix>SUPREQ</prefix>
+        <sys_class_name>sys_number</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-08 16:45:32</sys_created_on>
+        <sys_id>092f26ac47948a10c9a25d0f536d4365</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SUPREQ</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_number_092f26ac47948a10c9a25d0f536d4365</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-08 16:45:32</sys_updated_on>
+    </sys_number>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</application>
+        <file_path/>
+        <instance_id>7a808315db3437c091232f17d4961919</instance_id>
+        <instance_name>dev80615</instance_name>
+        <name>sys_number_092f26ac47948a10c9a25d0f536d4365</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_number"><sys_number action="INSERT_OR_UPDATE"><category display_value="" name="x_492360_mydesign_supplier_enablement_request">x_492360_mydesign_supplier_enablement_request</category><maximum_digits>7</maximum_digits><number>0</number><prefix>SUPREQ</prefix><sys_class_name>sys_number</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-02-08 16:45:32</sys_created_on><sys_id>092f26ac47948a10c9a25d0f536d4365</sys_id><sys_mod_count>0</sys_mod_count><sys_name>SUPREQ</sys_name><sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package><sys_policy/><sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope><sys_update_name>sys_number_092f26ac47948a10c9a25d0f536d4365</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-02-08 16:45:32</sys_updated_on></sys_number></record_update>]]></payload>
+        <payload_hash>-891841758</payload_hash>
+        <record_name>SUPREQ</record_name>
+        <reverted_from/>
+        <source>0985b68147223110c9a25d0f536d432f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-08 16:45:32</sys_created_on>
+        <sys_id>0d2fe66c47d48a10c9a25d0f536d43a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18d899c36d50000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-08 16:45:32</sys_updated_on>
+        <type>Number</type>
+        <update_guid>412fe66c74d48a10e22c293117a488a5</update_guid>
+        <update_guid_history>412fe66c74d48a10e22c293117a488a5:-891841758</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-08 16:49:09</sys_created_on>
+        <sys_db_object display_value="" name="sys_number">sys_number</sys_db_object>
+        <sys_id>7159cf21eef847a9ad5aec0523150e91</sys_id>
+        <sys_metadata>092f26ac47948a10c9a25d0f536d4365</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SUPREQ</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_parent display_value="">5c79526447948a10c9a25d0f536d43f8</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
+        <sys_update_name>sys_number_092f26ac47948a10c9a25d0f536d4365</sys_update_name>
+        <sys_update_version display_value="sys_number_092f26ac47948a10c9a25d0f536d4365">0d2fe66c47d48a10c9a25d0f536d43a5</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-08 16:49:09</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

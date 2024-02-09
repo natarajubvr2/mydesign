@@ -1254,8 +1254,56 @@ while (req.next()) {
         }
     }
 }
+////////////////////////////////Copy/Remove attachment from Task to Request///////Start///////////////////////////
+(function executeRule(current, previous ) {
 
-
+    var parent_sysId = '';
+    var helpDeskTask = new GlideRecord(current.table_name);
+    helpDeskTask.get(current.table_sys_id);
+    if (helpDeskTask) {
+        parent_sysId = helpDeskTask.parent;
+    }
+    if (current.operation() == "insert") {
+        var att = new GlideRecord('sys_attachment');
+        att.initialize();
+        att.file_name = current.file_name;
+        att.content_type = current.content_type;
+        att.compressed = current.compressed;
+        att.table_name = 'x_nainr_onenav_pro_help_desk_request';
+        att.size_bytes = current.size_bytes;
+        att.size_compressed = current.size_compressed;
+        att.table_sys_id = parent_sysId;
+        att.chunk_size_bytes = current.chunk_size_bytes;
+        att.image_height = current.image_height;
+        att.image_width = current.image_width;
+        var attRec = att.insert();
+        var attDoc = new GlideRecord('sys_attachment_doc');
+        attDoc.addQuery('sys_attachment', current.sys_id);
+        attDoc.query();
+        if (attDoc.next()) {
+            var attDocCopy = new GlideRecord('sys_attachment_doc');
+            attDocCopy.initialize();
+            attDocCopy.sys_attachment = attRec;
+            attDocCopy.position = attDoc.position;
+            attDocCopy.length = attDoc.length;
+            attDocCopy.data = attDoc.data;
+            var attachCopy = attDocCopy.insert();
+        }
+    } else {
+        var del_att = new GlideRecord('sys_attachment');
+        del_att.addQuery('file_name', current.file_name);
+        del_att.addQuery('content_type', current.content_type);
+        del_att.addQuery('table_name', 'x_nainr_onenav_pro_help_desk_request');
+        del_att.addQuery('size_bytes', current.size_bytes);
+        del_att.addQuery('table_sys_id', parent_sysId);
+        del_att.query();
+        if (del_att.next()) {
+            var attachment = new GlideSysAttachment();
+            attachment.deleteAttachment(del_att.getValue('sys_id'));
+        }
+    }
+})(current, previous);
+////////////////////////////////Copy/Remove attachment from Task to Request///////end///////////////////////////
 	*/
     type: 'MyDesignTracker'
 };]]></script>
@@ -1263,13 +1311,13 @@ while (req.next()) {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-01-03 12:36:28</sys_created_on>
         <sys_id>ba0078e787c021107653fd57dabb353f</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>MyDesignTracker</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_include_ba0078e787c021107653fd57dabb353f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-05 12:59:42</sys_updated_on>
+        <sys_updated_on>2024-02-09 14:42:59</sys_updated_on>
     </sys_script_include>
 </record_update>
