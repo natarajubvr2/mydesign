@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
     <sys_ui_page action="INSERT_OR_UPDATE">
-        <category/>
+        <category>general</category>
         <client_script><![CDATA[function continueOK() {
     var gdw = GlideDialogWindow.get();
     var navPart = gel('nav_part').value;
@@ -38,7 +38,7 @@ function continueCancel() {
  <g:ui_form>
 	<table>
 		<tr>
-		<td style="width:35%">
+		<td style="width:35%" >
 			<label>
 			Navistar Part : 
 			</label>
@@ -93,7 +93,9 @@ function continueCancel() {
 		</tr>
 		<tr>
                      <td>
-                       <g:dialog_buttons_ok_cancel ok_id="submitData" ok="return continueOK()" ok_type="button" ok_text="${gs.getMessage('Okay')}" ok_style_class="btn btn-primary" cancel_type="button" cancel_id="cancelData" cancel_style_class="btn btn-default" cancel="return continueCancel()"/>
+                       <!-- <g:dialog_buttons_ok_cancel ok_id="submitData" ok="return continueOK()" ok_type="button" ok_text="${gs.getMessage('Okay')}" ok_style_class="btn btn-primary" cancel_type="button" cancel_id="cancelData" cancel_style_class="btn btn-default" cancel="return continueCancel()"/> -->
+					   <g:dialog_buttons_ok_cancel ok='return continueOK()' cancel='continueCancel()' cancel_type='button'/>
+					  <button type="reset" value="Reset">Reset</button>
                     </td>
                </tr>
 	</table>
@@ -111,6 +113,18 @@ function continueCancel() {
 	font-smoothing:antialiased;
 	text-rendering:optimizeLegibility;
 }
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
 body {
 	font-family:"Open Sans", Helvetica, Arial, sans-serif;
@@ -120,6 +134,9 @@ body {
 	color:#777;
 	background:#0CF;
 }
+label,input{
+	font-size: 18px;
+	}
 
 .container {
 	max-width:400px;
@@ -139,27 +156,22 @@ box-sizing: border-box;
 	
 </j:jelly>]]></html>
         <name>addParts</name>
-        <processing_script><![CDATA[// var navPart = request.getParameter("nav_part"); //mention the name of the elment here
-// var suppPart = request.getParameter("supplier_part"); //mention the name of the elment here
-// var descr = request.getParameter("description"); //mention the name of the elment here
-// var price = request.getParameter("price"); //mention the name of the elment here
-// var moq = request.getParameter("moq"); //mention the name of the elment here
-// gs.info("Asif: testing "+navPart+"---"+suppPart+"---"+descr);
-// //you can do gliderecord and store or add any other server side code here
-//response.sendRedirect(gr.getLink() + "&sysparm_view=" + view_name + "&sysparm_view_forced=true");
-// gs.addInfoMessage(gs.getMessage("Employee profiles are being created. Thank you for your patience."));
-//  response.sendRedirect("x_492360_mydesign_help_desk.do?sys_id=" + sysid);]]></processing_script>
+        <processing_script><![CDATA[ (function(){
+ gs.info("nataraju: testing "+request.getParameter("nav_part"));
+
+ })();
+ ]]></processing_script>
         <sys_class_name>sys_ui_page</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-10-30 06:33:47</sys_created_on>
         <sys_id>1515548c47123110c9a25d0f536d43c2</sys_id>
-        <sys_mod_count>40</sys_mod_count>
+        <sys_mod_count>54</sys_mod_count>
         <sys_name>addParts</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_ui_page_1515548c47123110c9a25d0f536d43c2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-10-30 10:27:57</sys_updated_on>
+        <sys_updated_on>2023-10-31 08:24:35</sys_updated_on>
     </sys_ui_page>
 </record_update>

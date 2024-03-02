@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="email_client" audit="true" db_object_id="2d289225878c25107653fd57dabb352e" extends="task" label="Help Desk" max_length="40" name="x_492360_mydesign_help_desk" type="collection">
+        <element default="0" label="Email Count After Resolve" max_length="40" name="email_count_after" type="integer"/>
+        <element default="0" label="Total Email Count" max_length="40" name="email_count_before_resolve" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Email Recieved" max_length="40" name="last_email_received_on" type="glide_date_time"/>
         <element attributes="encode_utf8=false" label="Requested For" max_length="32" name="requested_for" reference="sys_user" type="reference"/>
     </element>
 </database>

@@ -4,41 +4,41 @@
             <element>navistar_part</element>
             <position>0</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
-            <sys_id>4750100847123110c9a25d0f536d4396</sys_id>
+            <sys_created_on>2023-10-30 11:11:52</sys_created_on>
+            <sys_id>d03ad90047963110c9a25d0f536d43da</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>description</element>
-            <position>1</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
-            <sys_id>0f50100847123110c9a25d0f536d4396</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_updated_on>2023-10-30 11:11:52</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>supplier_part</element>
-            <position>2</position>
+            <position>1</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
-            <sys_id>8f50100847123110c9a25d0f536d4396</sys_id>
+            <sys_created_on>2023-10-30 11:11:52</sys_created_on>
+            <sys_id>543ad90047963110c9a25d0f536d43da</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_updated_on>2023-10-30 11:11:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-10-30 11:11:52</sys_created_on>
+            <sys_id>d43ad90047963110c9a25d0f536d43da</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-10-30 11:11:52</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>.begin_split</element>
             <position>3</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
-            <sys_id>0350100847123110c9a25d0f536d4397</sys_id>
+            <sys_created_on>2023-10-30 11:11:52</sys_created_on>
+            <sys_id>583ad90047963110c9a25d0f536d43da</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_updated_on>2023-10-30 11:11:52</sys_updated_on>
             <sys_user/>
             <type>.begin_split</type>
         </sys_ui_element>
@@ -60,71 +60,43 @@
             <element>price</element>
             <position>4</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
-            <sys_id>8350100847123110c9a25d0f536d4397</sys_id>
+            <sys_created_on>2023-10-30 11:11:52</sys_created_on>
+            <sys_id>d83ad90047963110c9a25d0f536d43da</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>moq</element>
-            <position>5</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
-            <sys_id>0750100847123110c9a25d0f536d4397</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_updated_on>2023-10-30 11:11:52</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>6</position>
+            <position>5</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
-            <sys_id>8750100847123110c9a25d0f536d4397</sys_id>
+            <sys_created_on>2023-10-30 11:11:52</sys_created_on>
+            <sys_id>5c3ad90047963110c9a25d0f536d43da</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_updated_on>2023-10-30 11:11:52</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>help_desk</element>
-            <position>7</position>
+            <element>moq</element>
+            <position>6</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
-            <sys_id>0b50100847123110c9a25d0f536d4397</sys_id>
+            <sys_created_on>2023-10-30 11:11:52</sys_created_on>
+            <sys_id>dc3ad90047963110c9a25d0f536d43da</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
+            <sys_updated_on>2023-10-30 11:11:52</sys_updated_on>
             <sys_user/>
             <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>.end_split</element>
-            <position>8</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2023-10-30 05:49:17</sys_created_on>
-            <sys_id>8b50100847123110c9a25d0f536d4397</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_492360_mydesign_add_parts_to_contract" sys_domain="global" view="Default view">0b50100847123110c9a25d0f536d438e</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2023-10-30 05:49:17</sys_updated_on>
-            <sys_user/>
-            <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>

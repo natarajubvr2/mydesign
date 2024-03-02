@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="513283ce475c4210c9a25d0f536d435b" extends="task" label="Help Desk Task" max_length="40" name="x_492360_mydesign_help_desk_task" type="collection"/>
+</database>

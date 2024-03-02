@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
-        <access>package_private</access>
+        <access>public</access>
         <active>true</active>
         <api_name>x_492360_mydesign.myDesign_util</api_name>
         <caller_access/>
@@ -25,11 +25,21 @@ myDesign_util.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         gr.addQuery('table_name', tableName);
         //gr.addQuery('file_name', 'STARTSWITH', 'nobroker.docx');
         //gr.addQuery('content_type', 'application/xlsx');
-		gr.orderByDesc('sys_created_on');
-		gr.setLimit(1);
+        gr.orderByDesc('sys_created_on');
+        gr.setLimit(1);
         gr.query();
         if (gr.next()) {
             return gr.getValue('file_name');
+        }
+    },
+    getSurveyRec: function() {
+         var userID = this.getParameter('sysparm_user_name');
+        var survey = new GlideRecord('asmt_assessment_instance');
+        survey.addQuery('user', userID);
+		survey.addQuery('state','ready');
+        survey.query();
+        if (survey.next()) {
+            return survey.getValue('sys_id').toString();
         }
     },
     type: 'myDesign_util'
@@ -38,13 +48,13 @@ myDesign_util.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-07-25 06:25:22</sys_created_on>
         <sys_id>3e36f0f447103110c9a25d0f536d4310</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>myDesign_util</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_include_3e36f0f447103110c9a25d0f536d4310</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-07-25 08:32:01</sys_updated_on>
+        <sys_updated_on>2024-02-27 11:50:23</sys_updated_on>
     </sys_script_include>
 </record_update>

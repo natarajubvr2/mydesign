@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="88549a4447013110c9a25d0f536d4385" extends="sys_import_set_row" label="help Desk MWB" max_length="40" name="x_492360_mydesign_help_desk_mwb" type="collection">
         <element attributes="edge_encryption_enabled=true,import_attribute_name=ACCOUNT" label="ACCOUNT" max_length="40" name="u_account" type="string"/>
+        <element attributes="import_attribute_name=Acct" label="Acct" max_length="40" name="u_acct" type="integer"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=ACTIVITY" label="ACTIVITY" max_length="40" name="u_activity" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=addl_exc_comments" label="addl_exc_comments" max_length="40" name="u_addl_exc_comments" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=addl_ltr_comments" label="addl_ltr_comments" max_length="40" name="u_addl_ltr_comments" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Affiliate" label="Affiliate" max_length="40" name="u_affiliate" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Analysis" label="Analysis" max_length="40" name="u_analysis" type="string"/>
+        <element attributes="import_attribute_name=ap_contact" label="ap_contact" max_length="40" name="u_ap_contact" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=bill_of_lading" label="bill_of_lading" max_length="40" name="u_bill_of_lading" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=BU" label="BU" max_length="40" name="u_bu" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=BUYER" label="BUYER" max_length="40" name="u_buyer" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=BU Recv" label="BU Recv" max_length="40" name="u_bu_recv" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Category Code" label="Category Code" max_length="40" name="u_category_code" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Category Descr" label="Category Descr" max_length="40" name="u_category_descr" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=CheckNo" label="CheckNo" max_length="40" name="u_checkno" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Check_Date" label="Check_Date" max_length="40" name="u_check_date" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=COMMENTS" label="COMMENTS" max_length="245" name="u_comments" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=CURRENCY" label="CURRENCY" max_length="40" name="u_currency" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=DEPT" label="DEPT" max_length="40" name="u_dept" type="string"/>
@@ -14,45 +24,77 @@
         <element attributes="edge_encryption_enabled=true,import_attribute_name=DESCRIPTION1" label="DESCRIPTION1" max_length="40" name="u_description1" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=ENTERED" label="ENTERED" max_length="40" name="u_entered" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Entered By" label="Entered By" max_length="40" name="u_entered_by" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=entry_date" label="entry_date" max_length="40" name="u_entry_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=exception_cd" label="exception_cd" max_length="40" name="u_exception_cd" type="string"/>
+        <element attributes="import_attribute_name=GL_BU" label="GL_BU" max_length="40" name="u_gl_bu" type="integer"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=GL Unit" label="GL Unit" max_length="40" name="u_gl_unit" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Hdr PO" label="Hdr PO" max_length="40" name="u_hdr_po" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=IMAGE_REF_ID" label="IMAGE_REF_ID" max_length="40" name="u_image_ref_id" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=INVOICE" label="INVOICE" max_length="40" name="u_invoice" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Invoice Date" label="Invoice Date" max_length="40" name="u_invoice_date" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=inv_date" label="inv_date" max_length="40" name="u_inv_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=inv_no" label="inv_no" max_length="40" name="u_inv_no" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=ITEM" label="ITEM" max_length="40" name="u_item" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=letter_desc" label="letter_desc" max_length="40" name="u_letter_desc" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=letter_type" label="letter_type" max_length="40" name="u_letter_type" type="string"/>
         <element attributes="import_attribute_name=LINE" label="LINE" max_length="40" name="u_line" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=message_posted" label="message_posted" max_length="40" name="u_message_posted" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=More Info" label="More Info" max_length="254" name="u_more_info" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=NAME" label="NAME" max_length="40" name="u_name" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=NAME1" label="NAME1" max_length="40" name="u_name1" type="string"/>
+        <element attributes="import_attribute_name=OperUnit" label="OperUnit" max_length="40" name="u_operunit" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=OperUnitAff" label="OperUnitAff" max_length="40" name="u_operunitaff" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Oper Unit" label="Oper Unit" max_length="40" name="u_oper_unit" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=part_no" label="part_no" max_length="40" name="u_part_no" type="string"/>
+        <element attributes="import_attribute_name=PCBusUnit" label="PCBusUnit" max_length="40" name="u_pcbusunit" type="integer"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=PC Bus Unit" label="PC Bus Unit" max_length="40" name="u_pc_bus_unit" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=plnt_inv_loc" label="plnt_inv_loc" max_length="40" name="u_plnt_inv_loc" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=plnt_name" label="plnt_name" max_length="40" name="u_plnt_name" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=PO Location" label="PO Location" max_length="40" name="u_po_location" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=PO No" label="PO No" max_length="40" name="u_po_no" type="string"/>
         <element attributes="import_attribute_name=PO Qty" label="PO Qty" max_length="15" name="u_po_qty" type="decimal"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=PO Unit" label="PO Unit" max_length="40" name="u_po_unit" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=PO Unit Price" label="PO Unit Price" max_length="40" name="u_po_unit_price" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Product" label="Product" max_length="40" name="u_product" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=PROGRAM" label="PROGRAM" max_length="40" name="u_program" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=PROJECT" label="PROJECT" max_length="40" name="u_project" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=purchase_ord" label="purchase_ord" max_length="40" name="u_purchase_ord" type="string"/>
         <element attributes="import_attribute_name=Qty Cnvrt" label="Qty Cnvrt" max_length="40" name="u_qty_cnvrt" type="integer"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=QTY_PO * PRICE_PO" label="QTY_PO * PRICE_PO" max_length="40" name="u_qty_po___price_po" type="string"/>
         <element attributes="import_attribute_name=Receipt Line" label="Receipt Line" max_length="40" name="u_receipt_line" type="integer"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Receipt No" label="Receipt No" max_length="40" name="u_receipt_no" type="string"/>
         <element attributes="import_attribute_name=Receipt Quantity" label="Receipt Quantity" max_length="40" name="u_receipt_quantity" type="integer"/>
+        <element attributes="import_attribute_name=ref_inv_adj_amt" label="ref_inv_adj_amt" max_length="40" name="u_ref_inv_adj_amt" type="integer"/>
+        <element attributes="import_attribute_name=ref_inv_amt" label="ref_inv_amt" max_length="15" name="u_ref_inv_amt" type="decimal"/>
+        <element attributes="import_attribute_name=ref_inv_rcvd_amt" label="ref_inv_rcvd_amt" max_length="40" name="u_ref_inv_rcvd_amt" type="integer"/>
+        <element attributes="import_attribute_name=ref_inv_unrcvd_amt" label="ref_inv_unrcvd_amt" max_length="15" name="u_ref_inv_unrcvd_amt" type="decimal"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=REQUESTER" label="REQUESTER" max_length="40" name="u_requester" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Req Entered By" label="Req Entered By" max_length="40" name="u_req_entered_by" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Req ID" label="Req ID" max_length="40" name="u_req_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Resource" label="Resource" max_length="40" name="u_resource" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Resource Category" label="Resource Category" max_length="40" name="u_resource_category" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=responding_time" label="responding_time" max_length="40" name="u_responding_time" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=responding_user" label="responding_user" max_length="40" name="u_responding_user" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Rule ID" label="Rule ID" max_length="40" name="u_rule_id" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Ship To" label="Ship To" max_length="40" name="u_ship_to" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Site" label="Site" max_length="40" name="u_site" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Source Type" label="Source Type" max_length="40" name="u_source_type" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=STATUS" label="STATUS" max_length="40" name="u_status" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=SUBACCOUNT" label="SUBACCOUNT" max_length="40" name="u_subaccount" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=SubAcct" label="SubAcct" max_length="40" name="u_subacct" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=supplier_cd" label="supplier_cd" max_length="40" name="u_supplier_cd" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=temp_exc_desc" label="temp_exc_desc" max_length="40" name="u_temp_exc_desc" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=TransType" label="TransType" max_length="40" name="u_transtype" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=UNIT" label="UNIT" max_length="40" name="u_unit" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=user_loc" label="user_loc" max_length="40" name="u_user_loc" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Vchr Amt" label="Vchr Amt" max_length="40" name="u_vchr_amt" type="string"/>
         <element attributes="import_attribute_name=Vchr Line #" label="Vchr Line #" max_length="40" name="u_vchr_line__" type="integer"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Vchr Qty" label="Vchr Qty" max_length="40" name="u_vchr_qty" type="string"/>
         <element attributes="import_attribute_name=Vchr Total" label="Vchr Total" max_length="15" name="u_vchr_total" type="decimal"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=Vchr Unit Price" label="Vchr Unit Price" max_length="40" name="u_vchr_unit_price" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=VENDOR" label="VENDOR" max_length="40" name="u_vendor" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=VEND_NAME" label="VEND_NAME" max_length="40" name="u_vend_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=verification_status" label="verification_status" max_length="40" name="u_verification_status" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=VOUCHER" label="VOUCHER" max_length="40" name="u_voucher" type="string"/>
     </element>
 </database>

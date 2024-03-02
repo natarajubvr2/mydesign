@@ -14,20 +14,43 @@
         <required_roles/>
         <script><![CDATA[(function runAction( /*GlideRecord*/ current, /*GlideRecord*/ event, /*EmailWrapper*/ email, /*ScopedEmailLogger*/ logger, /*EmailClassifier*/ classifier) {
 
-gs.info("inside inbound action "+current.number);
-    current.comments= "received from: " + email.origemail + "\n\n" + "Email Body: " + email.body_text;
-	current.state = 7;
-    current.update();
+ var task1 = new GlideRecord('x_492360_mydesign_help_desk_task');
+            task1.addQuery('parent', current.sys_id);
+            task1.addQuery('active', true);
+            task1.query();
+			//Open==1,20==Re-opened,WIP==2,On-Hold==5//
+            while (task1.next()) {
+                if (task1.state == 5) {
+                    task1.state = 2;
+                    task1.comments = "received from: " + email.origemail + "\n\n" + "Email Body: " + email.body_text;
+                    task1.update();
+                }
+            }
+    current.comments = "received from: " + email.origemail + "\n\n" + "Email Body: " + email.body_text;
+    var beforeResolve;
+    if (current.state == 7 || current.state == 6) {
+        gs.info("inside inbound action " + current.number);
 
+        var afterResolve = parseInt(current.email_count_after);
+        current.email_count_after = afterResolve + 1;
+
+        beforeResolve = parseInt(current.email_count_before_resolve);
+        current.email_count_before_resolve = beforeResolve + 1;
+    } else {
+        beforeResolve = parseInt(current.email_count_before_resolve);
+        current.email_count_before_resolve = beforeResolve + 1;
+    }
+    current.last_email_received_on = new GlideDateTime();
+    current.update();
 })(current, event, email, logger, classifier);]]></script>
-        <stop_processing>false</stop_processing>
+        <stop_processing>true</stop_processing>
         <sys_class_name>sysevent_in_email_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-01-18 12:07:10</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>09022d3947b7b910c9a25d0f536d4347</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>HelpDesk Reply</sys_name>
         <sys_overrides/>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
@@ -35,7 +58,7 @@ gs.info("inside inbound action "+current.number);
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sysevent_in_email_action_09022d3947b7b910c9a25d0f536d4347</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-18 12:52:42</sys_updated_on>
+        <sys_updated_on>2024-02-13 11:22:45</sys_updated_on>
         <table>x_492360_mydesign_help_desk</table>
         <template/>
         <type>reply</type>

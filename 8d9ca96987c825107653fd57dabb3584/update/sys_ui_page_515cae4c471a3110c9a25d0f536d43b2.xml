@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>catalog</category>
+        <client_script><![CDATA[function validateComments(){
+	GlideDialogWindow.get().destroy();
+}
+function processCancel(){
+	GlideDialogWindow.get().destroy();
+	reloadWindow(window);
+}]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_492360_mydesign_Testing UI.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<g:ui_form>
+<table>
+<tr>
+<td style="width:25%">
+<g:form_label>
+Additional note:
+</g:form_label>
+</td>
+<td style="width:60%">
+<input type="text" name="my_name" id="my_name" maxlength="25"/>
+</td>
+</tr>
+<tr>
+                     <td>
+                      <!-- <button type="submit"  value="Submit">Submit</button>
+                      <button type="reset" value="Reset">Reset</button>
+					  <button type="cancel" onclick="continueCancel()">Cancel</button> -->
+					  <g:dialog_buttons_ok_cancel ok='return validateComments()' cancel='processCancel()' cancel_type='button'/>
+					  <button type="reset" value="Reset">Reset</button>
+
+                    </td>
+               </tr>
+</table>
+</g:ui_form>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</j:jelly>]]></html>
+        <name>Testing UI</name>
+        <processing_script><![CDATA[var notes = request.getParameter('my_name');
+gs.info("result1234 "+notes);]]></processing_script>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-10-30 17:27:45</sys_created_on>
+        <sys_id>515cae4c471a3110c9a25d0f536d43b2</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>Testing UI</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_ui_page_515cae4c471a3110c9a25d0f536d43b2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-31 07:37:24</sys_updated_on>
+    </sys_ui_page>
+</record_update>

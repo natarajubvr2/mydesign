@@ -10,19 +10,19 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-10-30 06:09:16</sys_created_on>
         <sys_id>5d53940c47123110c9a25d0f536d4387</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>submitAddPartsToContract</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_ui_macro_5d53940c47123110c9a25d0f536d4387</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-10-30 09:27:50</sys_updated_on>
+        <sys_updated_on>2023-10-30 11:13:12</sys_updated_on>
         <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
 <html>
 <body>
-  <a href="#" onclick="myFunction()">Add Parts to Contract</a>
+  <a href="#" onclick="myFunction()">Create Add Parts to Contract</a>
 </body>
 </html>
 <script>

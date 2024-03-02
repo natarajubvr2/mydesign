@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, spUtil, $window, $uibModal) {
+
+var c = this;
+c.data.noCompany = false;//tells the HTML to not show that div block
+
+//popup modal
+c.openTheModal = function() {
+c.modalInstance = $uibModal.open({
+templateUrl: 'modalTemplate',//this needs to be a unique value, and match the HTML
+scope: $scope
+});
+}
+c.openTheModal();
+c.closeModal = function() {
+c.modalInstance.close();
+}
+//end popup modal
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>md_survey</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>MyDesign Survey</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	data.showYes = false;
+	data.showNo = false;
+
+data.rec = [];
+
+data.table = "asmt_assessment_instance";
+data.fieldList = "metric_type,sys_id";
+data.fieldList = data.fieldList.split(',');
+
+var gr = new GlideRecord(data.table);
+gr.addQuery('state','ready');
+gr.addQuery('user',gs.getUserID());
+gr.query();
+var json ={};
+if(gr.next()){
+	
+	data.showYes = true;
+	for(var i=0; i<data.fieldList.length;i++){
+		json[data.fieldList[i]] = gr.getValue(data.fieldList[i]);
+	}
+	data.assessment = "";
+data.rec.push(json);
+ for(i=0;i<data.rec.length;i++){
+ data.assessment = data.rec[i].sys_id;
+ }
+}
+ gs.info("myyyy  "+data.assessment);
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-27 05:23:36</sys_created_on>
+        <sys_id>74d802ee47608210c9a25d0f536d43ba</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_name>MyDesign Survey</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_widget_74d802ee47608210c9a25d0f536d43ba</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-29 15:20:42</sys_updated_on>
+        <template><![CDATA[<!--<div>
+<button class="btn btn-primary" ng-click="c.openTheModal()">${Show Popup}</button>
+</div>-->
+
+  
+<script type="text/ng-template" id="modalTemplate"  >
+
+<div class="panel panel-default" ng-if="data.showYes">
+<div class="panel-heading">
+<button class="btn btn-default m-b" ng-click="c.closeModal()">
+Close Popup
+</button>
+<div>
+<h4>Your feedback is very precious to us please take the survey by clicking <a target="_blank" href=/esc?id=take_survey&instance_id={{data.assessment}}><strong>Survey Link</strong></a></h4>
+</div>
+</div>
+</div>
+</script>
+]]></template>
+    </sp_widget>
+</record_update>

@@ -4,28 +4,61 @@
         <copy_empty_fields>false</copy_empty_fields>
         <create_new_record_on_empty_coalesce_fields>false</create_new_record_on_empty_coalesce_fields>
         <enforce_mandatory_fields>No</enforce_mandatory_fields>
-        <name>Help Desk MWB</name>
+        <name>Help Desk Verification</name>
         <order>100</order>
         <run_business_rules>true</run_business_rules>
-        <run_script>false</run_script>
+        <run_script>true</run_script>
         <script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
 
-	// Add your code here
+    if ((source.u_verification_status == "Resolved" && target.state != 7) || (source.u_verification_status == "resolved" && target.state != 7)) {
+        if ((source.u_verification_status == "Resolved" && target.state != 6) || (source.u_verification_status == "resolved" && target.state != 6)) {
+            var task = new GlideRecord('x_nainr_onenav_pro_help_desk_task');
+            task.addQuery('parent', target.sys_id);
+            task.addActiveQuery();
+            task.query();
+            while (task.next()) {
+                task.setValue('state', 6);
+				task.comments = "The invoice in exception has been cleared for posting and will be paid as per the pay terms. Hence, resolving the NBS ticket.";
+                task.update();
+            }
+			ignore = true;
+        }
+    } else {
+        var gr = new GlideRecord('x_nainr_onenav_pro_help_desk_request');
+        gr.addEncodedQuery('unique_id=' + source.u_supplier_cd + "" + source.u_inv_no + "" + source.u_ref_inv_amt);
+        gr.query();
+        if (gr.next()) {
+            var state = gr.getValue('state');
+            if (state == 1 || state == 20 || state == 2 || state == 5) {
+                var countrequest = parseInt(gr.getValue('request_count'));
+                gr.setValue('request_count', countrequest + 1);
+                gr.update();
+            } else {
+                var count = parseInt(gr.getValue('dup_req_count_resolved'));
+                gr.setValue('dup_req_count_resolved', count + 1);
+                gr.update();
+            }
+            ignore = true;
+        } else {
+            ignore = false;
+        }
+    }
 
-})(source, target, map, log, action==="update");]]></script>
+
+})(source, target, map, log, action === "update");]]></script>
         <source_table>x_492360_mydesign_help_desk_mwb</source_table>
         <sys_class_name>sys_transform_map</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-08-29 12:09:13</sys_created_on>
         <sys_id>d0645e0447013110c9a25d0f536d43e4</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>Help Desk MWB</sys_name>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Help Desk Verification</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_transform_map_d0645e0447013110c9a25d0f536d43e4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-08-29 12:09:13</sys_updated_on>
+        <sys_updated_on>2024-03-02 10:53:34</sys_updated_on>
         <target_table>x_492360_mydesign_help_desk</target_table>
     </sys_transform_map>
 </record_update>
