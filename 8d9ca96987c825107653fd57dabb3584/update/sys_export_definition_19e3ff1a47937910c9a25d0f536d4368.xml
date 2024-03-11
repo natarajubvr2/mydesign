@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_export_definition">
     <sys_export_definition action="INSERT_OR_UPDATE">
         <field_list>sys_created_on,type,view,target_name,name,action,update_set,remote_update_set,sys_updated_by,comments</field_list>
-        <filter table="sys_update_xml">update_set=511fe31a47937910c9a25d0f536d43b2<item display_table="sys_update_set" display_value="MyDesign" endquery="false" field="update_set" goto="false" newquery="false" operator="=" or="false" value="511fe31a47937910c9a25d0f536d43b2"/>
+        <filter table="sys_update_xml">update_set=511fe31a47937910c9a25d0f536d43b2<item endquery="false" field="update_set" goto="false" newquery="false" operator="=" or="false" value="511fe31a47937910c9a25d0f536d43b2"/>
         </filter>
         <name>ed_t_sys_update_xml</name>
         <sys_class_name>sys_export_definition</sys_class_name>
