@@ -15,26 +15,41 @@ if (s == 1) {
     createMetric();
 }
 if (s == 6)
-    mi.endDuration();
+    endDuration();
 
 function createMetric() {
     if (mi.metricExists())
         return;
     else
         mi.startDuration();
+}
+
+function endDuration() {
+    var gr = new GlideRecord('metric_instance');
+    gr.addQuery('definition', current.sys_id);
+    gr.addQuery('id', this.current.sys_id);
+    gr.addQuery('calculation_complete', false);
+    gr.query();
+    if (!gr.next())
+        return;
+    gr.end = this.current.sys_updated_on;
+    var schedule = new GlideSchedule("090eecae0a0a0b260077e1dfa71da828");
+    gr.duration = schedule.duration(gr.start.getDisplayValue(), gr.end.getDisplayValue());
+    gr.calculation_complete = true;
+    gr.update();
 }]]></script>
         <sys_class_name>metric_definition</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-08-08 17:12:54</sys_created_on>
         <sys_id>2110d31947203110c9a25d0f536d43fe</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>State changes</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>metric_definition_2110d31947203110c9a25d0f536d43fe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-08-09 08:49:32</sys_updated_on>
+        <sys_updated_on>2024-03-29 12:37:44</sys_updated_on>
         <table>x_492360_mydesign_help_desk</table>
         <timeline>false</timeline>
         <type>calculation</type>

@@ -5,14 +5,12 @@
         <body_html><![CDATA[<p>&nbsp;</p>
 <div>&nbsp;</div>
 <div>${mail_script:getSurveyLink}</div>]]></body_html>
-        <condition table="x_492360_mydesign_help_desk">state=3^EQ<item display_value="3" endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="3"/>
-            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
-        </condition>
+        <condition/>
         <content_type>text/html</content_type>
         <copied/>
         <email_client_from_address/>
-        <from/>
-        <from_generation_type/>
+        <from>My Design&lt;mydesign@support.com&gt;</from>
+        <from_generation_type>text</from_generation_type>
         <include_attachments>false</include_attachments>
         <name>HelpDesk Requ Templ</name>
         <order>90</order>
@@ -26,19 +24,19 @@
 		 */
 
 })(fromAddressQuery, targetRecord);]]></script_from>
-        <subject>${number} - ${short_description} -${state}</subject>
+        <subject>${number} - ${description} -${state}</subject>
         <sys_class_name>sys_email_client_template</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-07-26 13:30:36</sys_created_on>
         <sys_id>15c0af4d47d03110c9a25d0f536d434a</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>HelpDesk Requ Templ</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_email_client_template_15c0af4d47d03110c9a25d0f536d434a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-07-26 14:13:39</sys_updated_on>
+        <sys_updated_on>2024-04-14 14:26:54</sys_updated_on>
         <table>x_492360_mydesign_help_desk</table>
     </sys_email_client_template>
 </record_update>

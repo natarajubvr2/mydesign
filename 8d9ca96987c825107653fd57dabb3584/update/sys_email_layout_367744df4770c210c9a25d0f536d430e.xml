@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_email_layout">
+    <sys_email_layout action="INSERT_OR_UPDATE">
+        <advanced>false</advanced>
+        <advanced_layout/>
+        <description/>
+        <layout><![CDATA[<p></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<style>
+        /* Reset styles */
+        body, table, td, a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Body styles */
+        body {
+            background-color: #F4F4F4
+
+
+
+
+;
+            padding: 20px;
+        }
+        /* Container styles */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFFFFF
+
+
+
+
+;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        /* Header styles */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #333333;
+        }
+        /* Content styles */
+        .content {
+            padding: 20px;
+            background-color: yellow;
+            border-radius: 8px;
+          color:blue;
+        }
+        /* Footer styles */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #999999;
+        }
+    </style>
+<div class="container">
+<div class="header">&nbsp;</div>
+<div class="content">${notification:body}</div>
+<div class="footer">
+<p>I B M India Private Limited</p>
+</div>
+</div>
+<style>body {background-image:URL('https://dev80615.service-now.com/sn_ex_emp_fd.truck1.png');} </style>]]></layout>
+        <name>MD BGI</name>
+        <sys_class_name>sys_email_layout</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-03-12 14:08:22</sys_created_on>
+        <sys_id>367744df4770c210c9a25d0f536d430e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>MD BGI</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_email_layout_367744df4770c210c9a25d0f536d430e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-03-12 14:08:22</sys_updated_on>
+    </sys_email_layout>
+</record_update>

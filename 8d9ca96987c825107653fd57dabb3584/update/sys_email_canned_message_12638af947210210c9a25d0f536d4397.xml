@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_email_canned_message">
+    <sys_email_canned_message action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <body><![CDATA[<p>This is for procurement team</p>
+<p>&nbsp;</p>
+<p>Thank you for your patiency.</p>
+<p>${URI_REF}</p>]]></body>
+        <condition/>
+        <group/>
+        <sys_class_name>sys_email_canned_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-14 14:05:23</sys_created_on>
+        <sys_id>12638af947210210c9a25d0f536d4397</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>message2</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_email_canned_message_12638af947210210c9a25d0f536d4397</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-14 14:05:23</sys_updated_on>
+        <table>x_492360_mydesign_help_desk</table>
+        <title>message2</title>
+        <user/>
+    </sys_email_canned_message>
+</record_update>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="send_an_email" label="Send an email" language="en" table="x_492360_mydesign_help_desk">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>send_an_email</element>
+            <help/>
+            <hint/>
+            <label>Send an email</label>
+            <language>en</language>
+            <name>x_492360_mydesign_help_desk</name>
+            <plural>Send an emails</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-04-14 13:34:33</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Send an email</sys_name>
+            <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+            <sys_update_name>sys_documentation_x_492360_mydesign_help_desk_send_an_email_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-04-14 13:34:33</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
