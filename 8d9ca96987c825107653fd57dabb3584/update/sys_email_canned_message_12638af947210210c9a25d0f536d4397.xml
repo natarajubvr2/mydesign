@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_email_canned_message">
     <sys_email_canned_message action="INSERT_OR_UPDATE">
         <active>true</active>
-        <body><![CDATA[<p>This is for procurement team</p>
-<p>&nbsp;</p>
-<p>Thank you for your patiency.</p>
-<p>${URI_REF}</p>]]></body>
+        <body><![CDATA[<p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;">Hi,</p>
+<p style="margin: 0cm; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif;">We have completed 2 follow-ups requesting the required supporting documents, but we have not received any response, hence closing this ticket. If you get the required supporting documents, please write a new email to the Service Parts Customer Service team at <strong>SPCustomerService@Navistar.com</strong> and we will make sure to do our best in getting them resolved.</p>
+<p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;">&nbsp;<strong>Note</strong>: Please be aware that responding to this email after the ticket has been resolved will not reopen the ticket for further assistance. If you have any further inquiries or require additional assistance, we kindly request that you initiate a new email correspondence to Service Parts Customer Service &lt;SPCustomerService@Navistar.com&gt;. Doing so will enable us to efficiently address your new query by creating a fresh ticket for our team to promptly work on and respond to. Thank you for your understanding and cooperation.</p>
+<p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><strong><em>Thank you,</em></strong></p>
+<p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><img src="/sys_attachment.do?sys_id=208cfb6e47fdca10c9a25d0f536d43f2" width="301" height="47" /></p>]]></body>
         <condition/>
         <group/>
         <sys_class_name>sys_email_canned_message</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-04-14 14:05:23</sys_created_on>
         <sys_id>12638af947210210c9a25d0f536d4397</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>message2</sys_name>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>15+ days: Please use the below script for closing the tickets:</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_email_canned_message_12638af947210210c9a25d0f536d4397</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-14 14:05:23</sys_updated_on>
+        <sys_updated_on>2024-04-29 17:05:41</sys_updated_on>
         <table>x_492360_mydesign_help_desk</table>
-        <title>message2</title>
+        <title>15+ days: Please use the below script for closing the tickets:</title>
         <user/>
     </sys_email_canned_message>
 </record_update>
