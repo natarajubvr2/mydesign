@@ -98,16 +98,16 @@
 		"o": "number", // order_by
 		"window_size" : "10",
 		"filter": helpDesk_filter,
-		"storef": helpDesk_filter
+		"storef": "helpDesk_filter",
+		"enable_filter" : true,
+		"myname" : "Naveen",
 		//"query_filter": taskQueryFilter
 	};
 
-	data.helpDesk = $sp.getWidget("widget-data-table", helpDesk);
-
-	
+	data.helpDesk = $sp.getWidget("mydesign-data-table", helpDesk);
 	
 		// Requisition Support
-	var requisition_filter = 'active=true^opened_by='+gs.getUserID()+'^ORrequested_for='+gs.getUserID(); 
+	var requisition_filter = 'active=true^sys_class_name=x_492360_mydesign_requisiton^opened_by='+gs.getUserID(); 
 	var requisition = {
 		"table": "x_492360_mydesign_requisiton",
 		"view": "sp",
@@ -117,11 +117,12 @@
 		"o": "number", // order_by
 		"window_size" : "10",
 		"filter": requisition_filter,
-		"storef": requisition_filter
+		"storef": "requisition_filter",
+		"enable_filter" : true,
 		//"query_filter": taskQueryFilter
 	};
 
-	data.requisition = $sp.getWidget("widget-data-table", requisition);
+	data.requisition = $sp.getWidget("mydesign-data-table", requisition);
 
 	/*
 	data.generalUserGroup = 'true';
@@ -141,14 +142,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-29 08:43:10</sys_created_on>
         <sys_id>104b4ebd87c865107653fd57dabb3548</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>MyDesig Data Table from Instance Definit</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sp_widget_104b4ebd87c865107653fd57dabb3548</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-07 11:39:17</sys_updated_on>
+        <sys_updated_on>2024-06-04 11:16:50</sys_updated_on>
         <template><![CDATA[<!--
 <div>
   <div class="alert alert-danger" ng-if="data.invalid_table">

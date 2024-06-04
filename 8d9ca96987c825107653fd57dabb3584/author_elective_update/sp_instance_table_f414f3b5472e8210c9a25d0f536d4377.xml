@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_table">
+    <sp_instance_table action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <display_field/>
+        <field_list>number,requested_for,opened_by,short_description,sys_created_on</field_list>
+        <filter table="x_492360_mydesign_help_desk">active=true<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+        </filter>
+        <glyph>th-list</glyph>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>2</order>
+        <order_by>number</order_by>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">9d08027d87c865107653fd57dabb35cf</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Data Table from Instance Definition">38058ff1cb11020000f8d856634c9c8c</sp_widget>
+        <sys_class_name>sp_instance_table</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-06-03 15:20:24</sys_created_on>
+        <sys_id>f414f3b5472e8210c9a25d0f536d4377</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Help Desk Requests</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_instance_table_f414f3b5472e8210c9a25d0f536d4377</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-06-03 15:22:44</sys_updated_on>
+        <table>x_492360_mydesign_help_desk</table>
+        <title>Help Desk Requests</title>
+        <url/>
+        <widget_parameters/>
+    </sp_instance_table>
+    <sys_translated_text action="DELETE" query="documentkey=f414f3b5472e8210c9a25d0f536d4377"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</application>
+        <file_path/>
+        <instance_id>7a808315db3437c091232f17d4961919</instance_id>
+        <instance_name>dev80615</instance_name>
+        <name>sp_instance_table_f414f3b5472e8210c9a25d0f536d4377</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_table"><sp_instance_table action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><display_field/><field_list>number,requested_for,opened_by,short_description,sys_created_on</field_list><filter table="x_492360_mydesign_help_desk">active=true<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/></filter><glyph>th-list</glyph><id/><maximum_entries>5</maximum_entries><order>2</order><order_by>number</order_by><order_direction>asc</order_direction><roles/><short_description/><size>md</size><sp_column display_value="1">9d08027d87c865107653fd57dabb35cf</sp_column><sp_page/><sp_widget display_value="Data Table from Instance Definition">38058ff1cb11020000f8d856634c9c8c</sp_widget><sys_class_name>sp_instance_table</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-06-03 15:20:24</sys_created_on><sys_id>f414f3b5472e8210c9a25d0f536d4377</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Help Desk Requests</sys_name><sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package><sys_policy/><sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope><sys_update_name>sp_instance_table_f414f3b5472e8210c9a25d0f536d4377</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-06-03 15:22:44</sys_updated_on><table>x_492360_mydesign_help_desk</table><title>Help Desk Requests</title><url/><widget_parameters/></sp_instance_table><sys_translated_text action="delete_multiple" query="documentkey=f414f3b5472e8210c9a25d0f536d4377"/></record_update>]]></payload>
+        <payload_hash>-128250084</payload_hash>
+        <record_name>Help Desk Requests</record_name>
+        <reverted_from/>
+        <source>0985b68147223110c9a25d0f536d432f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-06-03 15:22:44</sys_created_on>
+        <sys_id>4b943fb5472e8210c9a25d0f536d43b1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fdeb217430000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-06-03 15:22:44</sys_updated_on>
+        <type>Instance with Table</type>
+        <update_guid>cf943fb50f2e8210b58d9e8494dffab0</update_guid>
+        <update_guid_history>cf943fb50f2e8210b58d9e8494dffab0:-128250084,f814f3b5de2e82107de17edd255cd57a:1529874047</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Help Desk Requests">5360ff4e476ec210c9a25d0f536d4373</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-06-04 09:42:56</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_table">sp_instance_table</sys_db_object>
+        <sys_id>10a0b9c590f84128a24a3850393bdf90</sys_id>
+        <sys_metadata>f414f3b5472e8210c9a25d0f536d4377</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Help Desk Requests</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
+        <sys_update_name>sp_instance_table_f414f3b5472e8210c9a25d0f536d4377</sys_update_name>
+        <sys_update_version display_value="sp_instance_table_f414f3b5472e8210c9a25d0f536d4377">4b943fb5472e8210c9a25d0f536d43b1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-06-04 09:42:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
