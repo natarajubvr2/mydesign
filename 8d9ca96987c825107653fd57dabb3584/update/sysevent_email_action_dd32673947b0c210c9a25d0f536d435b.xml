@@ -32,7 +32,7 @@
         <force_delivery>false</force_delivery>
         <from/>
         <generation_type>engine</generation_type>
-        <importance/>
+        <importance>high</importance>
         <include_attachments>false</include_attachments>
         <item>event.parm1</item>
         <item_table/>
@@ -61,7 +61,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>dd32673947b0c210c9a25d0f536d435b</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Help Desk Closed</sys_name>
         <sys_overrides/>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
@@ -69,7 +69,7 @@
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sysevent_email_action_dd32673947b0c210c9a25d0f536d435b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-12 14:14:17</sys_updated_on>
+        <sys_updated_on>2024-06-05 11:19:38</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="MyDesugn HD Closed">41726b7947b0c210c9a25d0f536d43f9</template>
         <type>email</type>

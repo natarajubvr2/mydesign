@@ -7,7 +7,7 @@
 <div>${mail_script:getSurveyLink}</div>]]></body_html>
         <condition/>
         <content_type>text/html</content_type>
-        <copied/>
+        <copied>requested_for</copied>
         <email_client_from_address/>
         <from>My Design&lt;mydesign@support.com&gt;</from>
         <from_generation_type>text</from_generation_type>
@@ -29,14 +29,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-07-26 13:30:36</sys_created_on>
         <sys_id>15c0af4d47d03110c9a25d0f536d434a</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>HelpDesk Requ Templ</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_email_client_template_15c0af4d47d03110c9a25d0f536d434a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-14 14:26:54</sys_updated_on>
+        <sys_updated_on>2024-06-05 11:14:33</sys_updated_on>
         <table>x_492360_mydesign_help_desk</table>
     </sys_email_client_template>
 </record_update>

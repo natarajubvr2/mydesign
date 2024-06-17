@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column">
+    <sp_column action="DELETE">
+        <class_name/>
+        <order>1</order>
+        <semantic_tag/>
+        <size>12</size>
+        <size_lg/>
+        <size_sm/>
+        <size_xs/>
+        <sp_row display_value="2">6f72069247728610c9a25d0f536d4361</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-06-17 06:36:48</sys_created_on>
+        <sys_id>637202d247728610c9a25d0f536d43bc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_column_637202d247728610c9a25d0f536d43bc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-06-17 06:36:48</sys_updated_on>
+    </sp_column>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</application>
+        <file_path/>
+        <instance_id>7a808315db3437c091232f17d4961919</instance_id>
+        <instance_name>dev80615</instance_name>
+        <name>sp_column_637202d247728610c9a25d0f536d43bc</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column"><sp_column action="INSERT_OR_UPDATE"><class_name/><order>1</order><semantic_tag/><size>12</size><size_lg/><size_sm/><size_xs/><sp_row display_value="2">6f72069247728610c9a25d0f536d4361</sp_row><sys_class_name>sp_column</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-06-17 06:36:48</sys_created_on><sys_id>637202d247728610c9a25d0f536d43bc</sys_id><sys_mod_count>0</sys_mod_count><sys_name>1</sys_name><sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package><sys_policy/><sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope><sys_update_name>sp_column_637202d247728610c9a25d0f536d43bc</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-06-17 06:36:48</sys_updated_on></sp_column></record_update>]]></payload>
+        <payload_hash>-702635532</payload_hash>
+        <record_name>1</record_name>
+        <reverted_from/>
+        <source>0985b68147223110c9a25d0f536d432f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-06-17 06:36:48</sys_created_on>
+        <sys_id>a77202d247728610c9a25d0f536d43be</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19024e99e4f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-06-17 06:36:48</sys_updated_on>
+        <type>Column</type>
+        <update_guid>ab7202d21e7286105122e4372d08dcbd</update_guid>
+        <update_guid_history>ab7202d21e7286105122e4372d08dcbd:-702635532</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="1">ebb20e9247728610c9a25d0f536d4341</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-06-17 06:37:54</sys_created_on>
+        <sys_db_object display_value="" name="sp_column">sp_column</sys_db_object>
+        <sys_id>00a2569d83d84ce08001d3e828739764</sys_id>
+        <sys_metadata>637202d247728610c9a25d0f536d43bc</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
+        <sys_update_name>sp_column_637202d247728610c9a25d0f536d43bc</sys_update_name>
+        <sys_update_version display_value="sp_column_637202d247728610c9a25d0f536d43bc">a77202d247728610c9a25d0f536d43be</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-06-17 06:37:54</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
