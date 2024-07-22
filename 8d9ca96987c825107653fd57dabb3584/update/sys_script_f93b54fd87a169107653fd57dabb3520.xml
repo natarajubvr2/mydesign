@@ -2,10 +2,10 @@
     <sys_script action="INSERT_OR_UPDATE">
         <abort_action>false</abort_action>
         <access>package_private</access>
-        <action_delete>false</action_delete>
+        <action_delete>true</action_delete>
         <action_insert>true</action_insert>
-        <action_query>false</action_query>
-        <action_update>false</action_update>
+        <action_query>true</action_query>
+        <action_update>true</action_update>
         <active>false</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
@@ -61,7 +61,7 @@ catch(ex) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f93b54fd87a169107653fd57dabb3520</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>GeoLocation</sys_name>
         <sys_overrides/>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
@@ -69,7 +69,7 @@ catch(ex) {
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_f93b54fd87a169107653fd57dabb3520</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-16 12:24:56</sys_updated_on>
+        <sys_updated_on>2024-07-22 08:37:26</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
