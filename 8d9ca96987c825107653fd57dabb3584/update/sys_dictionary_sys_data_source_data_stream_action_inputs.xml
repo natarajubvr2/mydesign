@@ -2,7 +2,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="data_stream_action_inputs" table="sys_data_source">
         <active>true</active>
         <array>false</array>
-        <attributes>list_layout_ignore=true,model_field=data_stream_action.master_snapshot,record_watcher_blacklist=true,serializer=com.glide.vars.VariableValueXMLSerializer,slushbucket_ref_no_expand=true</attributes>
+        <attributes>edge_encryption_enabled=true,list_layout_ignore=true,model_field=data_stream_action.master_snapshot,record_watcher_blacklist=true,serializer=com.glide.vars.VariableValueXMLSerializer,slushbucket_ref_no_expand=true</attributes>
         <audit>false</audit>
         <calculation/>
         <choice>0</choice>

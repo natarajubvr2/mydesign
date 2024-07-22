@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_hp_publisher">
+    <sys_ui_hp_publisher action="INSERT_OR_UPDATE">
+        <allow_database_view_filter>false</allow_database_view_filter>
+        <allow_extended_table>false</allow_extended_table>
+        <boolean_field/>
+        <boolean_table/>
+        <date_filter/>
+        <default_boolean_field/>
+        <default_choice/>
+        <default_date_filter/>
+        <default_reference_field_value>028624d61b4205108a7e7449cc4bcbb6,1a9771471b7d0d508a7e7449cc4bcbcf,26e7e49a1b8205108a7e7449cc4bcba1,2c78289e1b8205108a7e7449cc4bcbb6,4bb07a951b1601508a7e7449cc4bcbb7,516d6a171b6f09589ec38557624bcbfb,59076cd61b4205108a7e7449cc4bcbd4,593ceb511b82e5d09ec38557624bcb90,594157831bde8dd08a7e7449cc4bcbff,5a38cc881b32c9109ec38557624bcbf7,88b935421bea8d988a7e7449cc4bcba3,8aa8ec121bc205108a7e7449cc4bcbac,a018ac9a1b8205108a7e7449cc4bcbac,ba87a49a1b4205108a7e7449cc4bcb74,c3b7685e1b4205108a7e7449cc4bcb5f,c6b289421be609909ec38557624bcbbf,fea6d5f41bd49d50538aa9362a4bcbde</default_reference_field_value>
+        <description/>
+        <exclusion_choice_list/>
+        <look_up_name/>
+        <name>MyDesign Assignment Group</name>
+        <no_bulk_migration>false</no_bulk_migration>
+        <reference_conditions table="sys_user_group">nameLIKEonenav<item endquery="false" field="name" goto="false" newquery="false" operator="LIKE" or="false" value="onenav"/>
+        </reference_conditions>
+        <reference_table>sys_user_group</reference_table>
+        <remove_all_option>false</remove_all_option>
+        <source_field/>
+        <source_table/>
+        <sys_class_name>sys_ui_hp_publisher</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-07-08 15:41:36</sys_created_on>
+        <sys_id>f728c85947974e10c9a25d0f536d435c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>MyDesign Assignment Group</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_ui_hp_publisher_f728c85947974e10c9a25d0f536d435c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-07-08 15:41:36</sys_updated_on>
+        <type>2</type>
+        <ui_control_type>4</ui_control_type>
+        <use_starts_with_on_search_keyword>false</use_starts_with_on_search_keyword>
+    </sys_ui_hp_publisher>
+</record_update>

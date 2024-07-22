@@ -14,6 +14,5 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2022-12-28 16:29:03</sys_updated_on>
         <sys_user_role display_value="x_492360_mydesign.choices_user" name="x_492360_mydesign.choices_user">b5bb5aa5878c25107653fd57dabb3508</sys_user_role>
-        <transaction_id/>
     </sys_security_acl_role>
 </record_update>

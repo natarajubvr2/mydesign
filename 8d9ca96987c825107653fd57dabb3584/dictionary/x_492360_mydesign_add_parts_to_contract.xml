@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="6d4bc6c347023110c9a25d0f536d432b" label="Add Parts to Contract" max_length="40" name="x_492360_mydesign_add_parts_to_contract" type="collection">
         <element label="Description" max_length="1000" name="description" type="string"/>
-        <element display="true" label="Help Desk" max_length="32" name="help_desk" reference="x_492360_mydesign_help_desk" type="reference"/>
-        <element label="MOQ" max_length="40" name="moq" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" display="true" label="Help Desk" max_length="32" name="help_desk" reference="x_492360_mydesign_help_desk" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="MOQ" max_length="40" name="moq" type="integer"/>
         <element label="Navistar Part" max_length="100" name="navistar_part" type="string"/>
-        <element label="Price" max_length="20" name="price" type="price"/>
+        <element attributes="edge_encryption_enabled=true,omit_sys_original=true,serializer=com.glide.script.PriceXMLSerializer" label="Price" max_length="20" name="price" type="price"/>
         <element label="Supplier Part" max_length="150" name="supplier_part" type="string"/>
         <index name="index">
             <element name="help_desk"/>

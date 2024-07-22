@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_492360_mydesign_help_desk" version="2" view="RPTd05f7f8d47574e10c9a25d0f536d43e9">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>number</element>
+            <list_id display_value="x_492360_mydesign_help_desk" element="NULL" name="x_492360_mydesign_help_desk" parent="NULL" relationship="NULL" sys_domain="global" view="d45fbf8d47574e10c9a25d0f536d430f">11effbcd47574e10c9a25d0f536d4319</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-07-08 15:03:42</sys_created_on>
+            <sys_id>19effbcd47574e10c9a25d0f536d4319</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-07-08 15:03:42</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>priority</element>
+            <list_id display_value="x_492360_mydesign_help_desk" element="NULL" name="x_492360_mydesign_help_desk" parent="NULL" relationship="NULL" sys_domain="global" view="d45fbf8d47574e10c9a25d0f536d430f">11effbcd47574e10c9a25d0f536d4319</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-07-08 15:03:42</sys_created_on>
+            <sys_id>99effbcd47574e10c9a25d0f536d4319</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-07-08 15:03:42</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>state</element>
+            <list_id display_value="x_492360_mydesign_help_desk" element="NULL" name="x_492360_mydesign_help_desk" parent="NULL" relationship="NULL" sys_domain="global" view="d45fbf8d47574e10c9a25d0f536d430f">11effbcd47574e10c9a25d0f536d4319</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-07-08 15:03:42</sys_created_on>
+            <sys_id>1deffbcd47574e10c9a25d0f536d4319</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-07-08 15:03:42</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assigned_to</element>
+            <list_id display_value="x_492360_mydesign_help_desk" element="NULL" name="x_492360_mydesign_help_desk" parent="NULL" relationship="NULL" sys_domain="global" view="d45fbf8d47574e10c9a25d0f536d430f">11effbcd47574e10c9a25d0f536d4319</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-07-08 15:03:42</sys_created_on>
+            <sys_id>9deffbcd47574e10c9a25d0f536d4319</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-07-08 15:03:42</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>short_description</element>
+            <list_id display_value="x_492360_mydesign_help_desk" element="NULL" name="x_492360_mydesign_help_desk" parent="NULL" relationship="NULL" sys_domain="global" view="d45fbf8d47574e10c9a25d0f536d430f">11effbcd47574e10c9a25d0f536d4319</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-07-08 15:03:42</sys_created_on>
+            <sys_id>11effbcd47574e10c9a25d0f536d431a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-07-08 15:03:42</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_class_name</element>
+            <list_id display_value="x_492360_mydesign_help_desk" element="NULL" name="x_492360_mydesign_help_desk" parent="NULL" relationship="NULL" sys_domain="global" view="d45fbf8d47574e10c9a25d0f536d430f">11effbcd47574e10c9a25d0f536d4319</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-07-08 15:03:42</sys_created_on>
+            <sys_id>91effbcd47574e10c9a25d0f536d431a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-07-08 15:03:42</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_492360_mydesign_help_desk</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-07-08 15:03:42</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>11effbcd47574e10c9a25d0f536d4319</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_492360_mydesign_help_desk</sys_name>
+            <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+            <sys_update_name>sys_ui_list_x_492360_mydesign_help_desk_RPTd05f7f8d47574e10c9a25d0f536d43e9</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-07-08 15:03:42</sys_updated_on>
+            <sys_user/>
+            <view display_value="Rptd05f7f8d47574e10c9a25d0f536d43e9" name="RPTd05f7f8d47574e10c9a25d0f536d43e9">d45fbf8d47574e10c9a25d0f536d430f</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

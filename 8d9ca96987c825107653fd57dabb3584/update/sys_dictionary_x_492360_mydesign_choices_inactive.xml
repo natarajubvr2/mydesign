@@ -2,7 +2,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="inactive" table="x_492360_mydesign_choices">
         <active>true</active>
         <array>false</array>
-        <attributes/>
+        <attributes>edge_encryption_enabled=true</attributes>
         <audit>false</audit>
         <calculation/>
         <choice>0</choice>

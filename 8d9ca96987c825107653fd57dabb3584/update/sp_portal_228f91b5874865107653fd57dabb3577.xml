@@ -24,6 +24,7 @@ $text-muted:#646567;
         <dark_theme/>
         <default>false</default>
         <enable_ais>false</enable_ais>
+        <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
         <enable_favorites>false</enable_favorites>
         <hide_portal_name>true</hide_portal_name>
         <homepage display_value="mydesign_page">bdc12939874865107653fd57dabb352d</homepage>
@@ -58,6 +59,7 @@ $text-muted:#646567;
         <title>MyDesign</title>
         <ts_index_group/>
         <url_suffix>mydesign</url_suffix>
+        <user_registration_config/>
     </sp_portal>
     <sys_translated_text action="delete_multiple" query="documentkey=228f91b5874865107653fd57dabb3577"/>
     <sys_attachment action="INSERT_OR_UPDATE">

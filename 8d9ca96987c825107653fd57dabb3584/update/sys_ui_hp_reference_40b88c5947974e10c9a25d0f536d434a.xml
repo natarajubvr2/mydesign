@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_hp_reference">
+    <sys_ui_hp_reference action="INSERT_OR_UPDATE">
+        <publisher_reference display_value="MyDesign Assignment Group">f728c85947974e10c9a25d0f536d435c</publisher_reference>
+        <reference_field>assignment_group</reference_field>
+        <reference_table>x_492360_mydesign_help_desk</reference_table>
+        <sys_class_name>sys_ui_hp_reference</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-07-08 15:42:30</sys_created_on>
+        <sys_id>40b88c5947974e10c9a25d0f536d434a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>f728c85947974e10c9a25d0f536d435c</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_ui_hp_reference_40b88c5947974e10c9a25d0f536d434a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-07-08 15:42:30</sys_updated_on>
+    </sys_ui_hp_reference>
+</record_update>

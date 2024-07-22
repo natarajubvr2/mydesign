@@ -2,7 +2,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="price" table="x_492360_mydesign_add_parts_to_contract">
         <active>true</active>
         <array>false</array>
-        <attributes/>
+        <attributes>edge_encryption_enabled=true,omit_sys_original=true,serializer=com.glide.script.PriceXMLSerializer</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 

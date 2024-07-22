@@ -2,7 +2,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="data_stream_connection_alias" table="sys_data_source">
         <active>true</active>
         <array>false</array>
-        <attributes>encode_utf8=false</attributes>
+        <attributes>edge_encryption_enabled=true,encode_utf8=false</attributes>
         <audit>false</audit>
         <calculation><![CDATA[new sn_impex.FlowActionConnectionUtility().forFlowAction(current.data_stream_action)]]></calculation>
         <choice>0</choice>

@@ -5,11 +5,15 @@
         <active>true</active>
         <annotation/>
         <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=162000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
+        <display_name_after_preview/>
+        <flow_priority/>
+        <generation_source/>
         <internal_name>help_desk_request</internal_name>
         <label_cache>[{"name":"Created_1.current.description","label":"Trigger - Record Created➛Help Desk Record➛Description","reference":"","reference_display":"Description","type":"string","base_type":"string","parent_table_name":"x_492360_mydesign_help_desk","column_name":"description"},{"name":"Created_1.current.short_description","label":"Trigger - Record Created➛Help Desk Record➛Short description","reference":"","reference_display":"Short description","type":"string","base_type":"string","parent_table_name":"x_492360_mydesign_help_desk","column_name":"short_description"},{"name":"Created_1.current","label":"Trigger - Record Created➛Help Desk Record","reference":"x_492360_mydesign_help_desk","reference_display":"Help Desk","type":"reference","base_type":"reference","attributes":{}}]</label_cache>
         <master_snapshot>8795c706479c4210c9a25d0f536d4321</master_snapshot>
@@ -24,13 +28,14 @@
         <show_draft_actions>false</show_draft_actions>
         <show_triggered_flows>false</show_triggered_flows>
         <status>published</status>
+        <substatus/>
         <sys_class_name>sys_hub_flow</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-02-13 10:11:54</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>dff40b82479c4210c9a25d0f536d434f</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Help Desk Request</sys_name>
         <sys_overrides/>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
@@ -38,7 +43,7 @@
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_hub_flow_dff40b82479c4210c9a25d0f536d434f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-02-13 10:14:38</sys_updated_on>
+        <sys_updated_on>2024-07-01 12:55:21</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=dff40b82479c4210c9a25d0f536d434f"/>
@@ -326,6 +331,7 @@
         <comment/>
         <display_text/>
         <flow display_value="Help Desk Request">dff40b82479c4210c9a25d0f536d434f</flow>
+        <generation_source/>
         <order>1</order>
         <parent_ui_id/>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
@@ -398,7 +404,7 @@
         <sys_created_on>2024-02-13 10:14:30</sys_created_on>
         <sys_id>21958706479c4210c9a25d0f536d4355</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Record</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
@@ -421,7 +427,7 @@
         <sys_created_on>2024-02-13 10:14:30</sys_created_on>
         <sys_id>6d958706479c4210c9a25d0f536d4357</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Table Name</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
@@ -440,11 +446,13 @@
         <active>true</active>
         <annotation/>
         <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
+        <flow_priority/>
         <internal_name>help_desk_request</internal_name>
         <label_cache>[{"name":"Created_1.current.description","label":"Trigger - Record Created➛Help Desk Record➛Description","reference":"","reference_display":"Description","type":"string","base_type":"string","parent_table_name":"x_492360_mydesign_help_desk","column_name":"description"},{"name":"Created_1.current.short_description","label":"Trigger - Record Created➛Help Desk Record➛Short description","reference":"","reference_display":"Short description","type":"string","base_type":"string","parent_table_name":"x_492360_mydesign_help_desk","column_name":"short_description"},{"name":"Created_1.current","label":"Trigger - Record Created➛Help Desk Record","reference":"x_492360_mydesign_help_desk","reference_display":"Help Desk","type":"reference","base_type":"reference","attributes":{}}]</label_cache>
         <master>true</master>
@@ -719,6 +727,7 @@
         <comment/>
         <display_text/>
         <flow display_value="Help Desk Request">8795c706479c4210c9a25d0f536d4321</flow>
+        <generation_source/>
         <order>1</order>
         <parent_ui_id/>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
@@ -791,7 +800,7 @@
         <sys_created_on>2024-02-13 10:14:37</sys_created_on>
         <sys_id>9395c706479c4210c9a25d0f536d434f</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Table Name</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
@@ -814,7 +823,7 @@
         <sys_created_on>2024-02-13 10:14:37</sys_created_on>
         <sys_id>9f95c706479c4210c9a25d0f536d4347</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
+        <sys_name>Record</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>

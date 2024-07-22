@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="5f4b56a5878c25107653fd57dabb35a4" label="Choices" max_length="40" name="x_492360_mydesign_choices" type="collection">
-        <element attributes="encode_utf8=false" label="Dependent value" max_length="32" name="dependent_value" reference="x_492360_mydesign_choices" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Dependent value" max_length="32" name="dependent_value" reference="x_492360_mydesign_choices" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Element" mandatory="true" max_length="40" name="element" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Hint" max_length="40" name="hint" type="string"/>
-        <element label="Inactive" max_length="40" name="inactive" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Inactive" max_length="40" name="inactive" type="boolean"/>
         <element attributes="edge_encryption_enabled=true" label="Label" mandatory="true" max_length="40" name="label" type="string"/>
-        <element attributes="base_start=true" label="Table" mandatory="true" max_length="80" name="name" type="table_name"/>
-        <element label="Portal Display" max_length="40" name="portal_display" type="boolean"/>
-        <element label="Sequence" max_length="40" name="sequence" type="integer"/>
+        <element attributes="base_start=true,edge_encryption_enabled=true" label="Table" mandatory="true" max_length="80" name="name" type="table_name"/>
+        <element attributes="edge_encryption_enabled=true" label="Portal Display" max_length="40" name="portal_display" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Sequence" max_length="40" name="sequence" type="integer"/>
         <element attributes="edge_encryption_enabled=true" label="Value" mandatory="true" max_length="40" name="value" type="string"/>
         <index name="index">
             <element name="dependent_value"/>

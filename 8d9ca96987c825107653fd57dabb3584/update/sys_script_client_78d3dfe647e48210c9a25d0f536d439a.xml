@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
     <sys_script_client action="INSERT_OR_UPDATE">
-        <active>true</active>
+        <active>false</active>
         <applies_extended>false</applies_extended>
         <condition/>
         <description/>
@@ -18,7 +18,7 @@
 
     function HelloWorldParse(response) {
        var answerFromXML = response.responseXML.documentElement.getAttribute("answer");
-		alert("test "+answerFromXML);
+		//alert("test "+answerFromXML);
 
       //  var link = '<a href=https://dev80615.service-now.com/esc?id=take_survey&instance_id=' + answerFromXML + '>Survey</a>';
 
@@ -32,7 +32,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>78d3dfe647e48210c9a25d0f536d439a</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>survey</sys_name>
         <sys_overrides/>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
@@ -40,7 +40,7 @@
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_client_78d3dfe647e48210c9a25d0f536d439a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-02-27 10:52:50</sys_updated_on>
+        <sys_updated_on>2024-06-25 05:29:40</sys_updated_on>
         <table>x_492360_mydesign_help_desk</table>
         <type>onLoad</type>
         <ui_type>0</ui_type>

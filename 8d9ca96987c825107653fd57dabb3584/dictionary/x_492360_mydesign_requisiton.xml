@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="email_client=true" audit="true" db_object_id="2a2d69a987c825107653fd57dabb355a" extends="task" label="Requisiton" max_length="40" name="x_492360_mydesign_requisiton" type="collection">
-        <element default="0" label="Email Count After Resolved" max_length="40" name="email_count_after" type="integer"/>
-        <element default="0" label="Email Count Before Resolve" max_length="40" name="email_count_before_resolve" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" default="0" label="Email Count After Resolved" max_length="40" name="email_count_after" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" default="0" label="Email Count Before Resolve" max_length="40" name="email_count_before_resolve" type="integer"/>
         <element attributes="edge_encryption_enabled=true" label="Last Email Recieved On" max_length="40" name="last_email_received_on" type="glide_date_time"/>
-        <element label="MWB" max_length="40" name="mwb" read_only="true" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="MWB" max_length="40" name="mwb" read_only="true" type="boolean"/>
         <element attributes="edge_encryption_enabled=true,ref_contributions=linkGeneratorBtn" label="Location Search" max_length="40" name="u_g_search" type="string"/>
     </element>
 </database>
