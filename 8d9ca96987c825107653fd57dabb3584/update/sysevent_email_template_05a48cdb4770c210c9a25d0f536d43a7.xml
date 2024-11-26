@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
     <sysevent_email_template action="INSERT_OR_UPDATE">
         <collection>x_492360_mydesign_help_desk</collection>
-        <email_layout display_value="MD BGI">367744df4770c210c9a25d0f536d430e</email_layout>
+        <email_layout display_value="MyDesign Notification template">9e9ddd2683821210b40c6b70deaad384</email_layout>
         <message/>
         <message_html><![CDATA[<p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -92,14 +92,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-12 13:56:45</sys_created_on>
         <sys_id>05a48cdb4770c210c9a25d0f536d43a7</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>MyDesign BGI</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sysevent_email_template_05a48cdb4770c210c9a25d0f536d43a7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-12 14:08:58</sys_updated_on>
+        <sys_updated_on>2024-11-26 12:20:35</sys_updated_on>
         <sys_version>2</sys_version>
     </sysevent_email_template>
 </record_update>
