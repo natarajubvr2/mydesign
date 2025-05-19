@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_report_chart_color">
+    <sys_report_chart_color action="INSERT_OR_UPDATE">
+        <color/>
+        <color_name display_value="DarkRed">65b3025ea9fe3dba00e3c0e36719234c</color_name>
+        <display>background-color:#8B0000</display>
+        <element>state</element>
+        <name>x_492360_mydesign_help_desk</name>
+        <sys_class_name>sys_report_chart_color</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-05-12 11:16:44</sys_created_on>
+        <sys_id>ff95599847a16a50b183ae4b116d43cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_492360_mydesign_help_desk</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_report_chart_color_ff95599847a16a50b183ae4b116d43cd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-05-12 11:16:44</sys_updated_on>
+        <value>10</value>
+    </sys_report_chart_color>
+</record_update>

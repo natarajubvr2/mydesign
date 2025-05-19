@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-13 10:01:49</sys_created_on>
+        <sys_id>e3a28702479c4210c9a25d0f536d4332</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_492360_mydesign_help_desk_task.x_492360_mydesign.help_desk_user</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_security_acl display_value="x_492360_mydesign_help_desk_task">27a28702479c4210c9a25d0f536d432f</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_e3a28702479c4210c9a25d0f536d4332</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-13 10:01:49</sys_updated_on>
+        <sys_user_role display_value="x_492360_mydesign.help_desk_user" name="x_492360_mydesign.help_desk_user">05e85ae1878c25107653fd57dabb35fe</sys_user_role>
+    </sys_security_acl_role>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</application>
+        <file_path/>
+        <instance_id>ed3b161fff50a610c812f8e4fc4fd9cb</instance_id>
+        <instance_name>dev304705</instance_name>
+        <name>sys_security_acl_role_e3a28702479c4210c9a25d0f536d4332</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-13 10:01:49</sys_created_on>
+        <sys_id>e3a28702479c4210c9a25d0f536d4332</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_492360_mydesign_help_desk_task.x_492360_mydesign.help_desk_user</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_security_acl display_value="x_492360_mydesign_help_desk_task">27a28702479c4210c9a25d0f536d432f</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_e3a28702479c4210c9a25d0f536d4332</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-13 10:01:49</sys_updated_on>
+        <sys_user_role display_value="x_492360_mydesign.help_desk_user" name="x_492360_mydesign.help_desk_user">05e85ae1878c25107653fd57dabb35fe</sys_user_role>
+    </sys_security_acl_role>
+</record_update>]]></payload>
+        <payload_hash>-924093822</payload_hash>
+        <record_name>x_492360_mydesign_help_desk_task.x_492360_mydesign.help_desk_user</record_name>
+        <reverted_from/>
+        <source>f02eeb4f47812210b183ae4b116d4349</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-04-26 14:55:49</sys_created_on>
+        <sys_id>4d5e2bcf47812210b183ae4b116d43f2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1967298f6800000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-04-26 14:55:49</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>0d5e2bcfa38122104bb91740d40c0ff2</update_guid>
+        <update_guid_history>0d5e2bcfa38122104bb91740d40c0ff2:-924093822</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_492360_mydesign_help_desk_task.x_492360_mydesign.help_desk_user">0bcb778347052210b183ae4b116d43af</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-04-26 15:54:40</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>0ab9756d67014ad2a77c3deb9a035aa4</sys_id>
+        <sys_metadata>e3a28702479c4210c9a25d0f536d4332</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_492360_mydesign_help_desk_task.x_492360_mydesign.help_desk_user</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_parent display_value="x_492360_mydesign_help_desk_task">27a28702479c4210c9a25d0f536d432f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_scope_delete display_value="">4c9048650ede406d820a776ec4140d61</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_e3a28702479c4210c9a25d0f536d4332</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_e3a28702479c4210c9a25d0f536d4332">4d5e2bcf47812210b183ae4b116d43f2</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-04-26 15:54:40</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
