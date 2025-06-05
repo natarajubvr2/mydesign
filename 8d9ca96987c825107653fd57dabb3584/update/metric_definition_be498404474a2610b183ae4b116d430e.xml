@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="metric_definition">
+    <metric_definition action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <field>state</field>
+        <name>WIP duration</name>
+        <number>MTRC0010003</number>
+        <order>100</order>
+        <script><![CDATA[// variables available
+// current: GlideRecord -  target incident
+// definition: GlideRecord -  (this row)
+if (current.state == 2)
+    createMetric();
+
+if (current.state != 2)
+    closeMetric();
+
+
+
+function createMetric() {
+    var mi = new global.MetricInstance(definition, current);
+    if (!mi.metricExists())
+        mi.startDuration();
+    else
+        metricUpdate();
+}
+
+
+function metricUpdate() {
+    var gr = new GlideRecord('metric_instance');
+    gr.addQuery("id", current.sys_id);
+    gr.addQuery("definition", definition.sys_id);
+    gr.addQuery('calculation_complete', true);
+    gr.query();
+    if (gr.hasNext()) {
+        gr.setValue('start', new GlideDateTime());
+        gr.setValue('end', '');
+        gr.setvalue('calculation_complete', false);
+        gr.update();
+    }
+}
+
+function closeMetric() {
+    var gr = new GlideRecord('metric_instance');
+    gr.addQuery('definition', definition.sys_id);
+    gr.addQuery('id', current.sys_id);
+    gr.addQuery('calculation_complete', false);
+    gr.query();
+    if (!gr.next())
+        return;
+
+    gr.end = current.sys_updated_on;
+    var calDuration = new GlideDuration(gs.dateDiff(gr.start.getDisplayValue(), gr.end.getDisplayValue()));
+
+    var duration1 = new GlideDuration(gr.getValue('duration'));
+    gr.duration = duration1.add(calDuration);
+    gr.calculation_complete = true;
+    gr.update();
+}]]></script>
+        <sys_class_name>metric_definition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-05 07:39:38</sys_created_on>
+        <sys_id>be498404474a2610b183ae4b116d430e</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>WIP duration</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>metric_definition_be498404474a2610b183ae4b116d430e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-05 08:50:04</sys_updated_on>
+        <table>x_492360_mydesign_help_desk</table>
+        <timeline>false</timeline>
+        <type>calculation</type>
+    </metric_definition>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>be498404474a2610b183ae4b116d430e</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-05 07:39:37</sys_created_on>
+        <sys_id>6d1a8404474a2610b183ae4b116d4314</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-05 07:39:37</sys_updated_on>
+        <table>metric_definition</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
