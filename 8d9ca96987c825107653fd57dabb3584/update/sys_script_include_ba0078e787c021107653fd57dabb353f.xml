@@ -11,11 +11,10 @@
         <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var MyDesignTracker = Class.create();
 MyDesignTracker.prototype = {
-    initialize: function() {
-    },
+    initialize: function() {},
 
-	
-	/*
+
+    /*
 	Module - UI Script
 	Scope - Global
 	API Name - portalLink
@@ -654,7 +653,7 @@ Server Script starts here-------------------------------------------------------
        /* if (data.table == 'x_nainr_onenav_pro_aftermarket_support_request' && (data.f._fields.request_subcategory.value == 'EPA' || data.f._fields.request_subcategory.value == 'Pricing File Amendment')) {
             data.reqCancel = true; // Displays the Request Cancel button
         }*/
-		/* remove this comment
+    /* remove this comment
         if (data.table == 'x_492360_mydesign_help_desk' || data.table == 'x_492360_mydesign_requisiton') {
             data.reqCancel = true; // Displays the Request Cancel button
         }
@@ -1307,19 +1306,58 @@ while (req.next()) {
 })(current, previous);
 ////////////////////////////////Copy/Remove attachment from Task to Request///////end///////////////////////////
 	*/
+
+    //////////////////////////Digest email script include and event///////////////////////////////////////
+    /*
+    	var controlObj = {};
+    var control = new GlideRecord("sn_compliance_control");
+    control.addQuery("u_mark_for_notification", true);
+    control.query();
+    while (control.next()) {
+        var instance1 = new GlideRecord("asmt_assessment_instance");
+        instance1.addEncodedQuery("state=ready^metric_type=5e424c293bf9629066a2213eb3e45a36^sn_grc_item=" + control.getValue("sys_id"));
+        instance1.query();
+        while (instance1.next()) {
+            if (controlObj[instance1.getValue("user")] == undefined) {
+                var tempControlArr1 = [];
+                tempControlArr1.push(control.getValue("number"));
+                tempControlArr1.push(control.getValue("name"));
+                tempControlArr1.push(control.getDisplayValue("profile"));
+                controlObj[instance1.getValue("user")] = tempControlArr1;
+            } else {
+                var tempControlArr2 = [];
+                tempControlArr2 = controlObj[instance1.getValue("user")];
+                tempControlArr2.push(control.getValue("number"));
+                tempControlArr2.push(control.getValue("name"));
+                tempControlArr2.push(control.getDisplayValue("profile"));
+                controlObj[instance1.getValue("user")] = tempControlArr2;
+            }
+        }
+        control.setValue("u_mark_for_notification", false);
+        control.update();
+        instance1 = null;
+    }
+
+    for (var key in controlObj) {
+    	gs.eventQueue("sn_compliance.digest.notifications.itgc", control, key, controlObj[key].join("##"));
+    }
+    */
+    //test
+    //Email script
+    /*https://dev3xxxxxxx.service-now.com/sys_script_email.do?sys_id=19a4ceb147b22210b183ae4b116d433a&sysparm_view=&sysparm_domain=null&sysparm_domain_scope=null*/
     type: 'MyDesignTracker'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-01-03 12:36:28</sys_created_on>
         <sys_id>ba0078e787c021107653fd57dabb353f</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>MyDesignTracker</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_include_ba0078e787c021107653fd57dabb353f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-02-09 14:42:59</sys_updated_on>
+        <sys_updated_on>2025-07-18 10:25:18</sys_updated_on>
     </sys_script_include>
 </record_update>
