@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>this is created for note everything</description>
+        <mobile_callable>false</mobile_callable>
         <name>MyDesignTracker</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var MyDesignTracker = Class.create();
 MyDesignTracker.prototype = {
     initialize: function() {

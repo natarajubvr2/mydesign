@@ -3,7 +3,7 @@
         <access>package_private</access>
         <authentication_type>basic</authentication_type>
         <basic_auth_password/>
-        <basic_auth_profile display_value="Jira Pass">5ebefd8247d43110c9a25d0f536d4378</basic_auth_profile>
+        <basic_auth_profile display_value="">5ebefd8247d43110c9a25d0f536d4378</basic_auth_profile>
         <basic_auth_user/>
         <description/>
         <name>JIRA</name>

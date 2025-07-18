@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_permission">
+    <par_dashboard_permission action="INSERT_OR_UPDATE">
+        <can_read>true</can_read>
+        <can_share>true</can_share>
+        <can_write>true</can_write>
+        <dashboard display_value="Mydesign scoped Demo">f7b5c2ac47f2ee10b183ae4b116d43b3</dashboard>
+        <group/>
+        <owner>true</owner>
+        <role/>
+        <sys_class_name>par_dashboard_permission</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-07-14 12:43:58</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>48c5c2ac47f2ee10b183ae4b116d43b6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>f7b5c2ac47f2ee10b183ae4b116d43b3</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>par_dashboard_permission_48c5c2ac47f2ee10b183ae4b116d43b6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-07-14 12:43:58</sys_updated_on>
+        <user display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</user>
+    </par_dashboard_permission>
+</record_update>

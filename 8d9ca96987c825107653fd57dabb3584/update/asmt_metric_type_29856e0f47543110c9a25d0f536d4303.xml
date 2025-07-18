@@ -22,10 +22,9 @@
         <evaluation_method>survey</evaluation_method>
         <filter_condition/>
         <filter_table/>
-        <introduction/>
+        <introduction><![CDATA[<p><a title="Google" href="https://www.google.com" target="_blank" rel="noopener noreferrer nofollow">www.google.com</a></p>]]></introduction>
         <job/>
         <live_feed>false</live_feed>
-        <ms_adaptive_cards>true</ms_adaptive_cards>
         <name>MyDesign Services Overall Performance</name>
         <not_show_intro_note>false</not_show_intro_note>
         <notify_if_overdue>false</notify_if_overdue>
@@ -49,14 +48,14 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>29856e0f47543110c9a25d0f536d4303</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>MyDesign Services Overall Performance</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>asmt_metric_type_29856e0f47543110c9a25d0f536d4303</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-11 13:43:48</sys_updated_on>
+        <sys_updated_on>2025-06-27 08:28:53</sys_updated_on>
         <table>asmt_metric_type</table>
         <url/>
         <user_field/>

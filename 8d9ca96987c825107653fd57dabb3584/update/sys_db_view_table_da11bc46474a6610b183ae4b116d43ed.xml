@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view_table">
+    <sys_db_view_table action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <left_join>false</left_join>
+        <order>100</order>
+        <sys_class_name>sys_db_view_table</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-11 15:38:22</sys_created_on>
+        <sys_id>da11bc46474a6610b183ae4b116d43ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>change_request</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_db_view_table_da11bc46474a6610b183ae4b116d43ed</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-11 15:38:22</sys_updated_on>
+        <table>change_request</table>
+        <variable_prefix>ch</variable_prefix>
+        <view display_value="x_492360_mydesign_inci_view">96c0f446474a6610b183ae4b116d4362</view>
+        <where_clause/>
+    </sys_db_view_table>
+</record_update>

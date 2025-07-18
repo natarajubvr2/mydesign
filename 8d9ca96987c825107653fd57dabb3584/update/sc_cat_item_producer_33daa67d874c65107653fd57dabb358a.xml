@@ -24,6 +24,7 @@
         <ignore_price>true</ignore_price>
         <image/>
         <location/>
+        <make_item_non_conversational>false</make_item_non_conversational>
         <mandatory_attachment>false</mandatory_attachment>
         <meta/>
         <mobile_hide_price>false</mobile_hide_price>

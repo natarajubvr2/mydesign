@@ -9,6 +9,7 @@
         <create_access>false</create_access>
         <create_access_controls>false</create_access_controls>
         <delete_access>false</delete_access>
+        <filter_extension/>
         <is_extendable>false</is_extendable>
         <label>help Desk MWB</label>
         <live_feed_enabled>false</live_feed_enabled>
@@ -17,7 +18,7 @@
         <provider_class/>
         <read_access>true</read_access>
         <scriptable_table>false</scriptable_table>
-        <super_class display_value="Import Set Row" name="sys_import_set_row">efa983f1e821211076da10591ad2873b</super_class>
+        <super_class display_value="Import Set Row" name="sys_import_set_row">51b0ff265c0022105590c762d23e630b</super_class>
         <sys_class_name>sys_db_object</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-08-29 12:07:19</sys_created_on>

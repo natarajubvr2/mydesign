@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_492360_mydesign.flipkart_user" name="x_492360_mydesign.flipkart_user">6942252c478ae610b183ae4b116d43cd</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-07 03:21:53</sys_created_on>
+        <sys_id>6d42252c478ae610b183ae4b116d43d1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>6942252c478ae610b183ae4b116d43cd</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_embedded_help_role_6d42252c478ae610b183ae4b116d43d1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-07 03:21:53</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

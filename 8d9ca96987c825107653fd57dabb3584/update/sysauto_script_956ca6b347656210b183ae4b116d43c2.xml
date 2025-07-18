@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_time>1970-01-01 04:00:00</entered_time>
+        <max_drift/>
+        <name>MyDesign import from Third party server</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2025-05-23 14:34:36</run_start>
+        <run_time>1970-01-01 04:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[(function() {
+
+	// Load Properties // create below properties in Global
+	var midserver = gs.getProperty('myd.int.facebook.mid_server', '').toLowerCase();
+	var file_path = gs.getProperty('myd.int.facebook.buyer.file_path', '');
+	var import_table = gs.getProperty('myd.int.facebook.buyer.import_table', '').toLowerCase();
+
+	var utils = new MydesignECCUtils();
+
+	// Prepare Payload
+	var payload = "uploadPeopleSoftFiles(); function uploadPeopleSoftFiles() { var lib = new NavistarMIDServerUtils(); return lib.uploadPeopleSoftFiles('" + midserver + "', '" + file_path.replace(/\\/g, '\\\\') + "', '" + import_table + "', true); }";
+
+	// Execute Payload
+	var result = utils.executeJavascriptMIDServer(midserver, payload, true);
+
+	// Process Result
+	if (!result.toLowerCase().startsWith('error:')) {
+		if (result) {
+			gs.log('Mydesign - facebook Data Sync - File(s) loaded successfully into ServiceNow');	
+		} else {
+			gs.log('Mydesign - facebook Data Sync - No files to be loaded into ServiceNow');
+		}
+	} else {
+		gs.log('Mydesign - facebook Data Sync - Error loading file(s) into ServiceNow - ' +  result.split(':')[1]);
+
+	}
+	
+})();
+
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-05-23 15:08:31</sys_created_on>
+        <sys_id>956ca6b347656210b183ae4b116d43c2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>MyDesign import from Third party server</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sysauto_script_956ca6b347656210b183ae4b116d43c2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-05-23 15:08:31</sys_updated_on>
+        <time_zone>GMT</time_zone>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>956ca6b347656210b183ae4b116d43c2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-05-23 15:08:30</sys_created_on>
+        <sys_id>8a24babb47656210b183ae4b116d4355</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-05-23 15:08:30</sys_updated_on>
+        <table>sysauto_script</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>false</active>
+        <callable_outputs/>
         <copied_from/>
         <description>Open 'General Queries' Record Producer</description>
         <display_name>Open a Record Producer</display_name>

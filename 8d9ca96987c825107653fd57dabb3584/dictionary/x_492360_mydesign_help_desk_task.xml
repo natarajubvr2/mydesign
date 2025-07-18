@@ -2,9 +2,9 @@
     <element audit="true" db_object_id="513283ce475c4210c9a25d0f536d435b" extends="task" label="Help Desk Task" max_length="40" name="x_492360_mydesign_help_desk_task" type="collection">
         <element attributes="edge_encryption_enabled=true" choice="1" label="Reason for On Hold" max_length="40" name="reason_for_hold" type="string">
             <choice>
-                <element inactive_on_update="false" label="IBM Pending" sequence="0" value="ibm_pending"/>
-                <element inactive_on_update="false" label="Navistar Pending" sequence="1" value="navistar_pending"/>
                 <element inactive_on_update="false" label="Supplier Pending" sequence="2" value="supplier_pending"/>
+                <element inactive_on_update="false" label="Navistar Pending" sequence="1" value="navistar_pending"/>
+                <element inactive_on_update="false" label="IBM Pending" sequence="0" value="ibm_pending"/>
             </choice>
         </element>
     </element>

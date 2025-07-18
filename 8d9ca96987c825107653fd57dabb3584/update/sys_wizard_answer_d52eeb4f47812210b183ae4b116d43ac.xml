@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <answer>Legal Doc Request</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>Legal Doc Request</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="Task" name="Task">f861f76a5c0022105590c762d23e63a8</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-04-26 14:55:01</sys_created_on>
+        <sys_id>d52eeb4f47812210b183ae4b116d43ac</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Legal Doc Request</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_wizard_answer_d52eeb4f47812210b183ae4b116d43ac</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-04-26 14:55:01</sys_updated_on>
+        <table/>
+        <target_url>x_492360_mydesign_legal_doc_request.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+</record_update>

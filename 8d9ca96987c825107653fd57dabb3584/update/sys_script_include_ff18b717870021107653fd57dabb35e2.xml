@@ -9,7 +9,9 @@
 This script include is used for Inbound Email action to run transform map to insert bulk request.&#13;
 Inbound Email Action :- "MyDesign bulk email".&#13;
 Flow :- Through Inbound Email Action inserting a data source record and passing the sys_id of the Data source record to this script include.</description>
+        <mobile_callable>false</mobile_callable>
         <name>EmailFileImportUtils</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var EmailFileImportUtils = Class.create();
 EmailFileImportUtils.prototype = {
     initialize: function() {},

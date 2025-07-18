@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="email_client" audit="true" db_object_id="2d289225878c25107653fd57dabb352e" extends="task" label="Help Desk" max_length="40" name="x_492360_mydesign_help_desk" type="collection">
-        <element attributes="edge_encryption_enabled=true" label="Attachment" max_length="40" name="attachment" type="file_attachment"/>
-        <element attributes="edge_encryption_enabled=true" default="0" function_definition="0" label="Counter" max_length="255" name="couner" read_only="true" type="integer"/>
-        <element attributes="edge_encryption_enabled=true" default="0" label="Email Count After Resolve" max_length="40" name="email_count_after" type="integer"/>
         <element attributes="edge_encryption_enabled=true" default="0" label="Total Email Count" max_length="40" name="email_count_before_resolve" type="integer"/>
-        <element attributes="edge_encryption_enabled=true" label="Last Email Recieved" max_length="40" name="last_email_received_on" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Send an email" max_length="32" name="send_an_email" reference="sys_email_client_template" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" default="0" label="Email Count After Resolve" max_length="40" name="email_count_after" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Server" max_length="32" name="server" reference="cmdb_ci_server" type="reference"/>
         <element attributes="edge_encryption_enabled=true" choice="1" choice_field="reason_for_hold" choice_table="x_492360_mydesign_help_desk_task" label="Reason For On Hold" max_length="40" name="reason_for_hold" type="choice">
             <choice>
-                <element inactive_on_update="false" label="IBM Pending" sequence="0" value="ibm_pending"/>
                 <element inactive_on_update="false" label="Navistar Pending" sequence="1" value="navistar_pending"/>
                 <element inactive_on_update="false" label="Supplier Pending" sequence="2" value="supplier_pending"/>
+                <element inactive_on_update="false" label="IBM Pending" sequence="0" value="ibm_pending"/>
             </choice>
         </element>
+        <element attributes="edge_encryption_enabled=true" default="0" function_definition="0" label="Counter" max_length="255" name="couner" read_only="true" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Email Recieved" max_length="40" name="last_email_received_on" type="glide_date_time"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;    return (current.couner * gs.getProperty('x_492360_mydesign.P1')) / 100; // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="P1 Incident" max_length="40" name="p1_incident" type="integer" virtual="true"/>
+        <element attributes="edge_encryption_enabled=true" label="Attachment" max_length="40" name="attachment" type="file_attachment"/>
         <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Requested For" max_length="32" name="requested_for" reference="sys_user" type="reference"/>
-        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Send an email" max_length="32" name="send_an_email" reference="sys_email_client_template" type="reference"/>
-        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Server" max_length="32" name="server" reference="cmdb_ci_server" type="reference"/>
     </element>
 </database>

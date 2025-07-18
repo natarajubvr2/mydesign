@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_type">
+    <asmt_metric_type action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <allow_public>false</allow_public>
+        <allow_retake>false</allow_retake>
+        <anonymize>false</anonymize>
+        <business_rule/>
+        <chat_survey>false</chat_survey>
+        <condition/>
+        <default_filter/>
+        <delete_business_rule/>
+        <description/>
+        <disable_ui_action/>
+        <display_all_filters>false</display_all_filters>
+        <display_field/>
+        <duration>1970-01-15 00:00:00</duration>
+        <enable_ui_action/>
+        <end_note/>
+        <enforce_condition>false</enforce_condition>
+        <evaluation_method>attestation_v2</evaluation_method>
+        <filter_condition/>
+        <filter_table/>
+        <introduction><![CDATA[<p><a title="giggle" href="https://www.google.com" target="_blank" rel="noopener noreferrer nofollow">google</a></p>]]></introduction>
+        <job/>
+        <live_feed>false</live_feed>
+        <name>MyDesign Attestation</name>
+        <not_show_intro_note>false</not_show_intro_note>
+        <notify_if_overdue>false</notify_if_overdue>
+        <notify_user>true</notify_user>
+        <one_click_survey>false</one_click_survey>
+        <overdue_notify_user/>
+        <portal_pagination>category</portal_pagination>
+        <publish_state>published</publish_state>
+        <roles/>
+        <sample_metric/>
+        <scale_factor/>
+        <schedule_period>0</schedule_period>
+        <schedule_type>on_demand</schedule_type>
+        <scoring_type>percent</scoring_type>
+        <signature/>
+        <source_table/>
+        <survey_owners>6816f79cc0a8016401c5a33be04be441</survey_owners>
+        <sys_class_name>asmt_metric_type</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-27 07:39:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2fec550b479eee50b183ae4b116d43fa</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>MyDesign Attestation</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>asmt_metric_type_2fec550b479eee50b183ae4b116d43fa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-27 07:56:14</sys_updated_on>
+        <table/>
+        <url/>
+        <user_field/>
+        <user_field_business_rule/>
+    </asmt_metric_type>
+    <sys_translated_text action="delete_multiple" query="documentkey=2fec550b479eee50b183ae4b116d43fa"/>
+</record_update>

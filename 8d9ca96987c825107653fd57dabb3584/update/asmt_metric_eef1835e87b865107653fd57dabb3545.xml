@@ -26,6 +26,7 @@
         <displayed_when_yesno/>
         <duration/>
         <field_validation/>
+        <hide_label>false</hide_label>
         <mandatory>false</mandatory>
         <max>4</max>
         <max_weight/>

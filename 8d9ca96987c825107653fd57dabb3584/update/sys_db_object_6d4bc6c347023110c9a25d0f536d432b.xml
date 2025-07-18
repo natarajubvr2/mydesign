@@ -9,6 +9,7 @@
         <create_access>true</create_access>
         <create_access_controls>true</create_access_controls>
         <delete_access>true</delete_access>
+        <filter_extension/>
         <is_extendable>false</is_extendable>
         <label>Add Parts to Contract</label>
         <live_feed_enabled>false</live_feed_enabled>
