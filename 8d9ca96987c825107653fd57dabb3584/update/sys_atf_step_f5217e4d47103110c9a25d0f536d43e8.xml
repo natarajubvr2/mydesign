@@ -34,6 +34,7 @@ nobroker.docx</description>
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>application/vnd.openxmlformats-officedocument.wordprocessingml.document</content_type>
+        <encryption_context/>
         <file_name>nobroker.docx</file_name>
         <hash>331a3b30fd8e94c0e5a595c0f8e676af4e4f598606b4a59dbb37d7f77cbe7b12</hash>
         <image_height/>

@@ -88,14 +88,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-28 16:23:07</sys_created_on>
         <sys_id>14fa622d878c25107653fd57dabb35e5</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>81</sys_mod_count>
         <sys_name>General Queries</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sc_cat_item_producer_14fa622d878c25107653fd57dabb35e5</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2024-04-24 10:04:05</sys_updated_on>
+        <sys_updated_on>2025-12-04 15:20:16</sys_updated_on>
         <table_name>x_492360_mydesign_help_desk</table_name>
         <taxonomy_topic/>
         <template/>
@@ -103,7 +103,7 @@
         <type>item</type>
         <use_sc_layout>true</use_sc_layout>
         <vendor/>
-        <version>71</version>
+        <version>76</version>
         <view/>
         <visible_bundle>true</visible_bundle>
         <visible_guide>true</visible_guide>
@@ -117,6 +117,7 @@
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/png</content_type>
+        <encryption_context/>
         <file_name>icon</file_name>
         <hash>2295857d0934ccace059b2dd6a637f5afee8f3a02bde9905208a3599f5c2b34d</hash>
         <image_height>592</image_height>
@@ -156,6 +157,7 @@
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/png</content_type>
+        <encryption_context/>
         <file_name>picture</file_name>
         <hash>4c0513a01667409dab2e24ee5b2d58674da16c8447bb2acba583611cf74818dd</hash>
         <image_height>574</image_height>

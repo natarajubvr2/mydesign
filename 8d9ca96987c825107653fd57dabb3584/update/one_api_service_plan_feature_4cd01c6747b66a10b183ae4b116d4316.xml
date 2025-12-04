@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="one_api_service_plan_feature">
+    <one_api_service_plan_feature action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applicability_condition/>
+        <applicability_condition_expression/>
+        <applicability_condition_table/>
+        <applicability_script><![CDATA[(function(featureInput, previousFeatureOutputs) {  
+	/* customize condition logic here, return true or false */  
+	return true;
+  })(featureInput, previousFeatureOutputs);]]></applicability_script>
+        <applicability_type>script</applicability_type>
+        <delay_output_processing>false</delay_output_processing>
+        <depends_on/>
+        <depends_on_list/>
+        <error_policy>continue_service_plan_execution</error_policy>
+        <feature display_value="ce9c8b2b97a9bd50a3a775771153afb4">bfc0586747b66a10b183ae4b116d4316</feature>
+        <return_request>false</return_request>
+        <service_plan display_value="Recommendations-ce9c8b2b97a9bd50a3a775771153afb4-txcvxt25">33c01c6747b66a10b183ae4b116d4314</service_plan>
+        <sys_class_name>one_api_service_plan_feature</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-07-23 11:54:51</sys_created_on>
+        <sys_id>4cd01c6747b66a10b183ae4b116d4316</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Recommendations-ce9c8b2b97a9bd50a3a775771153afb4-txcvxt25: ce9c8b2b97a9bd50a3a775771153afb4</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>one_api_service_plan_feature_4cd01c6747b66a10b183ae4b116d4316</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-07-23 11:54:51</sys_updated_on>
+        <timeout_policy>continue_service_plan_execution</timeout_policy>
+        <timeout_sec>240</timeout_sec>
+    </one_api_service_plan_feature>
+</record_update>

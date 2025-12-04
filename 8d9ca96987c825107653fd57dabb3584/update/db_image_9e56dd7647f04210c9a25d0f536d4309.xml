@@ -27,6 +27,7 @@
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/png</content_type>
+        <encryption_context/>
         <file_name>image</file_name>
         <hash>1d4bb90d9895be6ae4e8f3dc10c2ad4d9fc3756e7cf202bdc9f408205c963cf0</hash>
         <image_height>500</image_height>
@@ -66,6 +67,7 @@
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/png</content_type>
+        <encryption_context/>
         <file_name>screenshot_20240311_120559.png</file_name>
         <hash>430197008d2e76d9406dcbe426361c016ab31a93243471775278f12a3bc78f04</hash>
         <image_height>55</image_height>

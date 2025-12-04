@@ -69,6 +69,7 @@ $text-muted:#646567;
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/png</content_type>
+        <encryption_context/>
         <file_name>logo</file_name>
         <hash>2f052fc286b2a55d80bf203b983d0087438c6f2b88817312b527e48c5d9af59a</hash>
         <image_height>589</image_height>

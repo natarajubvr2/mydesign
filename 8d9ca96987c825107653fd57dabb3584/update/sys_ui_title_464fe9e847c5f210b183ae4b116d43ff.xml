@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_title">
+    <sys_ui_title action="INSERT_OR_UPDATE">
+        <field_list>priority,short_description,description</field_list>
+        <script><![CDATA[//Get the Control url from the attestation
+// var url = 'https://' + gs.getProperty('instance_name') + '.service-now.com/' + 'sn_compliance_control.do?sys_id=' + current.sys_id;
+
+//answer = '<a href = "' + url + '">' + '<font size="2">'+gs.getMessage("Click here ") + '</font>'+'</a>' +'<font size="2" color="black">'+ gs.getMessage("for more information related to the control you are attesting to.") + '</font>'+'\n';
+
+var desc = '<font size="2" color="black">' + gs.getMessage("Description: ") + '\n' + current.description.toString() + '\n\n';
+
+var cac = gs.getMessage("On Hold Reason: ") + '\n' + current.reason_for_hold.toString() + '\n\n';
+
+var cr = gs.getMessage("Request Priority: ") + current.priority.toString();
+
+// Need to find out the attestation type of the Current control.
+// If the type is for Common service, i.e. associated with Common Control, control risk should not be displayed at title header.
+answer = desc + cac + cr;
+// var attType = current.attestation.toString();
+
+// //  GRC Common services attestation - Company - dce2eaf51bfe6e908cb5cb34604bcb83
+// //  GRC Common services attestation - Application - ace9e5871b26e2108cb5cb34604bcb1e
+// if(attType == 'dce2eaf51bfe6e908cb5cb34604bcb83' || attType == 'ace9e5871b26e2108cb5cb34604bcb1e'){
+// 	answer = desc + cac;
+// }
+// else{
+// 	answer = desc + cac + cr;
+// }
+// Commented below line as we have intrduced conditional title header display.
+//answer = desc + cac + cr;
+]]></script>
+        <search_fields/>
+        <style_field/>
+        <sys_class_name>sys_ui_title</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-03 07:31:46</sys_created_on>
+        <sys_id>464fe9e847c5f210b183ae4b116d43ff</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>x_492360_mydesign_help_desk</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_ui_title_464fe9e847c5f210b183ae4b116d43ff</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-03 07:41:48</sys_updated_on>
+        <table>x_492360_mydesign_help_desk</table>
+    </sys_ui_title>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>464fe9e847c5f210b183ae4b116d43ff</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-03 07:31:46</sys_created_on>
+        <sys_id>2250f9244789f210b183ae4b116d4355</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-03 07:31:46</sys_updated_on>
+        <table>sys_ui_title</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

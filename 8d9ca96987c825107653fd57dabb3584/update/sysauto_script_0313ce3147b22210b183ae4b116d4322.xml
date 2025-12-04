@@ -49,20 +49,21 @@ while (control.next()) {
 for (var key in controlObj) {
 	gs.eventQueue("sn_compliance.digest.notifications.itgc", control, key, controlObj[key].join("##"));
 }
+//test
 //Email script
 /*https://dev3xxxxxxx.service-now.com/sys_script_email.do?sys_id=19a4ceb147b22210b183ae4b116d433a&sysparm_view=&sysparm_domain=null&sysparm_domain_scope=null*/]]></script>
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-07-18 09:46:09</sys_created_on>
         <sys_id>0313ce3147b22210b183ae4b116d4322</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Digest Notification</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sysauto_script_0313ce3147b22210b183ae4b116d4322</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-07-18 09:54:22</sys_updated_on>
+        <sys_updated_on>2025-07-18 10:07:48</sys_updated_on>
         <time_zone/>
         <upgrade_safe>false</upgrade_safe>
     </sysauto_script>

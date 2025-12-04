@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>priority_incident_monthly_counts</name>
+        <scoped_name>x_492360_mydesign_priority_incident_monthly_counts</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-07-24 08:12:43</sys_created_on>
+        <sys_id>1a472cbf47beaa10b183ae4b116d431a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>priority_incident_monthly_counts</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_ui_macro_1a472cbf47beaa10b183ae4b116d431a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-07-24 08:21:40</sys_updated_on>
+        <xml><![CDATA[<j2:macro name="priority_incident_monthly_counts">
+  <script>
+    function loadIncidentPriorityStats() {
+      var ga = new GlideAjax('GetPriorityIncidentCountsAjax');
+      ga.addParam('sysparm_name', 'getData');
+      ga.getXMLAnswer(function(response) {
+        var data = JSON.parse(response);
+        var html = '<table class="table table-bordered"><thead><tr><th>Month</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th></tr></thead><tbody>';
+
+        for (var month in data) {
+          html += '<tr><td>' + month + '</td>';
+          html += '<td>' + (data[month]['1'] || '0') + '</td>';
+          html += '<td>' + (data[month]['2'] || '0') + '</td>';
+          html += '<td>' + (data[month]['3'] || '0') + '</td>';
+          html += '<td>' + (data[month]['4'] || '0') + '</td>';
+          html += '</tr>';
+        }
+
+        html += '</tbody></table>';
+        document.getElementById('incidentPriorityStatsContainer').innerHTML = html;
+      });
+    }
+
+    window.addEventListener('load', loadIncidentPriorityStats);
+  </script>
+
+  <div id="incidentPriorityStatsContainer">Loading monthly incident priority counts...</div>
+</j2:macro>
+]]></xml>
+    </sys_ui_macro>
+</record_update>
