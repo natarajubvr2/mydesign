@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope, $rootScope) {
+$scope.isOpen = true;
+    $scope.selectedAlphas = {};
+
+    $scope.updateAlphaFilter = function () {
+        var selected = [];
+
+        angular.forEach($scope.selectedAlphas, function (v, k) {
+            if (v) selected.push(k);
+        });
+        console.log('Alpha selected:', selected); // debug
+
+        $rootScope.$broadcast('alpha.filter.changed', selected);
+    };
+
+    // ]]>🔹<![CDATA[ CLEAR FILTER
+    $scope.clearFilter = function () {
+        $scope.selectedAlphas = {};
+        $rootScope.$broadcast('alpha.filter.changed', []);
+    };
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.filter-scroll {&#13;
+    max-height: 220px;      /* adjust as needed */&#13;
+    overflow-y: auto;&#13;
+    padding-right: 6px;&#13;
+}&#13;
+&#13;
+/* Optional: smoother scroll */&#13;
+.filter-scroll::-webkit-scrollbar {&#13;
+    width: 6px;&#13;
+}&#13;
+&#13;
+.filter-scroll::-webkit-scrollbar-thumb {&#13;
+    background-color: #c1c1c1;&#13;
+    border-radius: 4px;&#13;
+}&#13;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>MyDesign Alphabets</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+    data.alpha = [];
+
+    var gr = new GlideRecord('sys_choice');
+    gr.addQuery('name', 'incident');        // table
+    gr.addQuery('element', 'u_alpha');        // field
+    gr.addQuery('inactive', false);
+    gr.orderBy('sequence');
+    gr.query();
+
+    while (gr.next()) {
+        data.alpha.push({
+            value: gr.value.toString(),
+            label: gr.label.toString()
+        });
+    }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-13 15:43:16</sys_created_on>
+        <sys_id>70033c2147c33e5080626d1f316d4341</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>MyDesign Alphabets</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_widget_70033c2147c33e5080626d1f316d4341</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-13 15:44:07</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default">
+
+  <div class="panel-heading"
+       ng-click="isOpen = !isOpen"
+       style="cursor:pointer;">
+    <b>Filter by Alphabetical</b>
+
+    <span class="pull-right">
+      <a href="" ng-click="$event.stopPropagation(); clearFilter()">
+        Clear
+      </a>
+      &nbsp;
+      <i class="fa"
+         ng-class="{'fa-chevron-down': isOpen, 'fa-chevron-right': !isOpen}">
+      </i>
+    </span>
+  </div>
+
+  <div class="panel-body filter-scroll"
+       ng-show="isOpen">
+
+    <div ng-repeat="alpha in data.alpha">
+      <label>
+        <input type="checkbox"
+               ng-model="selectedAlphas[alpha.value]"
+               ng-change="updateAlphaFilter()">
+        {{alpha.label}}
+      </label>
+    </div>
+
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

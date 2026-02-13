@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope, $rootScope) {
+
+    /* ---------------- Client-side text filters ---------------- */
+    $scope.filter = {
+        number: '',
+        short_description: ''
+    };
+
+    /* ---------------- Server-side filters ---------------- */
+    $scope.serverFilters = {
+        alpha: [],
+        words: []
+    };
+
+    /* ---------------- INIT DATA ---------------- */
+    // IMPORTANT: initialize filteredIncidents
+    $scope.filteredIncidents = angular.copy($scope.data.records || []);
+
+    /* ---------------- Refresh from server ---------------- */
+   var refreshPromise = null;
+
+function refreshFromServer() {
+    if (refreshPromise) return; // prevent double fire
+
+    refreshPromise = $scope.server.get({
+        alpha: $scope.serverFilters.alpha,
+        words: $scope.serverFilters.words
+    }).then(function (response) {
+        $scope.data.records = response.data.records || [];
+        $scope.applyFilters();
+    }).finally(function () {
+        refreshPromise = null;
+    });
+}
+
+    /* ---------------- Apply client filters ---------------- */
+    $scope.applyFilters = function () {
+        $scope.filteredIncidents = ($scope.data.records || []).filter(function (item) {
+            return (
+                (!$scope.filter.number ||
+                    item.number.toLowerCase().includes($scope.filter.number.toLowerCase())) &&
+                (!$scope.filter.short_description ||
+                    item.short_description.toLowerCase().includes($scope.filter.short_description.toLowerCase()))
+            );
+        });
+
+        $scope.currentPage = 1;
+    };
+
+    /* ---------------- Event listeners ---------------- */
+    $scope.$on('alpha.filter.changed', function (e, alpha) {
+        $scope.serverFilters.alpha = alpha || [];
+        refreshFromServer();
+    });
+
+    $scope.$on('words.filter.changed', function (e, words) {
+        $scope.serverFilters.words = words || [];
+        refreshFromServer();
+    });
+
+    /* ---------------- Pagination ---------------- */
+    $scope.currentPage = 1;
+    $scope.pageSize = 10;
+
+    $scope.totalPages = function () {
+        return Math.ceil(($scope.filteredIncidents || []).length / $scope.pageSize) || 1;
+    };
+
+    $scope.setPage = function (page) {
+        if (page < 1 || page > $scope.totalPages()) return;
+        $scope.currentPage = page;
+    };
+
+    /* ---------------- Excel Export ---------------- */
+    $scope.exportExcel = function () {
+        var dataToExport = $scope.filteredIncidents;
+        if (!dataToExport || !dataToExport.length) {
+            alert("No data to export");
+            return;
+        }
+
+        var columns = [
+            { header: "Number", key: "number" },
+            { header: "Short Description", key: "short_description" },
+            { header: "Alphabeticals", key: "u_alpha" },
+            { header: "Words", key: "u_words" }
+        ];
+
+        var ws_data = [];
+        ws_data.push(columns.map(c => c.header));
+
+        dataToExport.forEach(function (row) {
+            ws_data.push(columns.map(c => (row[c.key] || '').toString()));
+        });
+
+        var ws = XLSX.utils.aoa_to_sheet(ws_data);
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Incident Data");
+
+        XLSX.writeFile(wb, "Incident_Data.xlsx");
+    };
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Make outer container take full widget size */&#13;
+.incident-table-container {&#13;
+  width: 100%;&#13;
+  height: 100%;&#13;
+  display: flex;&#13;
+  flex-direction: column;&#13;
+}&#13;
+&#13;
+.btn-primary {&#13;
+  background-color: #0078d4;&#13;
+  border-color: #0078d4;&#13;
+  color: #fff;&#13;
+}&#13;
+&#13;
+.btn-primary:hover {&#13;
+  background-color: #005fa3;&#13;
+}&#13;
+&#13;
+/* Scrollable div wrapping the table */&#13;
+.table-scroll-container {&#13;
+  width: 100%;&#13;
+  height: 70vh; /* adjustable height for scroll area */&#13;
+  overflow-y: auto;  /* vertical scrollbar */&#13;
+  overflow-x: auto;  /* horizontal scrollbar */&#13;
+  border-top: 1px solid #ddd;&#13;
+}&#13;
+&#13;
+/* Table with auto-layout columns */&#13;
+.table {&#13;
+  width: 100%;&#13;
+  border-collapse: collapse;&#13;
+  table-layout: auto; /* auto layout enabled */&#13;
+  word-wrap: normal;&#13;
+}&#13;
+&#13;
+/* Sticky filter header */&#13;
+.table thead th {&#13;
+  position: sticky;&#13;
+  top: 0;&#13;
+  background: #f8f9fa;&#13;
+  z-index: 2;&#13;
+   white-space: nowrap;&#13;
+}&#13;
+&#13;
+/* Input styling for filters */&#13;
+.table input {&#13;
+  width: 100%;&#13;
+  font-size: 12px;&#13;
+  padding: 3px 5px;&#13;
+  box-sizing: border-box;&#13;
+}&#13;
+&#13;
+/* Optional styling for better visuals */&#13;
+.panel-heading {&#13;
+  font-weight: bold;&#13;
+  background: #f4f4f4;&#13;
+}&#13;
+&#13;
+.table-hover tbody tr:hover {&#13;
+  background-color: #f1f1f1;&#13;
+}&#13;
+&#13;
+&#13;
+.pagination-controls {&#13;
+  display: flex;&#13;
+  justify-content: center;&#13;
+  align-items: center;&#13;
+  gap: 10px;&#13;
+  padding: 10px;&#13;
+  background: #f8f9fa;&#13;
+  border-top: 1px solid #ddd;&#13;
+}&#13;
+&#13;
+.btn-primary {&#13;
+  background-color: #0078d4;&#13;
+  border-color: #0078d4;&#13;
+  color: #fff;&#13;
+}&#13;
+&#13;
+.btn-primary:hover {&#13;
+  background-color: #005fa3;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>Table with side filter widget</description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>MyDesign Table Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    data.example = $sp.getWidget('kb-keyword-suggestion', {});
+    var table = 'incident';
+    var gr = new GlideRecord(table);
+
+    if (input && input.alpha && input.alpha.length > 0) {
+        gr.addQuery('u_alpha', 'IN', input.alpha.join(','));
+    }
+
+    if (input && input.words && input.words.length > 0) {
+        gr.addQuery('u_words', 'IN', input.words.join(','));
+    }
+    gr.addQuery('u_alpha','!=','');
+    gr.orderByDesc('sys_created_on');
+    gr.query();
+
+    data.records = [];
+    while (gr.next()) {
+        data.records.push({
+            number: gr.number.toString(),
+            short_description: gr.short_description.toString(),
+            alpha: gr.u_alpha.getDisplayValue(),
+            words: gr.u_words.getDisplayValue()
+        });
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-13 15:44:10</sys_created_on>
+        <sys_id>8633346147c33e5080626d1f316d43dc</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>MyDesign Table Widget</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sp_widget_8633346147c33e5080626d1f316d43dc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-13 15:44:52</sys_updated_on>
+        <template><![CDATA[<div class="incident-table-container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <h4>Standard Data Table</h4>
+       <button class="btn btn-primary btn-sm" ng-click="exportExcel()">Export Excel</button>
+  </div>  
+<div>
+<sp-widget widget="data.example"></sp-widget>
+  </div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="min-width: 145px;">
+              Number<br>
+              <input type="text" class="form-control m-1" ng-model="filter.number" placeholder="Filter Number" ng-change="applyFilters()">
+      </th>
+      <th style="min-width: 145px;">
+              Short Description<br>
+              <input type="text" class="form-control m-1" ng-model="filter.short_description" ng-change="applyFilters()" placeholder="Filter by Short Description">
+      </th>
+     	<th>Alphabeticals</th>
+      <th>Words</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="rec in filteredIncidents | limitTo:pageSize:(currentPage-1)*pageSize">
+      <td uib-tooltip="{{rec.number}}" tooltip-append-to-body="true">{{rec.number}}</td>
+      <td uib-tooltip="{{rec.short_description}}" tooltip-append-to-body="true">{{rec.short_description}}</td>
+      <td uib-tooltip="{{rec.alpha}}" tooltip-append-to-body="true">{{rec.alpha}}</td>
+      <td uib-tooltip="{{rec.words}}" tooltip-append-to-body="true">{{rec.words}}</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+  <div class="pagination-controls">
+    <button class="btn btn-sm btn-default" ng-click="setPage(currentPage-1)" ng-disabled="currentPage===1">Prev</button>
+    <span>Page {{currentPage}} / {{totalPages()}}</span>
+    <button class="btn btn-sm btn-default" ng-click="setPage(currentPage+1)" ng-disabled="currentPage===totalPages()">Next</button>
+  </div>
+  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+]]></template>
+    </sp_widget>
+</record_update>
