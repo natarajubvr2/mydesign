@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_table">
     <sp_instance_table action="INSERT_OR_UPDATE">
         <active>true</active>
+        <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
+        <async_load>false</async_load>
+        <async_load_device_type/>
+        <async_load_trigger/>
         <class_name/>
         <color>success</color>
         <css/>
@@ -13,6 +17,10 @@
         <order>1</order>
         <order_by/>
         <order_direction>asc</order_direction>
+        <placeholder_dimensions/>
+        <placeholder_dimensions_script/>
+        <placeholder_template/>
+        <preserve_placeholder_size>false</preserve_placeholder_size>
         <roles/>
         <short_description/>
         <size>md</size>

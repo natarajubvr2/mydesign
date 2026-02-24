@@ -2,7 +2,7 @@
     <gsw_change_log action="INSERT_OR_UPDATE">
         <change_date>2025-10-18 14:42:22</change_date>
         <changed_by display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</changed_by>
-        <content display_value="Add the Household field to the Case Form">0474f8f753801010b37cddeeff7b12aa</content>
+        <content display_value="">0474f8f753801010b37cddeeff7b12aa</content>
         <related_change_log_entry/>
         <related_task_entry/>
         <sys_class_name>gsw_change_log</sys_class_name>

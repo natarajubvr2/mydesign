@@ -2,7 +2,7 @@
     <gsw_status_of_content action="INSERT_OR_UPDATE">
         <best_practice_allowed_ever>0</best_practice_allowed_ever>
         <checksum/>
-        <content display_value="Case Action Status">8fa78755b74123002bc49a91ee11a923</content>
+        <content display_value="">8fa78755b74123002bc49a91ee11a923</content>
         <effective_weight>1</effective_weight>
         <more_info_visited>false</more_info_visited>
         <previous_status>0</previous_status>

@@ -2,7 +2,7 @@
     <gsw_status_of_content action="INSERT_OR_UPDATE">
         <best_practice_allowed_ever>0</best_practice_allowed_ever>
         <checksum/>
-        <content display_value="External users with possible non-intentional internal  role assignment">b06f188e0f9410105bc5e7b1d4767e08</content>
+        <content display_value="">b06f188e0f9410105bc5e7b1d4767e08</content>
         <effective_weight>1</effective_weight>
         <more_info_visited>false</more_info_visited>
         <previous_status>0</previous_status>

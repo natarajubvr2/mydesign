@@ -3,6 +3,7 @@
         <access>public</access>
         <access_token_lifespan>1800</access_token_lifespan>
         <active>true</active>
+        <auth_aig_client>false</auth_aig_client>
         <auth_code_lifespan>60</auth_code_lifespan>
         <auth_url/>
         <certificate_url/>
@@ -15,6 +16,7 @@
         <default_grant_type>password</default_grant_type>
         <extend_refresh_token_expiry>false</extend_refresh_token_expiry>
         <id_token_lifespan>86400</id_token_lifespan>
+        <inbound_grant_type>ropc</inbound_grant_type>
         <jwt_provider/>
         <login_url/>
         <logo_url/>
@@ -22,6 +24,7 @@
         <mobile_client>false</mobile_client>
         <name>WebKit HTML to PDF</name>
         <oauth_api_script/>
+        <only_rest_processor>false</only_rest_processor>
         <protocol_name/>
         <public_client>false</public_client>
         <redirect_url/>
@@ -30,23 +33,27 @@
         <restricted_binding>false</restricted_binding>
         <revoke_token_url/>
         <salt/>
+        <scope_restriction_status>unrestricted</scope_restriction_status>
         <send_client_credentials_as>request_body_parameter</send_client_credentials_as>
         <skip_authorize>false</skip_authorize>
+        <sub_claim>sys_id</sub_claim>
         <sys_class_name>oauth_entity</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-05-26 07:29:52</sys_created_on>
         <sys_id>89f76c3447792210b183ae4b116d432c</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>WebKit HTML to PDF</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>oauth_entity_89f76c3447792210b183ae4b116d432c</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-05-26 07:29:52</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2026-01-01 08:49:13</sys_updated_on>
+        <token_format>opaque</token_format>
         <token_url/>
         <type>client</type>
         <use_mutual_auth>false</use_mutual_auth>
+        <use_pkce>false</use_pkce>
         <user/>
     </oauth_entity>
 </record_update>

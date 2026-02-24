@@ -2,7 +2,7 @@
     <gsw_change_log action="INSERT_OR_UPDATE">
         <change_date>2025-10-18 14:42:39</change_date>
         <changed_by display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</changed_by>
-        <content display_value="Update and Close Case Record on Project Change Request Update/Change">77928a7ec7f33300271beb861dc2609c</content>
+        <content display_value="">77928a7ec7f33300271beb861dc2609c</content>
         <related_change_log_entry/>
         <related_task_entry/>
         <sys_class_name>gsw_change_log</sys_class_name>

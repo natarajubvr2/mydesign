@@ -4,7 +4,7 @@
         <can_delegate>true</can_delegate>
         <description/>
         <elevated_privilege>false</elevated_privilege>
-        <encryption_context/>
+        <federated_id>lH52MiRl5LbokhcLQMHBPs5d053cQygSVf3sAgCuwXg=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_492360_mydesign.requisition_task_user</name>

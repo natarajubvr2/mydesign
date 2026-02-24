@@ -4,7 +4,7 @@
         <can_delegate>true</can_delegate>
         <description/>
         <elevated_privilege>false</elevated_privilege>
-        <encryption_context/>
+        <federated_id>V4WmiKomzKdJ6RTd+XHnVQu3Uwew69jzp6YzZ5uMHTs=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_492360_mydesign.fullfiller</name>

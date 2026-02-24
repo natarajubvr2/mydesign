@@ -4,7 +4,7 @@
         <can_delegate>true</can_delegate>
         <description/>
         <elevated_privilege>false</elevated_privilege>
-        <encryption_context/>
+        <federated_id>dekvU/bBf5v0jGgCOGpAtQE7gAUFc66Dbc2OsIhxBPM=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_492360_mydesign.flipkart_user</name>

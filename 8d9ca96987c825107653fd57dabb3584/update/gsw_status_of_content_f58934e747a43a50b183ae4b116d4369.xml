@@ -2,7 +2,7 @@
     <gsw_status_of_content action="INSERT_OR_UPDATE">
         <best_practice_allowed_ever>0</best_practice_allowed_ever>
         <checksum/>
-        <content display_value="Step 4">552b1acc73c413008b516cb63cf6a710</content>
+        <content display_value="">552b1acc73c413008b516cb63cf6a710</content>
         <effective_weight>1</effective_weight>
         <more_info_visited>false</more_info_visited>
         <previous_status>0</previous_status>

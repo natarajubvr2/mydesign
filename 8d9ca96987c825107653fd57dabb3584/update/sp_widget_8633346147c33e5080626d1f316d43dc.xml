@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function ($scope, $rootScope) {
+        <client_script><![CDATA[api.controller = function($scope, $rootScope) {
 
     /* ---------------- Client-side text filters ---------------- */
     $scope.filter = {
@@ -14,35 +14,43 @@
         alpha: [],
         words: []
     };
-	/* ---------------- Grouping ---------------- */
-    $scope.groupByField = '';
+    /* ---------------- Grouping ---------------- */
+    $scope.groupByField = 'words';
+    // $scope.groupByField = '';
     $scope.groupedData = {};
-	$scope.groupCollapseState = {};
+    $scope.groupCollapseState = {};
+
+    $scope.$watch('data.records', function(newVal) {
+        if (newVal && newVal.length) {
+            $scope.filteredIncidents = angular.copy(newVal);
+            $scope.applyFilters();
+        }
+    });
 
     /* ---------------- INIT DATA ---------------- */
     // IMPORTANT: initialize filteredIncidents
     $scope.filteredIncidents = angular.copy($scope.data.records || []);
 
     /* ---------------- Refresh from server ---------------- */
-   var refreshPromise = null;
+    var refreshPromise = null;
 
-function refreshFromServer() {
-    if (refreshPromise) return; // prevent double fire
+    function refreshFromServer() {
+        if (refreshPromise) return; // prevent double fire
 
-    refreshPromise = $scope.server.get({
-        alpha: $scope.serverFilters.alpha,
-        words: $scope.serverFilters.words
-    }).then(function (response) {
-        $scope.data.records = response.data.records || [];
-        $scope.applyFilters();
-    }).finally(function () {
-        refreshPromise = null;
-    });
-}
+        refreshPromise = $scope.server.get({
+            alpha: $scope.serverFilters.alpha,
+            words: $scope.serverFilters.words
+        }).then(function(response) {
+            $scope.data.records = response.data.records || [];
+            $scope.applyFilters();
+        }).finally(function() {
+            refreshPromise = null;
+        });
+    }
 
     /* ---------------- Apply client filters ---------------- */
-    $scope.applyFilters = function () {
-        $scope.filteredIncidents = ($scope.data.records || []).filter(function (item) {
+    $scope.applyFilters = function() {
+        $scope.filteredIncidents = ($scope.data.records || []).filter(function(item) {
             return (
                 (!$scope.filter.number ||
                     item.number.toLowerCase().includes($scope.filter.number.toLowerCase())) &&
@@ -50,7 +58,7 @@ function refreshFromServer() {
                     item.short_description.toLowerCase().includes($scope.filter.short_description.toLowerCase()))
             );
         });
-		  // Apply grouping if selected
+        // Apply grouping if selected
         if ($scope.groupByField) {
             groupData($scope.groupByField);
         } else {
@@ -60,35 +68,35 @@ function refreshFromServer() {
         $scope.currentPage = 1;
     };
 
-	 /* ---------------- Group Function ---------------- */
+    /* ---------------- Group Function ---------------- */
     function groupData(field) {
 
         $scope.groupedData = {};
-		$scope.groupCollapseState = {};
+        $scope.groupCollapseState = {};
 
-        angular.forEach($scope.filteredIncidents, function (item) {
+        angular.forEach($scope.filteredIncidents, function(item) {
 
             var key = item[field] || 'Empty';
 
             if (!$scope.groupedData[key])
                 $scope.groupedData[key] = [];
-				$scope.groupCollapseState[key] = true; // default expanded
+            $scope.groupCollapseState[key] = true; // default expanded
 
             $scope.groupedData[key].push(item);
         });
     }
- /* ---------------- Toggle Group ---------------- */
-    $scope.toggleGroup = function (group) {
+    /* ---------------- Toggle Group ---------------- */
+    $scope.toggleGroup = function(group) {
         $scope.groupCollapseState[group] = !$scope.groupCollapseState[group];
     };
 
     /* ---------------- Event listeners ---------------- */
-    $scope.$on('alpha.filter.changed', function (e, alpha) {
+    $scope.$on('alpha.filter.changed', function(e, alpha) {
         $scope.serverFilters.alpha = alpha || [];
         refreshFromServer();
     });
 
-    $scope.$on('words.filter.changed', function (e, words) {
+    $scope.$on('words.filter.changed', function(e, words) {
         $scope.serverFilters.words = words || [];
         refreshFromServer();
     });
@@ -97,34 +105,45 @@ function refreshFromServer() {
     $scope.currentPage = 1;
     $scope.pageSize = 10;
 
-    $scope.totalPages = function () {
+    $scope.totalPages = function() {
         return Math.ceil(($scope.filteredIncidents || []).length / $scope.pageSize) || 1;
     };
 
-    $scope.setPage = function (page) {
+    $scope.setPage = function(page) {
         if (page < 1 || page > $scope.totalPages()) return;
         $scope.currentPage = page;
     };
 
     /* ---------------- Excel Export ---------------- */
-    $scope.exportExcel = function () {
+    $scope.exportExcel = function() {
         var dataToExport = $scope.filteredIncidents;
         if (!dataToExport || !dataToExport.length) {
             alert("No data to export");
             return;
         }
 
-        var columns = [
-            { header: "Number", key: "number" },
-            { header: "Short Description", key: "short_description" },
-            { header: "Alphabeticals", key: "u_alpha" },
-            { header: "Words", key: "u_words" }
+        var columns = [{
+                header: "Number",
+                key: "number"
+            },
+            {
+                header: "Short Description",
+                key: "short_description"
+            },
+            {
+                header: "Alphabeticals",
+                key: "u_alpha"
+            },
+            {
+                header: "Words",
+                key: "u_words"
+            }
         ];
 
         var ws_data = [];
         ws_data.push(columns.map(c => c.header));
 
-        dataToExport.forEach(function (row) {
+        dataToExport.forEach(function(row) {
             ws_data.push(columns.map(c => (row[c.key] || '').toString()));
         });
 
@@ -134,8 +153,7 @@ function refreshFromServer() {
 
         XLSX.writeFile(wb, "Incident_Data.xlsx");
     };
-};
-]]></client_script>
+};]]></client_script>
         <controller_as>c</controller_as>
         <css>/* Make outer container take full widget size */&#13;
 .incident-table-container {&#13;
@@ -266,14 +284,14 @@ function refreshFromServer() {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-02-13 15:44:10</sys_created_on>
         <sys_id>8633346147c33e5080626d1f316d43dc</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>MyDesign Table Widget</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sp_widget_8633346147c33e5080626d1f316d43dc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-02-24 14:23:03</sys_updated_on>
+        <sys_updated_on>2026-02-24 14:58:26</sys_updated_on>
         <template><![CDATA[<div class="incident-table-container">
   <div class="panel panel-default">
     <div class="panel-heading">

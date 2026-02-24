@@ -2,7 +2,7 @@
     <gsw_status_of_content action="INSERT_OR_UPDATE">
         <best_practice_allowed_ever>0</best_practice_allowed_ever>
         <checksum/>
-        <content display_value="Update and Close Case Record on Project Change Request Update/Change">77928a7ec7f33300271beb861dc2609c</content>
+        <content display_value="">77928a7ec7f33300271beb861dc2609c</content>
         <effective_weight>1</effective_weight>
         <more_info_visited>false</more_info_visited>
         <previous_status>0</previous_status>

@@ -11,6 +11,7 @@
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
         <content_type>text/html</content_type>
+        <default_digest>false</default_digest>
         <default_interval/>
         <description/>
         <digest_from/>
@@ -23,6 +24,7 @@
         <digest_subject/>
         <digest_template/>
         <digest_text/>
+        <digest_type/>
         <digestable>false</digestable>
         <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>activate.life.cycle.migration</event_name>

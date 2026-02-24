@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="all_tables.text_index_translations=true,exclude_from_antivirus_scan=true,update_synch=true" db_object_id="c4b07f265c0022105590c762d23e630d" extends="sys_metadata" label="Data Source" max_length="40" name="sys_data_source" text_index="true" type="collection">
+    <element attributes="all_tables.text_index_translations=true,exclude_from_antivirus_scan=true,update_synch=true" db_object_id="7b1fbee50c2032108bb2ce4d4ed10eca" extends="sys_metadata" label="Data Source" max_length="40" name="sys_data_source" type="collection">
         <element attributes="edge_encryption_enabled=true,encode_utf8=false" calculation="new sn_impex.FlowActionConnectionUtility().forFlowAction(current.data_stream_action)" label="Data stream connection alias" max_length="32" name="data_stream_connection_alias" reference="sys_alias" type="reference" virtual="true"/>
-        <element attributes="edge_encryption_enabled=true,list_layout_ignore=true,model_field=data_stream_action.master_snapshot,record_watcher_blacklist=true,serializer=com.glide.vars.VariableValueXMLSerializer,slushbucket_ref_no_expand=true" label="Data stream action inputs" max_length="32" name="data_stream_action_inputs" reference="sys_hub_action_input" type="glide_var"/>
-        <element attributes="edge_encryption_enabled=true,encode_utf8=false,ref_ac_columns=sys_scope,ref_auto_completer=AJAXTableCompleter,ref_contributions=configure_datasource_datastream_action" hint="The Data Stream action that provides complex object stream to load data" label="Data Stream action" max_length="32" name="data_stream_action" reference="sys_hub_action_type_definition" reference_qual="action_template=DATASTREAM^state=published^EQ" reference_qual_condition="action_template=DATASTREAM^state=published^EQ" type="reference"/>
         <element attributes="edge_encryption_enabled=true,encode_utf8=false,ref_auto_completer=AJAXReferenceChoice" choice="3" hint="The Connection Alias to use, must be the same alias used by the Data Stream action or one of its child aliases" label="Connection" max_length="32" name="connection_alias" reference="sys_alias" reference_qual="javascript:new FlowActionConnectionAlias().getChildQualifier(current.data_stream_action)" type="reference" use_reference_qualifier="advanced">
             <choice/>
         </element>
+        <element attributes="edge_encryption_enabled=true,list_layout_ignore=true,model_field=data_stream_action.master_snapshot,record_watcher_blacklist=true,serializer=com.glide.vars.VariableValueXMLSerializer,slushbucket_ref_no_expand=true" label="Data stream action inputs" max_length="32" name="data_stream_action_inputs" reference="sys_hub_action_input" type="glide_var"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false,ref_ac_columns=sys_scope,ref_auto_completer=AJAXTableCompleter,ref_contributions=configure_datasource_datastream_action" hint="The Data Stream action that provides complex object stream to load data" label="Data Stream action" max_length="32" name="data_stream_action" reference="sys_hub_action_type_definition" reference_qual="action_template=DATASTREAM^state=published^EQ" reference_qual_condition="action_template=DATASTREAM^state=published^EQ" type="reference"/>
         <index name="index">
-            <element name="connection_alias"/>
+            <element name="data_stream_connection_alias"/>
         </index>
         <index name="index2">
             <element name="data_stream_action"/>
         </index>
         <index name="index3">
-            <element name="data_stream_connection_alias"/>
+            <element name="connection_alias"/>
         </index>
     </element>
 </database>

@@ -4,7 +4,7 @@
         <can_delegate>true</can_delegate>
         <description/>
         <elevated_privilege>false</elevated_privilege>
-        <encryption_context/>
+        <federated_id>FUw5GDMzfQlCkz1VnZzspF3h3su2Ki3LxF6y/bgamMc=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_492360_mydesign.help_desk_user</name>

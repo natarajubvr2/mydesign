@@ -14,6 +14,7 @@
         <delete_roles/>
         <delivery_plan/>
         <description/>
+        <disable_initial_slot_fill>false</disable_initial_slot_fill>
         <display_title>false</display_title>
         <do_not_select_first>false</do_not_select_first>
         <dynamic_default_value/>
@@ -31,8 +32,10 @@
         <instructions/>
         <layout>normal</layout>
         <list_table/>
+        <lookup_dependent_question/>
         <lookup_label/>
         <lookup_price/>
+        <lookup_source/>
         <lookup_table/>
         <lookup_unique>false</lookup_unique>
         <lookup_value/>

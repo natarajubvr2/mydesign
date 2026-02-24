@@ -2,7 +2,7 @@
     <gsw_change_log action="INSERT_OR_UPDATE">
         <change_date>2025-10-18 14:42:41</change_date>
         <changed_by display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</changed_by>
-        <content display_value="Tag users in this group">9eae08e10fec10105bc5e7b1d4767e3b</content>
+        <content display_value="">9eae08e10fec10105bc5e7b1d4767e3b</content>
         <related_change_log_entry/>
         <related_task_entry/>
         <sys_class_name>gsw_change_log</sys_class_name>

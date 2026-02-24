@@ -6,7 +6,6 @@
         <anonymize>false</anonymize>
         <business_rule/>
         <chat_survey>false</chat_survey>
-        <classification/>
         <condition table="asmt_metric_type">sys_id=29856e0f47543110c9a25d0f536d4303^EQ<item endquery="false" field="sys_id" goto="false" newquery="false" operator="=" or="false" value="29856e0f47543110c9a25d0f536d4303"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
@@ -23,8 +22,6 @@
         <evaluation_method>survey</evaluation_method>
         <filter_condition/>
         <filter_table/>
-        <grc_classification display_value="None">ebfbf2b7076220100deb2bfb9bd300ba</grc_classification>
-        <grc_type/>
         <introduction><![CDATA[<p><a title="Google" href="https://www.google.com" target="_blank" rel="noopener noreferrer nofollow">www.google.com</a></p>]]></introduction>
         <job/>
         <live_feed>false</live_feed>

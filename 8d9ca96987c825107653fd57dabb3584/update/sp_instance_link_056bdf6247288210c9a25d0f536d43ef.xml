@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
     <sp_instance_link action="INSERT_OR_UPDATE">
         <active>true</active>
+        <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
+        <async_load>false</async_load>
+        <async_load_device_type/>
+        <async_load_trigger/>
         <class_name/>
         <color>default</color>
         <css/>
@@ -10,6 +14,10 @@
         <kb_category/>
         <kb_topic/>
         <order>1</order>
+        <placeholder_dimensions/>
+        <placeholder_dimensions_script/>
+        <placeholder_template/>
+        <preserve_placeholder_size>false</preserve_placeholder_size>
         <roles/>
         <sc_cat_item/>
         <sc_category/>

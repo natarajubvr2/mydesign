@@ -2,7 +2,7 @@
     <gsw_change_log action="INSERT_OR_UPDATE">
         <change_date>2025-10-18 14:42:41</change_date>
         <changed_by display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</changed_by>
-        <content display_value="Review/setup knowledge properties">98102b8273f303008b516cb63cf6a70e</content>
+        <content display_value="">98102b8273f303008b516cb63cf6a70e</content>
         <related_change_log_entry/>
         <related_task_entry/>
         <sys_class_name>gsw_change_log</sys_class_name>

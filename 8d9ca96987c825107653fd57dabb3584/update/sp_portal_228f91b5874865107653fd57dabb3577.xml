@@ -25,8 +25,10 @@ $text-muted:#646567;
 </css_variables>
         <dark_theme/>
         <default>false</default>
+        <embeddable_macroponents/>
         <enable_ais>false</enable_ais>
         <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
+        <enable_embeddables>false</enable_embeddables>
         <enable_favorites>false</enable_favorites>
         <hide_portal_name>true</hide_portal_name>
         <homepage display_value="mydesign_page">bdc12939874865107653fd57dabb352d</homepage>
@@ -36,6 +38,7 @@ $text-muted:#646567;
         <kb_knowledge_page display_value="kb_view2">26c2e030d7201200a9addd173e24d437</kb_knowledge_page>
         <login_page display_value="landing">36c61807cb31120000f8d856634c9ca9</login_page>
         <logo>ac90602f878021107653fd57dabb353a</logo>
+        <logo_alt_text/>
         <notfound_page display_value="404">3c2c9063cb11020000f8d856634c9c1f</notfound_page>
         <quick_start_config/>
         <rtl_enabled>false</rtl_enabled>
@@ -69,7 +72,6 @@ $text-muted:#646567;
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/png</content_type>
-        <encryption_context/>
         <file_name>logo</file_name>
         <hash>2f052fc286b2a55d80bf203b983d0087438c6f2b88817312b527e48c5d9af59a</hash>
         <image_height>589</image_height>

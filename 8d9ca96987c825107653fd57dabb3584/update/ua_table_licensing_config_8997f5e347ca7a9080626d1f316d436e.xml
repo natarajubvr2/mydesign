@@ -4,22 +4,22 @@
         <license_condition/>
         <license_model>none</license_model>
         <license_roles/>
-        <name>x_492360_mydesign_help_desk_mwb</name>
+        <name>x_492360_mydesign_add_parts_to_contract</name>
         <op_delete>true</op_delete>
         <op_insert>true</op_insert>
         <op_update>true</op_update>
         <owner_condition/>
         <sys_class_name>ua_table_licensing_config</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-08-29 12:07:20</sys_created_on>
-        <sys_id>8a2e6f4f47812210b183ae4b116d4371</sys_id>
+        <sys_created_on>2023-10-27 12:13:26</sys_created_on>
+        <sys_id>8997f5e347ca7a9080626d1f316d436e</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>x_492360_mydesign_help_desk_mwb</sys_name>
+        <sys_name>x_492360_mydesign_add_parts_to_contract</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
-        <sys_update_name>ua_table_licensing_config_8a2e6f4f47812210b183ae4b116d4371</sys_update_name>
+        <sys_update_name>ua_table_licensing_config_8997f5e347ca7a9080626d1f316d436e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-08-29 12:07:20</sys_updated_on>
+        <sys_updated_on>2023-10-27 12:13:26</sys_updated_on>
     </ua_table_licensing_config>
 </record_update>

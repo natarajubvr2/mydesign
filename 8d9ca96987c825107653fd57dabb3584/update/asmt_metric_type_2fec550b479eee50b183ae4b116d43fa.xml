@@ -6,7 +6,6 @@
         <anonymize>false</anonymize>
         <business_rule/>
         <chat_survey>false</chat_survey>
-        <classification/>
         <condition/>
         <default_filter/>
         <delete_business_rule/>
@@ -21,8 +20,6 @@
         <evaluation_method>attestation_v2</evaluation_method>
         <filter_condition/>
         <filter_table/>
-        <grc_classification display_value="None">ebfbf2b7076220100deb2bfb9bd300ba</grc_classification>
-        <grc_type/>
         <introduction><![CDATA[<p><a title="giggle" href="https://www.google.com" target="_blank" rel="noopener noreferrer nofollow">google</a></p>]]></introduction>
         <job/>
         <live_feed>false</live_feed>

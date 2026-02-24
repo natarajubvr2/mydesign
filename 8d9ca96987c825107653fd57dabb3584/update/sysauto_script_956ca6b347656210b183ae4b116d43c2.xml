@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
     <sysauto_script action="INSERT_OR_UPDATE">
         <active>true</active>
+        <advanced>false</advanced>
         <business_calendar/>
         <condition/>
         <conditional>false</conditional>
+        <entered_run_end/>
+        <entered_run_start/>
         <entered_time>1970-01-01 04:00:00</entered_time>
         <max_drift/>
         <name>MyDesign import from Third party server</name>
         <offset/>
         <offset_type>0</offset_type>
+        <repeat_every/>
         <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
         <run_as_tz/>
         <run_dayofmonth>1</run_dayofmonth>
         <run_dayofweek>1</run_dayofweek>
+        <run_daysofweek/>
+        <run_end/>
+        <run_month/>
         <run_period/>
         <run_start>2025-05-23 14:34:36</run_start>
         <run_time>1970-01-01 04:00:00</run_time>
         <run_type>daily</run_type>
+        <run_weekinmonth/>
         <script><![CDATA[(function() {
 
 	// Load Properties // create below properties in Global

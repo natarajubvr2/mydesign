@@ -5,8 +5,8 @@
         <sys_created_on>2025-05-12 18:32:48</sys_created_on>
         <sys_id>bc91c2a5f334621048dff3d406818095</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name/>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_name>x_492360_mydesign_add_parts_to_contract.*.public</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_security_acl display_value="x_492360_mydesign_add_parts_to_contract.*">bc91c2a5f334621048dff31052160831</sys_security_acl>

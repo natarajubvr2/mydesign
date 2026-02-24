@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
     <sp_instance action="INSERT_OR_UPDATE">
         <active>true</active>
+        <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
+        <async_load>false</async_load>
+        <async_load_device_type/>
+        <async_load_trigger/>
         <class_name/>
         <color>default</color>
         <css/>
         <glyph/>
         <id/>
         <order>2</order>
+        <placeholder_dimensions/>
+        <placeholder_dimensions_script/>
+        <placeholder_template/>
+        <preserve_placeholder_size>false</preserve_placeholder_size>
         <roles/>
         <short_description/>
         <size>md</size>
         <sp_column display_value="1">932bbbd7870021107653fd57dabb3500</sp_column>
-        <sp_widget display_value="Mydesign Form">3233cf44479d2610b183ae4b116d438c</sp_widget>
+        <sp_widget display_value="">3233cf44479d2610b183ae4b116d438c</sp_widget>
         <sys_class_name>sp_instance</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-04-29 14:46:55</sys_created_on>
