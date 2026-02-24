@@ -14,6 +14,10 @@
         alpha: [],
         words: []
     };
+	/* ---------------- Grouping ---------------- */
+    $scope.groupByField = '';
+    $scope.groupedData = {};
+	$scope.groupCollapseState = {};
 
     /* ---------------- INIT DATA ---------------- */
     // IMPORTANT: initialize filteredIncidents
@@ -46,8 +50,36 @@ function refreshFromServer() {
                     item.short_description.toLowerCase().includes($scope.filter.short_description.toLowerCase()))
             );
         });
+		  // Apply grouping if selected
+        if ($scope.groupByField) {
+            groupData($scope.groupByField);
+        } else {
+            $scope.groupedData = {};
+        }
 
         $scope.currentPage = 1;
+    };
+
+	 /* ---------------- Group Function ---------------- */
+    function groupData(field) {
+
+        $scope.groupedData = {};
+		$scope.groupCollapseState = {};
+
+        angular.forEach($scope.filteredIncidents, function (item) {
+
+            var key = item[field] || 'Empty';
+
+            if (!$scope.groupedData[key])
+                $scope.groupedData[key] = [];
+				$scope.groupCollapseState[key] = true; // default expanded
+
+            $scope.groupedData[key].push(item);
+        });
+    }
+ /* ---------------- Toggle Group ---------------- */
+    $scope.toggleGroup = function (group) {
+        $scope.groupCollapseState[group] = !$scope.groupCollapseState[group];
     };
 
     /* ---------------- Event listeners ---------------- */
@@ -234,14 +266,14 @@ function refreshFromServer() {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-02-13 15:44:10</sys_created_on>
         <sys_id>8633346147c33e5080626d1f316d43dc</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>MyDesign Table Widget</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sp_widget_8633346147c33e5080626d1f316d43dc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-02-13 15:44:52</sys_updated_on>
+        <sys_updated_on>2026-02-24 14:23:03</sys_updated_on>
         <template><![CDATA[<div class="incident-table-container">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -251,7 +283,20 @@ function refreshFromServer() {
 <div>
 <sp-widget widget="data.example"></sp-widget>
   </div>
-
+<div class="row m-b-sm">
+  <div class="col-md-4">
+    <label><b>Group By:</b></label>
+    <select class="form-control"
+            ng-model="groupByField"
+            ng-change="applyFilters()">
+      <option value="">-- None --</option>
+      <option value="number">Number</option>
+      <option value="short_description">Short Description</option>
+      <option value="alpha">Alphabeticals</option>
+      <option value="words">Words</option>
+    </select>
+  </div>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -267,14 +312,55 @@ function refreshFromServer() {
       <th>Words</th>
     </tr>
   </thead>
-  <tbody>
+ <!-- <tbody>
     <tr ng-repeat="rec in filteredIncidents | limitTo:pageSize:(currentPage-1)*pageSize">
       <td uib-tooltip="{{rec.number}}" tooltip-append-to-body="true">{{rec.number}}</td>
       <td uib-tooltip="{{rec.short_description}}" tooltip-append-to-body="true">{{rec.short_description}}</td>
       <td uib-tooltip="{{rec.alpha}}" tooltip-append-to-body="true">{{rec.alpha}}</td>
       <td uib-tooltip="{{rec.words}}" tooltip-append-to-body="true">{{rec.words}}</td>
     </tr>
-  </tbody>
+  </tbody> -->
+ <tbody>
+
+  <!-- NORMAL TABLE MODE -->
+  <tr ng-if="!groupByField"
+      ng-repeat="rec in filteredIncidents | limitTo:pageSize:(currentPage-1)*pageSize">
+    <td>{{rec.number}}</td>
+    <td>{{rec.short_description}}</td>
+    <td>{{rec.alpha}}</td>
+    <td>{{rec.words}}</td>
+  </tr>
+
+
+  <!-- GROUPED MODE -->
+  <tr ng-if="groupByField"
+      ng-repeat-start="(group, items) in groupedData">
+
+    <td colspan="4"
+        ng-click="toggleGroup(group)"
+        style="background:#f5f5f5; font-weight:bold; cursor:pointer;">
+
+      <i class="fa"
+         ng-class="{
+           'fa-chevron-down': !groupCollapseState[group],
+           'fa-chevron-right': groupCollapseState[group]
+         }">
+      </i>
+
+      &nbsp; {{group}} ({{items.length}})
+    </td>
+  </tr>
+
+  <tr ng-if="groupByField && !groupCollapseState[group]"
+      ng-repeat="rec in items"
+      ng-repeat-end>
+    <td>{{rec.number}}</td>
+    <td>{{rec.short_description}}</td>
+    <td>{{rec.alpha}}</td>
+    <td>{{rec.words}}</td>
+  </tr>
+
+</tbody>
 </table>
  </div>
   <div class="pagination-controls">
