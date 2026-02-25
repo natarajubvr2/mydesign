@@ -3,6 +3,8 @@
         <category>custom</category>
         <client_script><![CDATA[api.controller = function($scope, $rootScope) {
 
+    $scope.sortField = '';
+    $scope.sortReverse = false;
     /* ---------------- Client-side text filters ---------------- */
     $scope.filter = {
         number: '',
@@ -14,6 +16,38 @@
         alpha: [],
         words: []
     };
+
+    $scope.sortBy = function(field) {
+
+        if ($scope.sortField === field) {
+            $scope.sortReverse = !$scope.sortReverse;
+        } else {
+            $scope.sortField = field;
+            $scope.sortReverse = false;
+        }
+
+        applySorting();
+    };
+
+    function applySorting() {
+
+        if (!$scope.sortField) return;
+
+        $scope.filteredIncidents.sort(function(a, b) {
+
+            var valA = (a[$scope.sortField] || '').toLowerCase();
+            var valB = (b[$scope.sortField] || '').toLowerCase();
+
+            if (valA < valB) return $scope.sortReverse ? 1 : -1;
+            if (valA > valB) return $scope.sortReverse ? -1 : 1;
+            return 0;
+        });
+
+        // Re-apply grouping if active
+        if ($scope.groupByField === 'alpha' || $scope.groupByField === 'words') {
+            groupData($scope.groupByField);
+        }
+    }
     /* ---------------- Grouping ---------------- */
     $scope.groupByField = 'words';
     // $scope.groupByField = '';
@@ -58,8 +92,11 @@
                     item.short_description.toLowerCase().includes($scope.filter.short_description.toLowerCase()))
             );
         });
+
+        applySorting();
         // Apply grouping if selected
-        if ($scope.groupByField) {
+        // if ($scope.groupByField) { for all the fields
+        if ($scope.groupByField === 'alpha' || $scope.groupByField === 'words') {
             groupData($scope.groupByField);
         } else {
             $scope.groupedData = {};
@@ -284,14 +321,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-02-13 15:44:10</sys_created_on>
         <sys_id>8633346147c33e5080626d1f316d43dc</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>MyDesign Table Widget</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sp_widget_8633346147c33e5080626d1f316d43dc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-02-24 14:58:26</sys_updated_on>
+        <sys_updated_on>2026-02-25 14:27:36</sys_updated_on>
         <template><![CDATA[<div class="incident-table-container">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -308,8 +345,8 @@
             ng-model="groupByField"
             ng-change="applyFilters()">
       <option value="">-- None --</option>
-      <option value="number">Number</option>
-      <option value="short_description">Short Description</option>
+   <!--  <option value="number">Number</option>
+      <option value="short_description">Short Description</option> -->
       <option value="alpha">Alphabeticals</option>
       <option value="words">Words</option>
     </select>
@@ -318,7 +355,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th style="min-width: 145px;">
+     <!-- <th style="min-width: 145px;">
               Number<br>
               <input type="text" class="form-control m-1" ng-model="filter.number" placeholder="Filter Number" ng-change="applyFilters()">
       </th>
@@ -327,7 +364,43 @@
               <input type="text" class="form-control m-1" ng-model="filter.short_description" ng-change="applyFilters()" placeholder="Filter by Short Description">
       </th>
      	<th>Alphabeticals</th>
-      <th>Words</th>
+      <th>Words</th>-->
+      
+      <th ng-click="sortBy('number')" style="cursor:pointer;">
+  Number
+  <i class="fa"
+     ng-if="sortField==='number'"
+     ng-class="{'fa-sort-asc': !sortReverse, 'fa-sort-desc': sortReverse}">
+  </i><br>
+     <input type="text" class="form-control m-1" ng-model="filter.number" placeholder="Filter Number" ng-change="applyFilters()">
+
+</th>
+
+<th ng-click="sortBy('short_description')" style="cursor:pointer;">
+  Short Description
+  <i class="fa"
+     ng-if="sortField==='short_description'"
+     ng-class="{'fa-sort-asc': !sortReverse, 'fa-sort-desc': sortReverse}">
+  </i><br>
+   <input type="text" class="form-control m-1" ng-model="filter.short_description" ng-change="applyFilters()" placeholder="Filter by Short Description">
+
+</th>
+
+<th ng-click="sortBy('alpha')" style="cursor:pointer;">
+  Alphabeticals
+  <i class="fa"
+     ng-if="sortField==='alpha'"
+     ng-class="{'fa-sort-asc': !sortReverse, 'fa-sort-desc': sortReverse}">
+  </i>
+</th>
+
+<th ng-click="sortBy('words')" style="cursor:pointer;">
+  Words
+  <i class="fa"
+     ng-if="sortField==='words'"
+     ng-class="{'fa-sort-asc': !sortReverse, 'fa-sort-desc': sortReverse}">
+  </i>
+</th>
     </tr>
   </thead>
  <!-- <tbody>
@@ -391,4 +464,15 @@
 
 ]]></template>
     </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>8633346147c33e5080626d1f316d43dc</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-24 16:11:18</sys_created_on>
+        <sys_id>b6e2ad8147d7f6d080626d1f316d43bd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-24 16:11:18</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
 </record_update>
