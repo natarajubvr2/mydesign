@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
     <sysevent_in_email_action action="INSERT_OR_UPDATE">
         <action>record_action</action>
-        <active>false</active>
+        <active>true</active>
         <assignment_operator/>
         <condition_script/>
         <description>This inbound action has to be created in Global scope to work bulk record creation</description>
@@ -47,7 +47,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>8cc633d3870021107653fd57dabb35ea</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>MyDesign bulk email</sys_name>
         <sys_overrides/>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
@@ -55,7 +55,7 @@
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sysevent_in_email_action_8cc633d3870021107653fd57dabb35ea</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-01-03 09:54:45</sys_updated_on>
+        <sys_updated_on>2026-03-09 06:51:03</sys_updated_on>
         <table>sys_data_source</table>
         <template/>
         <type>new</type>

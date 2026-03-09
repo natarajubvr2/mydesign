@@ -179,7 +179,7 @@
 </td>
 </tr>
 <tr cellspacing="0">
-<td align="center" bgcolor="#27284A" height="50"><img src="sn_sow_admin.banner.png" width="600" height="50"></td>
+<td align="center" bgcolor="#27284A" height="50"><img src="sn_sow_admin.banner_themeable.svg" width="600" height="50"></td>
 </tr>
 </tbody>
 </table>
@@ -193,13 +193,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-11-26 12:12:48</sys_created_on>
         <sys_id>9e9ddd2683821210b40c6b70deaad384</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>MyDesign Notification template</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_email_layout_9e9ddd2683821210b40c6b70deaad384</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-26 12:18:41</sys_updated_on>
+        <sys_updated_on>2026-03-09 07:43:16</sys_updated_on>
     </sys_email_layout>
 </record_update>

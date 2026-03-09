@@ -3,6 +3,35 @@
         <category>custom</category>
         <client_script><![CDATA[api.controller = function($scope, $rootScope) {
 
+    angular.module('sn.$sp').directive('ngRightClick', function($parse) {
+        return function(scope, element, attrs) {
+            var fn = $parse(attrs.ngRightClick);
+            element.bind('contextmenu', function(event) {
+                scope.$apply(function() {
+                    event.preventDefault();
+                    fn(scope, {
+                        $event: event
+                    });
+                });
+            });
+        };
+    });
+
+    $scope.filterByValue = function(field, value) {
+
+        if (!value) return;
+
+        if (field === 'alpha') {
+            $scope.serverFilters.alpha = [value];
+        }
+
+        if (field === 'words') {
+            $scope.serverFilters.words = [value];
+        }
+
+        refreshFromServer();
+    };
+
     $scope.sortField = '';
     $scope.sortReverse = false;
     /* ---------------- Client-side text filters ---------------- */
@@ -321,14 +350,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-02-13 15:44:10</sys_created_on>
         <sys_id>8633346147c33e5080626d1f316d43dc</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>MyDesign Table Widget</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy/>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sp_widget_8633346147c33e5080626d1f316d43dc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-02-25 14:27:36</sys_updated_on>
+        <sys_updated_on>2026-02-25 14:47:52</sys_updated_on>
         <template><![CDATA[<div class="incident-table-container">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -447,8 +476,8 @@
       ng-repeat-end>
     <td>{{rec.number}}</td>
     <td>{{rec.short_description}}</td>
-    <td>{{rec.alpha}}</td>
-    <td>{{rec.words}}</td>
+    <td ng-right-click="filterByValue('alpha', rec.alpha)">{{rec.alpha}}</td>
+    <td ng-right-click="filterByValue('words', rec.words)">{{rec.words}}</td>
   </tr>
 
 </tbody>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sys_attachment</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Copy/Remove attachment from Task to Requ</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous ) {
+
+    var parent_sysId = '';
+    var helpDeskTask = new GlideRecord(current.table_name);
+    helpDeskTask.get(current.table_sys_id);
+    if (helpDeskTask) {
+        parent_sysId = helpDeskTask.parent;
+    }
+    if (current.operation() == "insert") {
+        var att = new GlideRecord('sys_attachment');
+        att.initialize();
+        att.file_name = current.file_name;
+        att.content_type = current.content_type;
+        att.compressed = current.compressed;
+        att.table_name = 'x_nainr_onenav_pro_help_desk_request';
+        att.size_bytes = current.size_bytes;
+        att.size_compressed = current.size_compressed;
+        att.table_sys_id = parent_sysId;
+        att.chunk_size_bytes = current.chunk_size_bytes;
+        att.image_height = current.image_height;
+        att.image_width = current.image_width;
+        var attRec = att.insert();
+        var attDoc = new GlideRecord('sys_attachment_doc');
+        attDoc.addQuery('sys_attachment', current.sys_id);
+        attDoc.query();
+        if (attDoc.next()) {
+            var attDocCopy = new GlideRecord('sys_attachment_doc');
+            attDocCopy.initialize();
+            attDocCopy.sys_attachment = attRec;
+            attDocCopy.position = attDoc.position;
+            attDocCopy.length = attDoc.length;
+            attDocCopy.data = attDoc.data;
+            var attachCopy = attDocCopy.insert();
+        }
+    } else {
+        var del_att = new GlideRecord('sys_attachment');
+        del_att.addQuery('file_name', current.file_name);
+        del_att.addQuery('content_type', current.content_type);
+        del_att.addQuery('table_name', 'x_nainr_onenav_pro_help_desk_request');
+        del_att.addQuery('size_bytes', current.size_bytes);
+        del_att.addQuery('table_sys_id', parent_sysId);
+        del_att.query();
+        if (del_att.next()) {
+            var attachment = new GlideSysAttachment();
+            attachment.deleteAttachment(del_att.getValue('sys_id'));
+        }
+    }
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-05 18:09:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>10c3d8044767721080626d1f316d4328</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Copy/Remove attachment from Task to Requ</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_script_10c3d8044767721080626d1f316d4328</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-05 18:09:16</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=10c3d8044767721080626d1f316d4328"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>10c3d8044767721080626d1f316d4328</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-05 18:09:16</sys_created_on>
+        <sys_id>a63450444767721080626d1f316d432f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-05 18:09:16</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
