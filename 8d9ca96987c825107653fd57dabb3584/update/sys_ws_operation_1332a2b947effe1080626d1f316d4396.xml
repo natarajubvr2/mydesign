@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>POST</http_method>
+        <name>Ticket-POST</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    var processInput;
+    var reqBody = request.body.data;
+    var sync = new mydesign_util();
+    gs.info(' SCRIPTED REST API POST' + JSON.stringify(reqBody));
+    // implement resource here
+    if (reqBody.nature.toLowerCase() == 'service request') {
+        processInput = sync.transformRequest(reqBody);
+        //var res = {"Status":"200"};
+        //response.setStatus('200');
+        response.setBody(processInput);
+    } else if (reqBody.nature.toLowerCase() == 'service incident') {
+        //	if(sync.checkValidPostCall(reqBody)){
+        processInput = sync.transform(reqBody);
+        response.setStatus(processInput['status_code']);
+        response.setBody(processInput);
+    } else {
+        // return response for invalid/ignored Incident calls
+        var returnBody = {};
+        returnBody['status'] = 'ignored';
+        returnBody['status_code'] = 200;
+        returnBody['status_message'] = 'Ticket details matching the record in exclusion list and hence the ' + reqBody.nature + ' creation is ignored.';
+        response.setBody(returnBody);
+    }
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_492360_mydesign/wd_itsm/ticket/create_update</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/ticket/create_update</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-11 15:02:28</sys_created_on>
+        <sys_id>1332a2b947effe1080626d1f316d4396</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Ticket-POST</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_ws_operation_1332a2b947effe1080626d1f316d4396</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-23 07:21:02</sys_updated_on>
+        <web_service_definition display_value="WD ITSM">4171e63947effe1080626d1f316d430e</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>1332a2b947effe1080626d1f316d4396</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-11 15:02:28</sys_created_on>
+        <sys_id>3c03a2b947effe1080626d1f316d43fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-11 15:02:28</sys_updated_on>
+        <table>sys_ws_operation</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

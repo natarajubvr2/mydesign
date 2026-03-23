@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>PATCH</http_method>
+        <name>Ticket-PATCH</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+  // implement resource here
+
+	var reqBody = request.body.data;
+	var sync = new mydesign_util();
+		
+	var isValidTicket = sync.checkValidPatchCall(reqBody); //returns if it is a valid ticket and also if it Service Request or Service Incident
+	var processInput;
+	
+	if(isValidTicket[0]){
+		if(isValidTicket[1]=='Service Incident'){
+			processInput = sync.transform(reqBody);
+		}else if(isValidTicket[1]=='Service Request'){
+			processInput = sync.transformRequestUpdate(reqBody,isValidTicket[2]);
+		}
+		
+		response.setStatus(processInput['status_code']);
+		response.setBody(processInput);
+			
+		//Attachment API call
+			if(reqBody.attachments && processInput['status_code']==200|| processInput['status_code']==201){
+				//var attach_id = reqBody.attachments[0].id;
+				var attachment_response = sync.getAttachment(reqBody, isValidTicket[1]);
+				gs.info(' Ticket PATCH : ' +attachment_response );
+			}
+	}else{
+		var returnBody = {};
+		returnBody['status'] ='ignored';
+		returnBody['status_code'] = 200;
+		returnBody['status_message'] ='Ticket update is ignored as there is no matching record found in ServiceNow system.';
+		response.setBody(returnBody);
+	}
+
+  
+})(request, response);
+]]></operation_script>
+        <operation_uri>/api/x_492360_mydesign/wd_itsm/ticket/create_update</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/ticket/create_update</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-11 15:14:41</sys_created_on>
+        <sys_id>a655e2314723325080626d1f316d43d8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Ticket-PATCH</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_ws_operation_a655e2314723325080626d1f316d43d8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-11 15:14:41</sys_updated_on>
+        <web_service_definition display_value="WD ITSM">4171e63947effe1080626d1f316d430e</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>a655e2314723325080626d1f316d43d8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-11 15:14:41</sys_created_on>
+        <sys_id>e3c56e314723325080626d1f316d4356</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-11 15:14:41</sys_updated_on>
+        <table>sys_ws_operation</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

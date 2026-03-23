@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
-        <active>true</active>
+        <active>false</active>
         <api_name>x_492360_mydesign.WDServiceNowSynch</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
@@ -50,7 +50,7 @@ WDServiceNowSynch.prototype = {
 		}
 		
 		var serv_name;
-		var serv = new GlideRecord('x_nainr_cat_data_x_ibm_itsm_utilities');
+		var serv = new GlideRecord('x_mydes_cat_data_x_wd_itsm_utilities');
 		serv.addQuery('category','request_service_line');
 		serv.addQuery('request_service_line',request_body.service.toString());
 		serv.query();
@@ -66,14 +66,14 @@ WDServiceNowSynch.prototype = {
 		var item = cart.addItem('94d707291b645d50538aa9362a4bcb17', 1);
 
 		//fill in the variables on the request item form
-		//cart.setVariable(item, "short_description", "IBM Ticket ID: " + request_body.id +" IssueType: "+request_body.issueType + "Service: " + request_body.service + " Device ID: " + request_body.partnerDeviceId);
+		//cart.setVariable(item, "short_description", "ATT Ticket ID: " + request_body.id +" IssueType: "+request_body.issueType + "Service: " + request_body.service + " Device ID: " + request_body.partnerDeviceId);
 		cart.setVariable(item, "is_it_a_policy_request", "No");
 		cart.setVariable(item, "service", serv_name);
 		cart.setVariable(item, "issue_type", request_body.issueType);
 		cart.setVariable(item, "service_line", request_body.service);
 		cart.setVariable(item, "description", request_body.issueDescription);
 		cart.setVariable(item, "impacted_ci", ci_sysId);
-		cart.setVariable(item, "ibm_itsm_ticket_id",request_body.id);
+		cart.setVariable(item, "wd_itsm_ticket_id",request_body.id);
 		var rc = cart.placeOrder();
 		if(rc){ 
 			returnBody['Parent Request Number'] = rc.number;
@@ -125,7 +125,7 @@ WDServiceNowSynch.prototype = {
 			//Process only Active requests else ignore
 			if(rt.active == false){ 
 				
-				rt.work_notes = "IBM ITSM system tried to update the inactive/closed request and the updates are ignored. Here is the request Payload:- \n" + JSON.stringify(request_body);
+				rt.work_notes = "ATT ITSM system tried to update the inactive/closed request and the updates are ignored. Here is the request Payload:- \n" + JSON.stringify(request_body);
 				isActiveTicket = false;
 			}
 			else{
@@ -139,7 +139,7 @@ WDServiceNowSynch.prototype = {
 				if(request_body.statusVal){
 					rt.state = state_value;
 					if(rt.assigned_to=='' && (request_body.statusVal=='Assigned'|| request_body.statusVal=='Work In Progress')){
-						var ta = new GlideRecord('x_nainr_cat_data_x_ibm_itsm_utilities');
+						var ta = new GlideRecord('x_mydes_cat_data_x_wd_itsm_utilities');
 						ta.addEncodedQuery('category=ticket_assignee^active=true');
 						ta.addQuery('assignment_group', rt.assignment_group);
 						ta.query();
@@ -167,7 +167,7 @@ WDServiceNowSynch.prototype = {
 				//process service updates
 				if(request_body.service){
 					var serv_name;
-					var serv = new GlideRecord('x_nainr_cat_data_x_ibm_itsm_utilities');
+					var serv = new GlideRecord('x_mydes_cat_data_x_wd_itsm_utilities');
 					serv.addQuery('category','request_service_line');
 					serv.addQuery('request_service_line',request_body.service.toString());
 					serv.query();
@@ -226,12 +226,12 @@ WDServiceNowSynch.prototype = {
 		var instance_name = gs.getProperty('instance_name');
 		
         var request = new sn_ws.RESTMessageV2();
-        request.setEndpoint('https://'+ instance_name +'.service-now.com/api/now/import/u_ibm_itsm_incident_inbound');
+        request.setEndpoint('https://'+ instance_name +'.service-now.com/api/now/import/u_wd_itsm_incident_inbound');
         request.setHttpMethod('POST');
 
         //Eg. UserName="admin", Password="admin" for this code sample.
-        var user = 'MSS-APIUser';
-        var password = gs.getProperty('ibm.itsm.ticketing.bridge.passwd');
+        var user = 'WD-APIUser';
+        var password = gs.getProperty('ATT.itsm.ticketing.bridge.passwd');
 
         request.setBasicAuth(user, password);
         request.setRequestHeader('Accept', 'application/json');
@@ -251,8 +251,8 @@ WDServiceNowSynch.prototype = {
 	
 	updateITSMPartnerTicketId: function(ticket_obj){
 		
-		var base64_token = 'Basic '+gs.getProperty('ibm.itsm.base64.token');
-		var end_point = 'https://services.sec.ibm.com/micro/ticket_detail/' + ticket_obj.correlation_id.toString();
+		var base64_token = 'Basic '+gs.getProperty('ATT.itsm.base64.token');
+		var end_point = 'https://services.sec.ATT.com/micro/ticket_detail/' + ticket_obj.correlation_id.toString();
 		var request = new sn_ws.RESTMessageV2();
 		request.setEndpoint(end_point);
 		request.setHttpMethod('PATCH');
@@ -269,8 +269,8 @@ WDServiceNowSynch.prototype = {
 	
 	createITSMTicketFromIncident: function(incident_input){
 		try { 
-		var r = new sn_ws.RESTMessageV2('IBM ITSM', 'POST');
-		r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ibm.itsm.base64.token'));
+		var r = new sn_ws.RESTMessageV2('ATT ITSM', 'POST');
+		r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ATT.itsm.base64.token'));
 		var sevMatrix;
 		switch(incident_input.priority.toString()) {
 				case "1":
@@ -290,7 +290,7 @@ WDServiceNowSynch.prototype = {
 			}
 		var temp_service;
 		var temp_service_id;
-		var gr = new GlideRecord('x_nainr_cat_data_x_ibm_itsm_utilities');
+		var gr = new GlideRecord('x_mydes_cat_data_x_wd_itsm_utilities');
 			gr.addQuery('category','service_selection');
 			gr.addActiveQuery();
 			gr.addQuery('assignment_group',incident_input.assignment_group);
@@ -303,10 +303,10 @@ WDServiceNowSynch.prototype = {
 			}
 			
 		var issue;
-			if(incident_input.category=='IBM ITSM - Incident' && incident_input.subcategory!=''){
+			if(incident_input.category=='ATT ITSM - Incident' && incident_input.subcategory!=''){
 				issue = incident_input.subcategory.toString();
 			}else{
-				issue = gs.getProperty('ibm.itsm.default.issuetype').toString();
+				issue = gs.getProperty('ATT.itsm.default.issuetype').toString();
 			}
 			
 		var body = { "severityVal": sevMatrix.toString(),
@@ -325,8 +325,8 @@ WDServiceNowSynch.prototype = {
 			var statusCode = response.getStatusCode();
 			if((statusCode==200||statusCode==201)&& incident_input.correlation_id == ''&& !incident_input.isNewRecord() ){
 				incident_input.correlation_id = JSON.parse(response.getBody()).id.toString();
-				incident_input.correlation_display = "IBM ITSM";
-				incident_input.u_ibm_itsm_service = temp_service_id;
+				incident_input.correlation_display = "ATT ITSM";
+				incident_input.u_wd_itsm_service = temp_service_id;
 				incident_input.update();
 			}
 			
@@ -342,8 +342,8 @@ WDServiceNowSynch.prototype = {
 	
 	createITSMTicketFromRequest: function(req_task){
 		try { 
-		var r = new sn_ws.RESTMessageV2('IBM ITSM', 'POST');
-		r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ibm.itsm.base64.token'));
+		var r = new sn_ws.RESTMessageV2('ATT ITSM', 'POST');
+		r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ATT.itsm.base64.token'));
 		var partnerDevices = [];
 		var partnerDevices_arr = req_task.request_item.variables.impacted_ci.getDisplayValue().toString().split(',');
 			for (var i=0; partnerDevices_arr.length > i; i++){
@@ -371,12 +371,12 @@ WDServiceNowSynch.prototype = {
 				this._log(' Request Correlation ID  : ' , 'Inside IF');
 				var id = JSON.parse(response.getBody()).id.toString();
 				req_task.correlation_id = id;
-				req_task.correlation_display = "IBM ITSM";
+				req_task.correlation_display = "ATT ITSM";
 				req_task.update();
 				
 				var ri = new GlideRecord('sc_req_item');
 				ri.get(req_task.request_item);
-				ri.variables.ibm_itsm_ticket_id =  id;
+				ri.variables.wd_itsm_ticket_id =  id;
 				ri.update();
 			}
 			
@@ -403,14 +403,14 @@ WDServiceNowSynch.prototype = {
 				case "6":
 				stateMap="Resolved, Pending Closure";
 				break;
-				//Update Set- GRC:Global_IBMITSM_JP_18/10/2023
+				//Update Set- GRC:Global_ATTITSM_JP_18/10/2023
 // 				case "7":
 // 				stateMap="Closed";
 // 				break;
 				//code after Team requested to add cancelled state
 				case "8":
 				stateMap="Resolved, Pending Closure";
-				break;//GRC:Global_IBMITSM_JP_18/10/2023
+				break;//GRC:Global_ATTITSM_JP_18/10/2023
 				
 				
 		}
@@ -454,9 +454,9 @@ WDServiceNowSynch.prototype = {
 	
 	updateITSMTicketFromIncident: function(current_state, body){
 		try { 
-			var r = new sn_ws.RESTMessageV2('IBM ITSM', 'PATCH');
+			var r = new sn_ws.RESTMessageV2('ATT ITSM', 'PATCH');
 			r.setStringParameterNoEscape('ticket_id',current_state.correlation_id.toString() );
-			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ibm.itsm.base64.token'));
+			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ATT.itsm.base64.token'));
 			this._log('updateITSMTicketFromIncident' , JSON.stringify(body));	
 			
 			r.setRequestBody(JSON.stringify(body));
@@ -509,9 +509,9 @@ WDServiceNowSynch.prototype = {
 				sevMatrix="SEV4";
 			}
 		try { 
-			var r = new sn_ws.RESTMessageV2('IBM ITSM', 'PATCH');
+			var r = new sn_ws.RESTMessageV2('ATT ITSM', 'PATCH');
 			r.setStringParameterNoEscape('ticket_id',current_state.correlation_id.toString() );
-			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ibm.itsm.base64.token'));
+			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ATT.itsm.base64.token'));
 			
 			if(current_state.priority != previous_state.priority){
 				body['severityVal'] = sevMatrix.toString();
@@ -585,9 +585,9 @@ WDServiceNowSynch.prototype = {
 	
 	updateITSMTicketFromRequest: function(current_state, body){
 		try { 
-			var r = new sn_ws.RESTMessageV2('IBM ITSM', 'PATCH');
+			var r = new sn_ws.RESTMessageV2('ATT ITSM', 'PATCH');
 			r.setStringParameterNoEscape('ticket_id',current_state.correlation_id.toString());
-			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ibm.itsm.base64.token'));
+			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ATT.itsm.base64.token'));
 						
 			this._log('updateITSMTicketFromRequest' , JSON.stringify(body));	
 			r.setRequestBody(JSON.stringify(body));
@@ -627,9 +627,9 @@ WDServiceNowSynch.prototype = {
 		}
 		
 		try { 
-			var r = new sn_ws.RESTMessageV2('IBM ITSM', 'PATCH');
+			var r = new sn_ws.RESTMessageV2('ATT ITSM', 'PATCH');
 			r.setStringParameterNoEscape('ticket_id',current_state.correlation_id.toString() );
-			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ibm.itsm.base64.token'));
+			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ATT.itsm.base64.token'));
 			
 			if(current_state.description != previous_state.description){
 				body['issueDescription'] = current_state.description.toString();
@@ -689,7 +689,7 @@ WDServiceNowSynch.prototype = {
 				gr.caller_id = input_record.caller_id;
 				gr.category ='it_infrastructure';
 				gr.subcategory = 'network';
-				gr.short_description = 'ServiceNow-IBM ITSM Integration failed for Incident : ' + input_record.number;
+				gr.short_description = 'ServiceNow-ATT ITSM Integration failed for Incident : ' + input_record.number;
 				gr.description = res.getBody();
 				gr.impact = '2';
 				gr.urgency = '2';
@@ -718,17 +718,17 @@ WDServiceNowSynch.prototype = {
 		
 	},
 	
-	//Check if the incident coming from IBM ITSM is Valid or not. Now applicable in case of Service Requests
+	//Check if the incident coming from ATT ITSM is Valid or not. Now applicable in case of Service Requests
 	
 	checkValidPostCall: function(body){
-		var gr = new GlideRecord('x_nainr_cat_data_x_ibm_itsm_utilities');
+		var gr = new GlideRecord('x_mydes_cat_data_x_wd_itsm_utilities');
 		gr.addQuery('category','exclusion_list'),
 		gr.addQuery('active', 'true');
 		gr.addQuery('service.name',body.service.toString());
 		gr.addQuery('issue_type.issue_type',body.issueType.toString());
 		gr.query();
 		if(gr.next()){
-			gr.notes='API Call for creating the '+body.nature.toString()+ ' is ignored for below record as it was matching this exclusion record.\n JSON Payload from IBM ITSM : ' + JSON.stringify(body);
+			gr.notes='API Call for creating the '+body.nature.toString()+ ' is ignored for below record as it was matching this exclusion record.\n JSON Payload from ATT ITSM : ' + JSON.stringify(body);
 			gr.update();
 			return false;
 		}else{
@@ -765,20 +765,20 @@ WDServiceNowSynch.prototype = {
 		}
 	},
 	
-	//Make an API call to fetch attachment from IBM ITSM and upload to ServiceNow Record
+	//Make an API call to fetch attachment from ATT ITSM and upload to ServiceNow Record
 	getAttachment: function(reqBody, table_type){
 		
 		var attach_id = reqBody.attachments[0].id;
 		var attach_name = reqBody.attachments[0].attachment;
-		var ibm_itsm_record_id = reqBody.id;
+		var wd_itsm_record_id = reqBody.id;
 		try { 
-			var r = new sn_ws.RESTMessageV2('IBM ITSM', 'Attachment GET');
-			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ibm.itsm.base64.token'));
+			var r = new sn_ws.RESTMessageV2('ATT ITSM', 'Attachment GET');
+			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ATT.itsm.base64.token'));
 			r.setStringParameterNoEscape('attachment_id', attach_id);
 			var response = r.execute();
 			var responseBody = response.getBody();
 			var httpStatus = response.getStatusCode();
-			this._log('Attachment Body (From IBM ITSM)', responseBody.toString());
+			this._log('Attachment Body (From ATT ITSM)', responseBody.toString());
 			
 			//convert and upload the attachment to serviceNow incident or sc_task
 				if(httpStatus==200 || httpStatus==201){
@@ -791,10 +791,10 @@ WDServiceNowSynch.prototype = {
 						rec = new GlideRecord('sc_task');	
 					}
 					
-					rec.addQuery('correlation_id', ibm_itsm_record_id);
+					rec.addQuery('correlation_id', wd_itsm_record_id);
 					rec.query();
 					if(rec.next()){
-						gs.info('IBM ITSM sna - its coing in IF');
+						gs.info('ATT ITSM sna - its coing in IF');
 							var base64File= responseBody.toString(); //The huge base64Encoded string
 							var file_name = attach_name;
 							var contentType = "";
@@ -807,13 +807,13 @@ WDServiceNowSynch.prototype = {
 			
 				if(sna==null || httpStatus !=200){
 					var attachemnt_inputs={};
-							attachemnt_inputs['ticket_number']= reqBody.partnerTicketId!=null ? reqBody.partnerTicketId+' (ServiceNow)' : reqBody.id+' (IBM ITSM)';
+							attachemnt_inputs['ticket_number']= reqBody.partnerTicketId!=null ? reqBody.partnerTicketId+' (ServiceNow)' : reqBody.id+' (ATT ITSM)';
 							attachemnt_inputs['status_code'] = httpStatus != 200 || sna==null? 500 : httpStatus;
 							attachemnt_inputs['call_type']= 'GET';
 							attachemnt_inputs['request_payload'] = JSON.stringify(reqBody);
-							attachemnt_inputs['returned_response']= httpStatus != 200 ? response.getBody() :' File Retrieved from IBM ITSM but No file is attached in ServiceNow ticket.' ;
+							attachemnt_inputs['returned_response']= httpStatus != 200 ? response.getBody() :' File Retrieved from ATT ITSM but No file is attached in ServiceNow ticket.' ;
 				
-			sn_fd.FlowAPI.getRunner().subflow('global.ibm_itsm__error_handling_for_attachments').inBackground().withInputs(attachemnt_inputs).run();
+			sn_fd.FlowAPI.getRunner().subflow('global.wd_itsm__error_handling_for_attachments').inBackground().withInputs(attachemnt_inputs).run();
 						}
 			
 		}catch(ex) {
@@ -822,10 +822,10 @@ WDServiceNowSynch.prototype = {
 		return responseBody;
 	},
 	
-	isValidIBMITSMAttachment : function(incident_sysid){
+	isValidATTITSMAttachment : function(incident_sysid){
 		var gr = new GlideRecord('incident');
 		gr.get(incident_sysid);
-		if(gr.correlation_display == "IBM ITSM" && gr.correlation_id !=''){
+		if(gr.correlation_display == "ATT ITSM" && gr.correlation_id !=''){
 			return true;
 		}else{
 			return false;
@@ -833,25 +833,25 @@ WDServiceNowSynch.prototype = {
 		
 	},
 	
-	isValidIBMITSMAttachmentForRequest : function(request_sysid){
+	isValidATTITSMAttachmentForRequest : function(request_sysid){
 		var gr = new GlideRecord('sc_task');
 		gr.get(request_sysid);
-		if(gr.correlation_display == "IBM ITSM" && gr.correlation_id !=''){
+		if(gr.correlation_display == "ATT ITSM" && gr.correlation_id !=''){
 			return true;
 		}else{
 			return false;
 		}
 		
 	},
-	//Process Worknotes JSON Array coming from IBM ITSM to a readable format
+	//Process Worknotes JSON Array coming from ATT ITSM to a readable format
 	processWorkNotes : function(input_wn){
-		//gs.info('IBM ITSM JSON Worknotes input : ' +input_wn[0].text  + ' : ' + input_wn.length );
+		//gs.info('ATT ITSM JSON Worknotes input : ' +input_wn[0].text  + ' : ' + input_wn.length );
 		var formatted_wn = '';
 		for(var i=0; i<input_wn.length; i++){
 			var a = input_wn[i].text.split('\n');
 
-			var x = 'IBM ITSM UserName : ' + input_wn[i].username + '\n';
-			var y ='IBM ITSM WorkLogs : ';
+			var x = 'ATT ITSM UserName : ' + input_wn[i].username + '\n';
+			var y ='ATT ITSM WorkLogs : ';
 
 			for(var j=0; j<a.length; j++){
 				y = y+ a[j] + '\n';
@@ -859,7 +859,7 @@ WDServiceNowSynch.prototype = {
 			formatted_wn = formatted_wn + x + y + '\n';
 		}
 
-		//gs.info('IBM ITSM  Worknotes formatted output : ' +formatted_wn);
+		//gs.info('ATT ITSM  Worknotes formatted output : ' +formatted_wn);
 		return formatted_wn; 
 
 	},
@@ -867,7 +867,7 @@ WDServiceNowSynch.prototype = {
 	getCIsysIds : function(){
 		var arr = [];
 		var gr = new GlideRecord('label_entry');
-		gr.addEncodedQuery('label.name=IBM ITSM Managed');
+		gr.addEncodedQuery('label.name=ATT ITSM Managed');
 		gr.query();
 		while(gr.next()){
 			arr.push(gr.table_key.toString());
@@ -876,13 +876,13 @@ WDServiceNowSynch.prototype = {
 	},
 
 	showErrorMessage : function(){
-		gs.addErrorMessage('There is an issue while sending ticket details to IBM ITSM. System will automatically re-attempt sending the details and If it fails again then ServiceNow will create an Incident for the support group after 10 minutes.');
+		gs.addErrorMessage('There is an issue while sending ticket details to ATT ITSM. System will automatically re-attempt sending the details and If it fails again then ServiceNow will create an Incident for the support group after 10 minutes.');
 	},
 	
     //Print log statements when the property is set to true
     _log: function(message, content) {
-        if (gs.getProperty('ibm.itsm_inbound.incident.log')) {
-            gs.info('IBM ITSM  ' + message + ' : ' + content);
+        if (gs.getProperty('ATT.itsm_inbound.incident.log')) {
+            gs.info('ATT ITSM  ' + message + ' : ' + content);
         }
     },
 
@@ -892,14 +892,14 @@ WDServiceNowSynch.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-03-09 13:25:04</sys_created_on>
         <sys_id>4e4977c5472fba1080626d1f316d4314</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>WDServiceNowSynch</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_include_4e4977c5472fba1080626d1f316d4314</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-03-09 13:25:04</sys_updated_on>
+        <sys_updated_on>2026-03-09 13:37:56</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>4e4977c5472fba1080626d1f316d4314</id>

@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_492360_mydesign.WDSN_MultiPayload_Util</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Workday to Servicenow ESC portal Catalog item creation through Scripted Rest API Post method</description>
+        <mobile_callable>false</mobile_callable>
+        <name>WDSN_MultiPayload_Util</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var WDSN_MultiPayload_Util = Class.create();
+WDSN_MultiPayload_Util.prototype = {
+    initialize: function() {
+    this.catalogItemIds = {
+            onboarding: '',
+            cancellation: '',
+            offboarding: '',
+            change: ''
+        };
+        this._resetState();
+    },
+
+    _resetState: function() {
+        this.errors = [];
+        this.input = {};
+        this.body = {};
+        this.isContractor = false;
+        this.isPermanent = false;
+        this.isRemote = false;
+        this.isUS = false;
+        this.isRehire = false;
+        this.request_type = '';
+        this.reqBySysId = '';
+        this.reqByEmpId = '';
+        this.reqByLoc = '';
+        this.reqByCountry = '';
+        this.costCenterSysId = '';
+        this.fnGrpNameCode = '';
+        this.fnDepName = '';
+        this.locationSysId = '';
+        this.repToSysId = '';
+        this.repToEmpId = '';
+        this.vendorSysId = '';
+        this.countrySysId = '';
+        this.plant_code = '';
+    },
+
+    processBulkPayload: function(payload) {
+
+        if (!payload || !payload.requests || !Array.isArray(payload.requests)) {
+            return {
+                status: "error",
+                code: 400,
+                message: "Invalid bulk payload format"
+            };
+        }
+
+        if (payload.requests.length > 50) {
+            return {
+                status: "error",
+                code: 400,
+                message: "Max 50 records allowed per request"
+            };
+        }
+
+        var response = {
+            status: "success",
+            results: [],
+            errors: []
+        };
+
+        if (!payload || !payload.requests || !Array.isArray(payload.requests)) {
+            return {
+                status: "error",
+                code: 400,
+                message: "Invalid bulk payload format"
+            };
+        }
+        var payload_length = payload.requests.length;
+        for (var i = 0; i < payload.requests.length; i++) {
+
+            try {
+                var singlePayload = payload.requests[i];
+
+                // Reset object state before each iteration
+                this._resetState();
+                gs.info("[Bulk] Processing index: " + i + " Employee: " + (singlePayload.employee_id_number || 'N/A'));
+
+                var handler = new WDSN_Bulk_Util();
+                var result = handler.validatePayload(singlePayload);
+
+
+                response.results.push({
+                    index: i,
+                    employee_id: singlePayload.employee_id_number,
+                    operation: singlePayload.operation,
+                    status: result.status,
+                    ritm_number: result.ritm_number || '',
+                    message: result.message || '',
+                    errors: result.errors || [],
+					requestType: result.requestType || ''
+                });
+
+            } catch (ex) {
+
+                response.errors.push({
+                    index: i,
+                    message: ex.message
+                });
+
+                gs.error("[WDSNIntegration] Bulk Processing Error: " + ex.message);
+            }
+        }
+
+        return response;
+    },
+    validatePayload: function(payload) {
+        this.errors = [];
+        this.input = {};
+        this.body = payload;
+
+        if (!payload) {
+            return {
+                status: "error",
+                code: 400,
+                message: "Empty payload"
+            };
+        }
+
+        // gs.info("[WDSNIntegration] Payload: " + JSON.stringify(payload));
+
+
+        /* =========================
+           Normalize Values
+        ========================== */
+
+        var empTypeVal = (this.body.employee_type || '').toLowerCase();
+        var workLocVal = (this.body.work_in_location || '').toLowerCase();
+        var countryVal = (this.body.country || '').toUpperCase();
+
+        this.isContractor = empTypeVal == 'contractor';
+        this.isPermanent = empTypeVal == 'permanent';
+        this.isRemote = workLocVal == 'remote';
+        this.isUS = countryVal == 'UNITED STATES';
+        this.isRehire = (this.body.rehire === true || this.body.rehire === 'true' || this.body.rehire == 'Yes');
+
+        var operation = (this.body.operation || '').toLowerCase();
+
+        if (this.isRehire || operation == 'onboarding') {
+            return this.create_onboarding_req();
+        } else if (operation == 'onboardingcancellation') {
+            return this.create_onboarding_cancel_req();
+        } else if (operation == 'offboarding') {
+            return this.create_offboarding_req();
+        } else if (operation == 'change') {
+            return this.employee_change_request();
+        } else {
+            this.errors.push("Invalid Request");
+            return {
+                status: "error",
+                code: 400,
+                message: "Validation Failed",
+                errors: this.errors,
+            };
+        }
+    },
+
+    create_onboarding_req: function() {
+
+        this.request_type = "Employee Onboarding Request";
+
+        var validationResponse = this._data_validation();
+        if (validationResponse && validationResponse.status === "error") {
+            return validationResponse;
+        }
+
+        /* =========================
+           REHIRE VALIDATION + LOOKUP
+        ========================== */
+        if (this.isRehire) {
+
+            gs.info("[WDSNIntegration] : isRehire " + this.isRehire + "---" + "for this Employee number " + this.body.employee_id_number);
+
+            var rehireUser = new GlideRecord('sys_user');
+            rehireUser.addQuery('email', 'CONTAINS', this.body.employee_email);
+            rehireUser.addQuery('employee_number', this.body.employee_id_number);
+            rehireUser.addQuery('active', false);
+            rehireUser.setLimit(1);
+            rehireUser.query();
+
+            if (rehireUser.next()) {
+
+                this.body.user_full_name = rehireUser.getUniqueValue();
+                this.body.employee_email = rehireUser.getValue('email');
+                this.body.preferred_first_name = rehireUser.getValue('first_name');
+                this.body.preferred_last_name = rehireUser.getValue('last_name');
+                this.body.display_name = rehireUser.getValue('u_ad_display_name');
+                //this.body.legal_name = rehireUser.getValue();
+
+            } else {
+                this.errors.push("No inactive user found for provided Employee ID " + this.body.employee_id_number + " for Rehire request");
+            }
+        }
+        if (this.errors.length > 0) {
+            return {
+                status: "error",
+                code: 400,
+                message: "Validation Failed",
+                errors: this.errors,
+				requestType: this.request_type
+            };
+        } else {
+            this.input = {
+                requested_by_employee: this.reqByEmpId,
+                email: this.body.email,
+                requested_by: this.reqBySysId,
+                automation: "Yes",
+                rehire: this.body.rehire,
+                user_full_name: this.body.user_full_name,
+                employee_email: this.body.employee_email,
+                employee_old_id_number: this.body.employee_id_number,
+                title_onboarding: this.body.title_onboarding,
+                employee_id_number: this.body.employee_id_number,
+                preferred_first_name: this.body.preferred_first_name,
+                preferred_last_name: this.body.preferred_last_name,
+                display_name: this.body.display_name,
+                legal_name: this.body.legal_name,
+                cost_center_code: this.costCenterSysId,
+                function_group_name_code: this.fnGrpNameCode,
+                department: this.fnDepName,
+                employee_type: this.body.employee_type,
+                vendor: this.vendorSysId,
+                compensation: this.body.compensation,
+                work_in_location: this.locationSysId,
+                country: this.countrySysId,
+                state_name: this.body.state_name,
+                report_to_employee_id: this.repToEmpId,
+                report_to: this.repToSysId,
+                report_to_email_id: this.body.report_to_email_id,
+                start_date: this.body.start_date,
+                additional_details: this.body.additional_details
+            };
+
+            return this.create_ritm_req(this.catalogItemIds.onboarding, this.input, this.request_type);
+        }
+    },
+
+    create_onboarding_cancel_req: function() {
+		this.request_type = 'Employee Onboarding Cancellation';
+
+        if (!this.body.employee_id_number)
+            this.errors.push("Employee ID Number mandatory for onboarding Cancellation Request");
+        if (!this.body.reason_for_deletion)
+            this.errors.push("Reason for cancellation is mandatory for onboarding Cancellation Request");
+
+        if (this.errors.length > 0) {
+            return {
+                status: "error",
+                code: 400,
+                message: "Validation Failed",
+                errors: this.errors,
+				requestType: this.request_type
+            };
+        } else {
+            this.input = {};
+            var ritmGr = new GlideRecord('sc_req_item');
+            ritmGr.addEncodedQuery('variables.e126d8d1477c0610b88cf8f4726d4328=' + this.body.employee_id_number);
+            ritmGr.orderByDesc('sys_created_on');
+            ritmGr.query();
+            if (ritmGr.next()) {
+                var employeeId = this.body.employee_id_number.toString();
+                var uGr = new GlideRecord('sys_user');
+                uGr.addQuery('employee_number', employeeId);
+                uGr.query();
+                var email = '';
+                var country = '';
+                if (uGr.next()) {
+                    // fetch user details
+                    email = uGr.email.toString();
+                    //department_name = uGr.department.name.toString();
+                    country = uGr.getDisplayValue('country');
+                }
+
+                var gdt = new GlideDate(this.body.effective_date);
+                var gdtLocal = gdt.getDisplayValue();
+
+                this.input = {
+                    onboarding_ritm_system_id: ritmGr.sys_id.toString(),
+                    country_code: country,
+                    employee_onboarding_ritm_number: ritmGr.number.getDisplayValue() + "|" + ritmGr.display_name.getDisplayValue(),
+                    employee_onboarding_ritm_number_form: ritmGr.sys_id.toString(),
+                    automation: "Yes",
+                    reason_for_deletion: this.body.reason_for_deletion,
+                    employee_name: ritmGr.variables.legal_name.toString(),
+                    first_name: ritmGr.variables.preferred_first_name.toString(),
+                    last_name: ritmGr.variables.preferred_last_name.toString(),
+                    title: ritmGr.variables.title_onboarding.toString(),
+                    work_in_location: ritmGr.variables.work_in_location.getDisplayValue(),
+                    department: ritmGr.variables.department.toString(),
+                    employee_id_number: ritmGr.variables.employee_id_number.toString(),
+                    compensation_type: ritmGr.variables.compensation.toString(),
+                    employee_type: ritmGr.variables.employee_type.toString(),
+                    manager: ritmGr.variables.report_to.name.toString(),
+                    manager_employee_id: ritmGr.variables.report_to_employee_id.toString(),
+                    manager_email_id: ritmGr.variables.report_to_email_id.toString(),
+                    joining_date: ritmGr.variables.start_date.toString(),
+                    effective_date: gdtLocal,
+                    additional_details: this.body.additional_details
+                };
+
+            } else {
+                return {
+                    status: "error",
+                    code: 404,
+                    message: "No onboarding RITM found for the given employee ID number " + this.body.employee_id_number,
+					requestType: this.request_type
+                };
+            }
+            
+            return this.create_ritm_req(this.catalogItemIds.cancellation, this.input, this.request_type);
+        }
+    },
+    create_offboarding_req: function() {
+
+        this.request_type = "Employee Offboarding Request";
+        var retroactive = false;
+
+        if (!this.body.employee_id_number)
+            this.errors.push("Employee Number is Mandatory for Submitting " + this.request_type);
+
+        if (!this.body.last_working_day)
+            this.errors.push("Last Working Day is Mandatory for Submitting " + this.request_type);
+
+        if (this.errors.length > 0) {
+            return {
+                status: "error",
+                code: 404,
+                message: this.errors,
+				requestType: this.request_type
+            };
+        } else {
+            var gdt = new GlideDate(this.body.last_working_day.toString());
+            var gdtLocal = gdt.getDisplayValue();
+
+            var user = new GlideRecord("sys_user");
+            user.addQuery("employee_number", this.body.employee_id_number);
+            user.query();
+            if (user.next()) {
+                if (user.getValue('active') == 'false')
+                    retroactive = true;
+
+                this.input = {
+                    retroactive_offboarding: retroactive,
+                    select_user: user.getValue('sys_id'),
+                    email_1: user.getValue('email'),
+                    first_name: user.getValue('first_name'),
+                    last_name: user.getValue('last_name'),
+                    title: user.getValue('title'),
+                    //business_unit: ,
+                    compensation: user.getValue('u_compensation'),
+                    employee_id_number: this.body.employee_id_number,
+                    last_working_day: gdtLocal,
+                    employee_type: user.getValue('u_employee_type'),
+                    manager: user.getValue('manager'),
+                    manager_email_id: user.getDisplayValue('manager.email'),
+                    manager_employee_id: user.getDisplayValue('manager.employee_number'),
+                    forward_account_to_email_id: this.body.forward_account_to_email_id,
+                    additional_details: this.body.additional_details
+                };
+
+                return this.create_ritm_req(this.catalogItemIds.offboarding, this.input, this.request_type);
+            } else {
+                return {
+                    status: "error",
+                    code: 404,
+                    message: "Employee Not found to create Offboarding Request for the given Employee ID " + this.body.employee_id_number,
+					requestType: this.request_type
+                };
+
+            }
+        }
+    },
+
+    employee_change_request: function() {
+
+        this.request_type = 'Change Request';
+
+        var validationResponse = this._data_validation();
+        if (validationResponse && validationResponse.status === "error") {
+            return validationResponse;
+        }
+        if (this.errors.length > 0) {
+            return {
+                status: "error",
+                code: 400,
+                message: "Validation Failed",
+                errors: this.errors,
+				requestType: this.request_type
+            };
+        } else {
+
+            var effective_date = new GlideDate(this.body.effective_date);
+            var effectiveDate = effective_date.getDisplayValue();
+
+            var start_date = new GlideDate(this.body.start_date);
+            var startDate = start_date.getDisplayValue();
+
+            var oldUserData = new GlideRecord('sys_user');
+            oldUserData.addQuery('employee_number', this.body.employee_id_number);
+            oldUserData.addQuery('active', true);
+            oldUserData.query();
+            if (oldUserData.next()) {
+                this.input = {
+
+                    email: this.body.email,
+                    requested_by_employee: this.reqByEmpId,
+                    function_group_name_old: this.fnDepName,
+                    plant_code_old: this.plant_code,
+                    function_group_name_code_old: this.fnGrpNameCode,
+                    automation: "Yes",
+                    requested_by: this.reqBySysId,
+
+                    select_employee_name: oldUserData.getValue('name'),
+                    email_id: oldUserData.getValue('email'),
+
+                    /* Current User data */
+
+                    old_first_name: oldUserData.getValue('first_name'),
+                    old_value_last_name: oldUserData.getValue('last_name'),
+                    display_name_old: oldUserData.getValue('u_ad_display_name'),
+                    old_value_full_name: oldUserData.getValue('name'),
+                    contract_type_old: oldUserData.getValue('u_compensation'),
+                    employee_type_old_value: oldUserData.getValue('u_employee_type'),
+                    title_old_value: oldUserData.getValue('title'),
+                    vendor_old: oldUserData.getDisplayValue('company'),
+                    employee_id_number: oldUserData.getValue('employee_number'),
+                    location_old_value: oldUserData.getDisplayValue('location'),
+                    country_old: oldUserData.getDisplayValue('u_ad_country'),
+                    manager_old_value: oldUserData.getDisplayValue('manager'),
+                    live_in_state_old: oldUserData.getDisplayValue('state'),
+                    manager_email_id: oldUserData.getDisplayValue('manager.email'),
+                    cost_center: oldUserData.getDisplayValue('cost_center'),
+                    manager_employee_id: oldUserData.getValue('manager.employee_number'),
+                    department: oldUserData.getDisplayValue('department'),
+
+                    /* Change requested data */
+
+                    first_name_new: this.body.preferred_first_name,
+                    last_name_new: this.body.preferred_last_name,
+                    display_name_new: this.body.display_name,
+                    full_name_new: this.body.legal_name,
+                    contract_type: this.body.compensation,
+                    employee_type: this.body.employee_type,
+                    title_new: this.body.title_onboarding,
+                    vendor_new: this.vendorSysId,
+                    new_cost_center: this.costCenterSysId,
+                    location_new: this.locationSysId,
+                    department_cc: this.fnDepName,
+                    //country_short_name: this.country_short_name,
+                    function_group_name_code: this.fnGrpNameCode,
+                    country_new: this.countrySysId,
+                    live_in_state_new: this.body.state_name,
+                    effective_date: effectiveDate,
+                    employee_s_new_start_date: startDate,
+                    manager_new: this.repToSysId,
+                    manager_employee_id_new: this.repToEmpId,
+                    manager_email_id_new: this.body.report_to_email_id,
+                    additional_details: this.body.additional_details
+
+                };
+
+                return this.create_ritm_req(this.catalogItemIds.change, this.input, this.request_type);
+            } else {
+                return {
+                    status: "error",
+                    code: 404,
+                    message: "Employee Not found to create Change Request for the given Employee ID " + this.body.employee_id_number,
+					requestType: this.request_type
+                };
+            }
+        }
+    },
+    /* 
+          ==========================   Data validation   =========================
+     */
+
+    _data_validation: function() {
+
+        //if (!this.body.compensation)
+        //   this.errors.push("Compansation is mandatory for submitting the " + this.request_type + "  for the given Employee ID " + this.body.employee_id_number);
+
+        // if (!this.body.employee_type)
+        //   this.errors.push("Employee Type is mandatory for submitting the " + this.request_type + "  for the given Employee ID " + this.body.employee_id_number);
+
+        if (!this.body.employee_id_number)
+            this.errors.push("Employee Number is mandatory for submitting the " + this.request_type);
+
+        if (!this.body.title_onboarding)
+            this.errors.push("Title Onboarding is mandatory for submitting the " + this.request_type);
+
+        if (!this.body.work_in_location)
+            this.errors.push("work In Location is mandatory for submitting the " + this.request_type);
+
+        if (!this.body.report_to_employee_id)
+            this.errors.push("report_to is is mandatory for submitting the " + this.request_type);
+
+        // if (!this.body.cost_center_code)
+        //    this.errors.push("Cost center code is mandatory for submitting the " + this.request_type + "  for the given Employee ID " + this.body.employee_id_number);
+
+        if (!this.body.start_date)
+            this.errors.push("start_date is mandatory for submitting the " + this.request_type);
+        /* =========================
+           ENUM VALIDATION
+        ========================== */
+        var allowedEmpTypes = ['Permanent', 'Contractor'];
+        var allowedCompTypes = ['Exempt', 'Non-Exempt'];
+
+        if (!this.body.employee_type || allowedEmpTypes.indexOf(this.body.employee_type) === -1)
+            this.errors.push("Employee Type is mandatory and it must be either 'Permanent' or 'Contractor'." + this.request_type);
+
+        if (!this.body.compensation || allowedCompTypes.indexOf(this.body.compensation) === -1)
+            this.errors.push("Compensation is mandatory and it must be either 'Exempt' or 'Non-Exempt' for " + this.request_type);
+
+        /* =========================
+           Requested By Lookup
+        ========================== */
+
+        this.reqBySysId = '';
+        this.reqByEmpId = '';
+        this.reqByLoc = '';
+        this.reqByCountry = '';
+
+        if (this.body.email) { // need to check
+            var reqBy = new GlideRecord('sys_user');
+            reqBy.addQuery('active', true);
+            reqBy.addQuery('email', this.body.email);
+            reqBy.setLimit(1);
+            reqBy.query();
+
+            if (reqBy.next()) {
+                this.reqBySysId = reqBy.getUniqueValue();
+                this.reqByEmpId = reqBy.getValue('employee_number');
+                this.reqByLoc = reqBy.getDisplayValue('location');
+                this.reqByCountry = reqBy.getDisplayValue('country');
+            } else {
+                this.errors.push("Requested By user not found for email: " + this.body.email + " for submitting the request " + this.request_type);
+            }
+        } else {
+            this.errors.push("Requested By Email is mandatory for submitting the " + this.request_type);
+        }
+
+        this.costCenterSysId = '';
+        this.fnGrpNameCode = '';
+        this.fnDepName = '';
+        this.plant_code = '';
+        if (this.body.cost_center_code) {
+            var costCenter = new GlideRecord('cmn_cost_center');
+            costCenter.addQuery('code', this.body.cost_center_code);
+            costCenter.setLimit(1);
+            costCenter.query();
+
+            if (costCenter.next()) {
+                this.costCenterSysId = costCenter.getUniqueValue();
+                this.fnGrpNameCode = costCenter.getValue('u_fn_code');
+                this.fnDepName = costCenter.getValue('u_fuctional_group_name');
+                this.plant_code = costCenter.getValue('u_plant_code');
+            } else {
+                this.errors.push("Cost Center not found for code: " + this.body.cost_center_code + " for " + this.request_type);
+            }
+        } else {
+            this.errors.push("Cost Center is mandatory for " + this.request_type);
+        }
+
+        this.locationSysId = '';
+
+        if (this.body.work_in_location) {
+            var loc = new GlideRecord('cmn_location');
+            loc.addQuery('name', this.body.work_in_location);
+            loc.setLimit(1);
+            loc.query();
+
+            if (loc.next()) {
+                this.locationSysId = loc.getUniqueValue();
+            } else {
+                this.errors.push("Work in location not found for name: " + this.body.work_in_location + " for submitting the " + this.request_type);
+            }
+        } else {
+            this.errors.push("Work in location is is mandatory to submit " + this.request_type);
+        }
+
+        /* =========================
+           Report To Lookup
+        ========================== */
+        this.repToSysId = '';
+        this.repToEmpId = '';
+
+        if (this.body.report_to_email_id || this.body.report_to_employee_id) {
+            var repTo = new GlideRecord('sys_user');
+            repTo.addQuery('active', true);
+            var orCond = repTo.addQuery('email', this.body.report_to_email_id);
+            orCond.addOrCondition('employee_number', this.body.report_to_employee_id);
+            repTo.setLimit(1);
+            repTo.query();
+
+            if (repTo.next()) {
+                this.repToSysId = repTo.getUniqueValue();
+                this.repToEmpId = repTo.getValue('employee_number');
+            } else {
+                this.errors.push("Report To user not found for email: " + this.body.report_to_email_id + " for submitting the " + this.request_type);
+            }
+        } else {
+            this.errors.push("Report To is mandatory for submitting the " + this.request_type);
+        }
+
+        this.vendorSysId = '';
+        if (this.body.vendor && this.isContractor) {
+            var vendorRec = new GlideRecord('core_company');
+            vendorRec.addQuery('vendor', true);
+            vendorRec.addQuery('name', this.body.vendor.toString());
+            vendorRec.setLimit(1);
+            vendorRec.query();
+
+            if (vendorRec.next()) {
+                this.vendorSysId = vendorRec.getUniqueValue();
+            } else {
+                this.errors.push("Vendor record not found for vendor: " + this.body.vendor + " for submitting " + this.request_type);
+            }
+        }
+        this.countrySysId = '';
+        if (this.body.country) {
+            var countryRec = new GlideRecord('core_country');
+            countryRec.addQuery('active', true);
+            countryRec.addQuery('name', this.body.country.toString());
+            countryRec.setLimit(1);
+            countryRec.query();
+
+            if (countryRec.next()) {
+                this.countrySysId = countryRec.getUniqueValue();
+            } else {
+                this.errors.push("Country record not found for given counntry code: " + this.body.country_code + " for submitting the " + this.request_type);
+            }
+
+        }
+
+        /* =========================
+           Business Rules
+        ========================== */
+
+        if (!this.body.start_date)
+            this.errors.push("Start Date is mandatory for submitting the " + this.request_type);
+
+        if (this.isContractor && !this.body.vendor)
+            this.errors.push("Vendor is mandatory when Employee Type is Contractor for submitting the " + this.request_type);
+
+        if (this.isRemote && !this.body.country)
+            this.errors.push("Country is mandatory when Work Location is Remote for submitting the " + this.request_type);
+
+        if (this.isRemote && this.isUS && !this.body.state_name)
+            this.errors.push("State is mandatory when Work Location is Remote and Country is US for submitting the " + this.request_type);
+
+        if (this.errors.length > 0) {
+            return {
+                status: "error",
+                code: 400,
+                message: "Validation Failed",
+                errors: this.errors,
+				requestType: this.request_type
+            };
+        }
+    },
+    /* =========================
+         Create Catalog Request
+     ========================== */
+    create_ritm_req: function(catalogItemSysId, input, request_type) {
+
+        gs.info("[WDSNIntegration] : create_ritm_req input " + JSON.stringify(input));
+        try {
+            var cart = new sn_sc.CartJS();
+
+            cart.addToCart({
+                sysparm_id: catalogItemSysId,
+                sysparm_quantity: "1",
+                variables: input
+            });
+
+            var order = cart.checkoutCart();
+            if (!order || !order.request_id)
+                throw new Error("Cart checkout failed");
+
+            var ritmNumber = '';
+
+            for (var i = 0; i < 5; i++) {
+                var ritmGR = new GlideRecord('sc_req_item');
+                ritmGR.addQuery('request', order.request_id);
+                ritmGR.orderByDesc('sys_created_on');
+                ritmGR.setLimit(1);
+                ritmGR.query();
+
+                if (ritmGR.next()) {
+                    ritmNumber = ritmGR.getValue('number');
+                    break;
+                }
+                gs.sleep(1500);
+            }
+
+            return {
+                status: "success",
+                code: 201,
+                request_number: order.request_number,
+                ritm_number: ritmNumber
+            };
+
+        } catch (ex) {
+
+            gs.error(this.request_type + " REST Error: " + ex.message);
+
+            return {
+                status: "error",
+                code: 500,
+                message: ex.message
+            };
+        }
+    },
+    type: 'WDSN_MultiPayload_Util'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-23 07:14:36</sys_created_on>
+        <sys_id>189a2e6d47337e9080626d1f316d4367</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>WDSN_MultiPayload_Util</sys_name>
+        <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
+        <sys_update_name>sys_script_include_189a2e6d47337e9080626d1f316d4367</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-23 07:27:03</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>189a2e6d47337e9080626d1f316d4367</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-23 07:14:35</sys_created_on>
+        <sys_id>c00be2ad47337e9080626d1f316d435e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-23 07:14:35</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

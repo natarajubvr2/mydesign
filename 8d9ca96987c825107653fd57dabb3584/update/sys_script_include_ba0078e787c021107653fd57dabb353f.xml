@@ -13,6 +13,72 @@
 MyDesignTracker.prototype = {
     initialize: function() {},
 
+/*Attachment API call
+
+if(reqBody.attachments && processInput['status_code']==200|| processInput['status_code']==201){
+				//var attach_id = reqBody.attachments[0].id;
+				var attachment_response = sync.getAttachment(reqBody, isValidTicket[1]);
+				gs.info('IBM ITSM Ticket PATCH : ' +attachment_response );
+			}
+
+	//Make an API call to fetch attachment from IBM ITSM and upload to ServiceNow Record
+	getAttachment: function(reqBody, table_type){
+		
+		var attach_id = reqBody.attachments[0].id;
+		var attach_name = reqBody.attachments[0].attachment;
+		var ibm_itsm_record_id = reqBody.id;
+		try { 
+			var r = new sn_ws.RESTMessageV2('IBM ITSM', 'Attachment GET');
+			r.setStringParameterNoEscape('api_key', 'Basic '+ gs.getProperty('ibm.itsm.base64.token'));
+			r.setStringParameterNoEscape('attachment_id', attach_id);
+			var response = r.execute();
+			var responseBody = response.getBody();
+			var httpStatus = response.getStatusCode();
+			this._log('Attachment Body (From IBM ITSM)', responseBody.toString());
+			
+			//convert and upload the attachment to serviceNow incident or sc_task
+				if(httpStatus==200 || httpStatus==201){
+					var rec;
+					var ticket_number;
+					var sna = null;
+					if(table_type=='Service Incident'){
+						rec = new GlideRecord('incident');
+					}else{
+						rec = new GlideRecord('sc_task');	
+					}
+					
+					rec.addQuery('correlation_id', ibm_itsm_record_id);
+					rec.query();
+					if(rec.next()){
+						gs.info('IBM ITSM sna - its coing in IF');
+							var base64File= responseBody.toString(); //The huge base64Encoded string
+							var file_name = attach_name;
+							var contentType = "";
+							var DecodedBytes = GlideStringUtil.base64DecodeAsBytes(base64File); //Decodes the base64Encoded Data in Bytes.
+						
+							var attach = new GlideSysAttachment();
+							sna = attach.write(rec, file_name, contentType, DecodedBytes);
+						}
+					}
+			
+				if(sna==null || httpStatus !=200){
+					var attachemnt_inputs={};
+							attachemnt_inputs['ticket_number']= reqBody.partnerTicketId!=null ? reqBody.partnerTicketId+' (ServiceNow)' : reqBody.id+' (IBM ITSM)';
+							attachemnt_inputs['status_code'] = httpStatus != 200 || sna==null? 500 : httpStatus;
+							attachemnt_inputs['call_type']= 'GET';
+							attachemnt_inputs['request_payload'] = JSON.stringify(reqBody);
+							attachemnt_inputs['returned_response']= httpStatus != 200 ? response.getBody() :' File Retrieved from IBM ITSM but No file is attached in ServiceNow ticket.' ;
+				
+			sn_fd.FlowAPI.getRunner().subflow('global.ibm_itsm__error_handling_for_attachments').inBackground().withInputs(attachemnt_inputs).run();
+						}
+			
+		}catch(ex) {
+			var message = ex.message;
+		}
+		return responseBody;
+	},
+
+*/
 
     /*
 	Module - UI Script
@@ -1356,13 +1422,13 @@ while (req.next()) {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-01-03 12:36:28</sys_created_on>
         <sys_id>ba0078e787c021107653fd57dabb353f</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>MyDesignTracker</sys_name>
         <sys_package display_value="MyDesign" source="x_492360_mydesign">8d9ca96987c825107653fd57dabb3584</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="MyDesign">8d9ca96987c825107653fd57dabb3584</sys_scope>
         <sys_update_name>sys_script_include_ba0078e787c021107653fd57dabb353f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-07-18 12:10:36</sys_updated_on>
+        <sys_updated_on>2026-03-11 15:11:05</sys_updated_on>
     </sys_script_include>
 </record_update>
